@@ -1,0 +1,105 @@
+// Activity Type
+[TYPE MCQ5a]
+// CMCC Acticity ID, 导出的 Activity 会带上这个字段，无需手工填写
+ID: 9123888aecdf
+[no]
+//TODO(yuan): 如何表述一个音频的不同属性，如 gender, author 等信息?
+P: [abc,adadad]
+// [gender = ‘female’ ]
+A: [fool]
+
+[TYPE MCQ4b]
+ID: 9123888aecdf
+[no|yes|true|false]
+T: demo text
+A[F]: 21
+A[F]: 22
+
+
+[TYPE MCQ5a]
+ID: 9123888aecdf
+A(gender=F): The quick brown fox jumps over the lazy dog.
+A: The quick brown fox jumps over the lazy dog.
+A(gender=M): The quick brown fox jumps over the lazy dog.
+OPTS:
+ - P(checked=tue): abc
+ - T: abc
+ - P: ad
+
+//
+[TYPE MCQ1]
+[DF1 who_text_01][B]
+A[F]: who
+OPTS:
+ - T: /ʊ/
+ - A: /uː/
+ - A: /ə/
+
+[TYPE C&D]
+ID: 9123888aecdf
+// {{quick,fast,slow}} 默认第一个是正确答案
+T: The {{quick,fast,slow}} brown fox jumps over the lazy dog.
+TR: The quick brown fox jumps over the lazy dog.
+
+
+[TYPE SR]
+ID: 9123888aecdf
+A[F]: The quick brown fox jumps over the lazy dog.
+
+[TYPE OR]
+ID: 9123888aecdf
+// alias A(gender=”F”)
+A[F]: The quick brown fox jumps over the lazy dog.
+
+
+[TYPE RP]
+ID: 9123888aecdf
+A(gender=M,role=a,locale=en-us,id=9123888aecdf): fool
+B(gender=F,role=b): full
+C(gender=M, role=D): bar
+
+[TYPE Sequencing]
+ID: 9123888aecdf
+// 文本按照正确的顺序排列
+T: “The quick brown fox jumps over the lazy dog.”
+T: “The quick brown fox jumps over the lazy dog.”
+T: “The quick brown fox jumps over the lazy dog.”
+
+
+[TYPE MCQ5a]
+ID: 9123888aecdf
+A[F]: The {{quick}} brown fox jumps over the lazy dog.
+A[F]: The quick brown fox {{jumps}} over the lazy dog.
+
+[TYPE MCQ5a]
+ID: 9123888aecdf
+P: add
+A[F]: fool
+
+
+[TYPE MCQ5a]
+ID: 9123888aecdf
+// The first word in {{word...}} is a correct answer.
+A[F]: The {{quick, fast, slow}} brown fox jumps over the lazy dog.
+A[F]: The quick brown fox {{jumps, high, hello}} over the lazy dog.
+
+[TYPE MCQ5a]
+ID: 9123888aecdf
+A[F]: The quick brown fox jumps over the lazy dog.
+T: `The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+`
+
+[TYPE MCQ5a]
+ID: 9123888aecdf
+T: `The {{quick, quck}} brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps {{over, aver}} the lazy dog.
+`
+
+[TYPE MCQ5a]
+ID: 9123888aecdf
+T: The quick brown
+T: fox jumps over
+T: the lazy dog.
