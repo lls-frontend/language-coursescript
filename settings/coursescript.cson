@@ -1,0 +1,5 @@
+'.source.coursescript':
+  'editor':
+    'softWrap': true
+    'commentStart': '// '
+    'increaseIndentPattern': '^\\s*-\\s*\\b.*'
