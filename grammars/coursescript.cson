@@ -9,6 +9,9 @@
 ]
 'patterns': [
   {
+    'include': '#activity_options'
+  }
+  {
     'include': '#brackets'
   }
   {
@@ -17,6 +20,11 @@
   {
     'match': '\\\\.'
     'name': 'constant.character.escape.coursescript'
+  }
+  # italic mongoid
+  {
+    'match': '[a-f0-9]{24}'
+    'name': 'markup.italic.coursescript'
   }
   ## TYPE
   {
@@ -47,9 +55,27 @@
   ## A[F]:
   ## TR[F]:
   {
-    'match': '[A-Z]\\{1,2\\}\\[[A-Z]\\]:\\s'
+    'match': '[A-Z]+\\[[A-Z]\\]:\\s'
     'name': 'storage.type.coursescript'
   }
+  ## A(gender=F)
+  {
+    'begin': '\\b([A-Z]{1,})\\('
+    'beginCaptures':
+      '1':
+        'name': 'storage.type.coursescript'
+    'end': '\\)(:)'
+    'endCaptures':
+      '1':
+        'name': 'storage.type.coursescript'
+    'patterns': [
+      {
+        'match': '(\\w+)=([a-zA-Z0-9\\-]*)'
+        'name': 'support.function.coursescript'
+      }
+    ]
+  }
+
   {
     'comment': 'Interpreted string literals'
     'begin': '"'
@@ -85,6 +111,9 @@
       {
         'include': '#string_placeholder'
       }
+      {
+        'include': '#activity_options'
+      }
     ]
   }
   # Comments
@@ -104,19 +133,21 @@
     'end': '$'
     'name': 'comment.line.double-slash.coursescript'
   }
-  #TODO(yuan): {{a, b, c}}
+  # “ invalid string literals
   {
-    'begin': '\\{\\{'
+    'comment': 'Invalid Interpreted string literals'
+    'begin': '“'
     'beginCaptures':
       '0':
-        'name': 'punctuation.section.embedded.begin.coursescript'
-    'end': '\\}\\}'
+        'name': 'invalid.illegal.coursescript'
+    'end': '“'
     'endCaptures':
       '0':
-        'name': 'punctuation.section.embedded.end.coursescript'
-    'patterns': [
-
-    ]
+        'name': 'invalid.illegal.coursescript'
+    'name': 'invalid.illegal.coursescript'
+    'captures':
+      '0':
+        'invalid.illegal.coursescript'
   }
 ]
 ## repository
@@ -169,3 +200,38 @@
         'name': 'punctuation.other.colon.coursescript'
       }
     ]
+  # {{a, b, c}}
+  # TODO(yuan): highlight first element
+  'activity_options':
+    {
+      'begin': '\\{\\{'
+      'beginCaptures':
+        '0':
+          'name': 'punctuation.section.embedded.begin.coursescript'
+      'end': '\\}\\}'
+      'endCaptures':
+        '0':
+          'name': 'punctuation.section.embedded.end.coursescript'
+      'patterns': [
+#      {
+#        'name': 'keyword.control.coursescript'
+#        'match': '\\w+'
+#      }
+#      {
+#        'name': 'string.quoted.raw.coursescript'
+#        'match': '^(\\w+)[,\\s]*'
+#      }
+        {
+          'name': 'keyword.control.coursescript'
+          'match': '\\w+'
+          'captures':
+            '1':
+              'name': 'string.quoted.raw.coursescript'
+            '2':
+              'name': 'keyword.control.coursescript'
+        }
+        {
+          'include': '#delimiters'
+        }
+      ]
+    }
