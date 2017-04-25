@@ -4,7 +4,7 @@
 ID: 9123888aecdf
 [no]
 //TODO(yuan): 如何表述一个音频的不同属性，如 gender, author 等信息?
-P: [abc,adadad]
+P: [abc, adadad]
 // [gender = ‘female’ ]
 A: [fool]
 
@@ -28,7 +28,6 @@ OPTS:
 
 //
 [TYPE MCQ1]
-[DF1 who_text_01][B]
 A[F]: who
 OPTS:
  - T: /ʊ/
@@ -38,7 +37,7 @@ OPTS:
 [TYPE C&D]
 ID: 9123888aecdf
 // {{quick,fast,slow}} 默认第一个是正确答案
-T: The {{quick,fast,slow}} brown fox jumps over the lazy dog.
+T: The {{ quick,fast,slow}} brown fox jumps over the lazy dog.
 TR: The quick brown fox jumps over the lazy dog.
 
 
@@ -77,7 +76,7 @@ P: add
 A[F]: fool
 
 
-[TYPE MCQ5a]
+[TYPE Dictation]
 ID: 9123888aecdf
 // The first word in {{word...}} is a correct answer.
 A[F]: The {{quick, fast, slow}} brown fox jumps over the lazy dog.
