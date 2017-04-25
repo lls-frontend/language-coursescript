@@ -2,4 +2,4 @@
   'editor':
     'softWrap': true
     'commentStart': '// '
-    'increaseIndentPattern': '^\\s*-\\s*\\b.*'
+    'increaseIndentPattern': '^OPTS:'
