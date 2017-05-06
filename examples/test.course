@@ -1,97 +1,190 @@
-[TYPE MCQ5a]
-ID: 9123888aecdf123456789876
-P: abc, adadad
-A: fool
+
+== Lesson
+[TYPE MCQ5][true]
+// CMCC Acticity ID, 导出的 Activity 会带上这个字段，无需手工填写
+ID: 9123888aecdf
+Audio: A door.
+Pic: door
+
+[TYPE MCQ5][false]
+Audio: A door.
+Text: A window.
 
 [TYPE MCQ4b]
 ID: 9123888aecdf
-T: demo text
-A[F]: 21
-A[F]: 22
+Audio: one
+Text: one
+Opts:
+Text(checked=true): 1
+Text: 2
+Text: 3
+TR: one
 
-
-[TYPE MCQ5a]
+=== Episode
+// Multi_choice_picture
+[TYPE MCP1/2/3]
 ID: 9123888aecdf
-A(gender=F): The quick brown fox jumps over the lazy dog.
-A: The quick brown fox jumps over the lazy dog.
-A(gender=M): The quick brown fox jumps over the lazy dog.
-OPTS:
-  - P(checked=true): abc
-  - T: abc
-  - P: ad
+Audio: What happens when citizens of a country fight each other?
+Opts:
+  - Text: an invasion
+  - Text: terrorism
+  - Pic(checked=true): civilWars
+  - Pic: defensiveWar_01
+  - Pic: worldWars
+TR: Civil wars are fought between citizens of the same country.
 
-//
-[TYPE MCQ1]
-A[F]: who
-OPTS:
- - T: /ʊ/
- - A: /uː/
- - A: /ə/
+==== Group
+// Multi_choice_question
+[TYPE MCQ1/2/3/1a/2a/4a/7]
+Audio: His name is Dan. What is the man’s name?
+Pic: Dan&Tina, Ben&Lisa
+Text: His name is ___.
+Opts:
+  - Text: Tina
+  - Text(checked=true):Dan
+  - Text: Ben
+  - Text: Lisa
+TR: His name is Dan.
 
+
+[TYPE MCQ6]
+Audio: His name is Dan. What is the man’s name?
+Pic: Dan&Tina, Ben&Lisa
+Opts:
+Audio: Tina
+Audio(checked=true): Dan
+Audio: Lisa
+TR: His name is Dan.
+
+// click_and_drag
 [TYPE C&D]
 ID: 9123888aecdf
-// {{quick,fast,slow}} 默认第一个是正确答案
-T: The {{quick, fast, slow}} brown fox jumps over the lazy dog.
-TR: The quick brown fox jumps over the lazy dog.
-
+// {{late/early/often}}默认第一个是正确答案
+Pic: SadBen&Jeff
+Text: They were {{late/early/often}} because their schools are {{farther/behind}} {{away/out}}.
+TR: They were late because their schools are farther away.
+sentence_repetition
 
 [TYPE SR]
 ID: 9123888aecdf
-A[F]: The quick brown fox jumps over the lazy dog.
+Pic: Tina
+Audio: Tina is a woman.
+TR: Tina is a woman.
 
+// oral_reading
 [TYPE OR]
 ID: 9123888aecdf
-// alias A(gender=”F”)
-A[F]: The quick brown fox jumps over the lazy dog.
+Pic: Dan
+Audio: Dan is a man.
+TR: Dan is a man.
 
-
+// role_play
 [TYPE RP]
 ID: 9123888aecdf
-A(gender=M,role=a,locale=en-us,id=9123888aecdf123456789876): fool
-B(gender=F,role=b): full
-C(gender=M, role=D): bar
+Pic(role=female_3L): female_3L
+Pic(role=male_6): male_6
+Audio(role=female_3L,): Do you know what day it is today?
+Audio(role=male_6): What do you mean? Is it a special day?
+Audio(role=female_3L): Oh, so you don't remember!
+Audio(role=male_6):Remember what?  What's so special?
+Audio(role=female_3L): It's our anniversary! We started dating a year ago today!
 
+// Text_sequence
+// Ex.1
+[TYPE Sequencing]
+ID: 9123888aecdf
+// 音频按照正确的顺序排列（用于presentation lesson，TR需要音频）
+Audio: Jessica decided to arrange things so that she could go.
+Audio: Her husband finally agreed to take care of things while she was away.
+Audio: He agreed to do it because her mother had offered to come and stay for a while so she could attend the reunion.
+Audio: Since he and her mother didn't get along, he decided to change his schedule and work from home for a few days.
+
+// Ex.2
 [TYPE Sequencing]
 ID: 9123888aecdf
 // 文本按照正确的顺序排列
-T: "The quick brown fox jumps over the lazy dog."
-T: "The quick brown fox jumps over the lazy dog."
-T: “The quick brown fox jumps over the lazy dog.“
+Text: Jessica decided to arrange things so that she could go.
+Text: Her husband finally agreed to take care of things while she was away.
+Text: He agreed to do it because her mother had offered to come and stay for a while so she could attend the reunion.
+Text: Since he and her mother didn't get along, he decided to change his schedule and work from home for a few days.
 
 
-[TYPE MCQ5a]
+// Audio_matching
+[TYPE MCQ5a][true]
 ID: 9123888aecdf
-A[F]: The {{quick}} brown fox jumps over the lazy dog.
-A[F]: The quick brown fox {{jumps}} over the lazy dog.
-
-[TYPE MCQ5a
-ID: 9123888aecdf
-P: add
-A[F]: fool
+Audio(question=true): What percent of the day does Emma spend at work?
+Audio(matching=true): According to the graph, she spends 33% of her day working.
+Dictation
 
 [TYPE Dictation]
 ID: 9123888aecdf
-// The first word in {{word...}} is a correct answer.
-A[F]: The {{quick, fast, slow}} brown fox jumps over the lazy dog.
-A[F]: The quick brown fox {jumps, high, hello} over the lazy dog.
+Audio: Scientists tell us that {{what we see in the universe}} is only a small part of what is there.
+Audio: The rest is invisible, {{including dark matter and dark energy}}.
+Audio: {{These two unknowns}} make up around 95% of the universe.
+Audio: Evidence for their existence comes from their effects on what we can observe, such as {{the motion and positions of distant galaxies}}.
 
-[TYPE MCQ5a]
+// Cloze
+[TYPE Cloze]
 ID: 9123888aecdf
-A[F]: The quick brown fox jumps over the lazy dog.
-T: `The quick brown fox jumps over the lazy dog.
-The quick brown fox jumps over the lazy dog.
-The quick brown fox jumps over the lazy dog.
-`
+// The first word in {{increases/changes/reductions/estimations}} is the correct answer.
+Audio: Bonuses and salary {{increases/changes/reductions/estimations}} keep employees happy and motivated to work hard.
+Audio: As a {{result/cause/reason/conclusion}}, employee turnover is low and the company has been {{recognized/motivated/promoted/followed}} as one of the best companies to work for.
+Audio: In addition, Emma's Best supports local charities, especially those that provide {{healthy/ordinary/harmful/expensive}} food to children from low-income families.
 
-[TYPE MCQ5a]
+// Locating
+[TYPE Locating]
 ID: 9123888aecdf
-T: `The {{quick, quck}} brown fox jumps over the lazy dog.
-The quick brown fox jumps over the lazy dog.
-The quick brown fox jumps {{over, aver}} the lazy dog.
-`
+Audio: What did the villagers do when the boy first cried wolf?
+TexT: Once upon a time there was a mischievous young boy who was given the task of tending a herd of sheep on a hillside near a village. The boy grew tired and bored while watching the sheep, so he found ways to amuse himself, such as climbing trees or chasing sheep. One day he came up with what he thought was a brilliant idea. He climbed to the top of a tree and shouted toward the village: "Wolf! Wolf! Help me please!"
 
-[TYPE MCQ5a]
+When the villagers heard his cries for help, they rushed up the hill to rescue him and chase the wolf away. Of course, when they got there, there was no wolf to be seen, and the boy, who was still in the tree, was laughing. The sheep were grazing peacefully. Annoyed, the villagers returned to the village and back to their normal activities.
+
+A few days later, the boy grew bored again and played the same trick on the villagers. This time the villagers were furious at the boy. That night he was punished by his mother for his bad behavior.
+
+For a while after that, life went on as normal and the boy behaved. He didn't want to be punished again. Then, one afternoon while he was tending the sheep, he noticed that the sheep were bleating and nervous. He didn't know what was causing their strange behavior, so he climbed a tree to see if he could determine what was going on. What he saw from the tree was a frightening sight, a big, hairy wolf chasing after the sheep. Terrified, he screamed for help: "Wolf, Wolf! There's a wolf chasing the sheep!"
+
+This time, when the villagers heard his cries for help, they were convinced that it was another one of his pranks. Nobody believed that there was really a wolf, so they ignored his frantic calls for help. The wolf, having nothing to fear, feasted on several of the sheep and then slipped back into the forest.
+
+TR：When the villagers heard his cries for help, they rushed up the hill to rescue him and chase the wolf away
+
+// Spot_errors
+[TYPE SpotErrors]
 ID: 9123888aecdf
-T: The quick brown
-T: fox jumps over
-T: the lazy dog.
+Text: On April 26, 1986, Unit 4 of the Chernobyl nuclear reactor in northern Ukraine, then a part of the Soviet Union, was {{shut/shutted}} down for an unauthorized safety test. When the nuclear fuel rods hit the cooling water, the fission reaction accelerated out of control due {{to/for}} a sudden power surge. This caused the reactor to overheat and build up pressure {{until/unless}} its structure failed {{and/so}} it blew up, {{releasing/released}} large amounts of radiation. It took officials a whole day to comprehend the scale of the disaster and to order an evacuation {{of/to}} the surrounding area. Some 50,000 people had to leave, not knowing that they would {{never/ever}} return.
+
+// Sentence_fragments
+[TYPE SentenceFragments]
+ID: 9123888aecdf
+TR_Text: Someone who is in a hurry would never take the time to stop and eat such a large meal.
+Text: Someone
+Text: who is in a hurry
+Text: would never take the time
+Text: and eat such a large meal.
+
+// Open_question
+[TYPE OpenQuestion]
+ID: 9123888aecdf
+Pic: Dan
+Audio: What did you do yesterday?
+
+// Presentation
+[TYPE Pre]
+DF10: Harry, hiTech_company, meeting
+Audio: Harry Beecham works for a hi-tech German company based in Munich.
+Animation:
+FI: Harry@0
+FI: hiTech_company@0.12
+Audio: He was on his way to attend an important meeting in New York City.
+Animation:
+FI: meeting@0.23
+
+[TYPE Pre]
+Video: L4U1V1.mp4
+VideoClip: Harry Beecham works for a hi-tech German company based in Munich.
+VideoClip: He was on his way to attend an important meeting in New York City.
+
+[TYPE Pre]
+Title: The Boy Who Cried Wolf
+Pic: boy_wolf
+Text: Once upon a time there was a mischievous young boy who was given the task of tending a herd of sheep on a hillside near a village. The boy grew tired and bored while watching the sheep, so he found ways to amuse himself, such as climbing trees or chasing sheep. One day he came up with what he thought was a brilliant idea. He climbed to the top of a tree and shouted toward the village: "Wolf! Wolf! Help me please!"
+When the villagers heard his cries for help, they rushed up the hill to rescue him and chase the wolf away. Of course, when they got there, there was no wolf to be seen, and the boy, who was still in the tree, was laughing. The sheep were grazing peacefully. Annoyed, the villagers returned to the village and back to their normal activities.

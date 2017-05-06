@@ -18,6 +18,9 @@
     'include': '#delimiters'
   }
   {
+    'include': '#headings'
+  }
+  {
     'match': '\\\\.'
     'name': 'constant.character.escape.coursescript'
   }
@@ -45,14 +48,37 @@
     ]
   }
   # Keywords
-  # ID:
-  # T:
-  # OPTS:
+  # Audio
+  # Pic
+  # Text
+  # ID
+  # Opts
+  # DF(Display Format)
+  # Video
+  # TR(Teaching Response)
+  # TR_TEXT
+  # Video
+  # Videoclip
   {
-    'match': '(ID|T|A|P|V|OPTS|TR):\\s'
+    'match': '(ID|Text|Audio|Pic|Video|VideoClip|Opts|TR_TEXT|TR|Title):\\s'
     'name': 'storage.type.coursescript'
   }
-  ## A[F]:
+  # DF01
+  {
+    'match': '(DF\\d+):\\s'
+    'name': 'storage.type.coursescript'
+  }
+  # Animation
+  {
+    'match': '(FI|Animation):\\s'
+    'name': 'storage.type.coursescript'
+  }
+  # == Lesson
+  {
+    'match': '(FI|Animation):\\s'
+    'name': 'storage.type.coursescript'
+  }
+  ## Audio[F]:
   ## TR[F]:
   {
     'match': '[A-Z]+\\[[A-Z]\\]:\\s'
@@ -60,7 +86,7 @@
   }
   ## A(gender=F)
   {
-    'begin': '\\b([A-Z]{1,})\\('
+    'begin': '\\b([A-Za-z]{1,})\\('
     'beginCaptures':
       '1':
         'name': 'storage.type.coursescript'
@@ -203,16 +229,15 @@
   # {{a, b, c}}
   # TODO(yuan): highlight first element
   'activity_options':
-    {
-      'begin': '\\{\\{'
-      'beginCaptures':
-        '0':
-          'name': 'punctuation.section.embedded.begin.coursescript'
-      'end': '\\}\\}'
-      'endCaptures':
-        '0':
-          'name': 'punctuation.section.embedded.end.coursescript'
-      'patterns': [
+    'begin': '\\{\\{'
+    'beginCaptures':
+      '0':
+        'name': 'punctuation.section.embedded.begin.coursescript'
+    'end': '\\}\\}'
+    'endCaptures':
+      '0':
+        'name': 'punctuation.section.embedded.end.coursescript'
+    'patterns': [
 #      {
 #        'name': 'keyword.control.coursescript'
 #        'match': '\\w+'
@@ -221,17 +246,23 @@
 #        'name': 'string.quoted.raw.coursescript'
 #        'match': '^(\\w+)[,\\s]*'
 #      }
-        {
-          'name': 'keyword.control.coursescript'
-          'match': '\\w+'
-          'captures':
-            '1':
-              'name': 'string.quoted.raw.coursescript'
-            '2':
-              'name': 'keyword.control.coursescript'
-        }
-        {
-          'include': '#delimiters'
-        }
-      ]
-    }
+      {
+        'name': 'keyword.control.coursescript'
+        'match': '\\w+'
+        'captures':
+          '1':
+            'name': 'string.quoted.raw.coursescript'
+          '2':
+            'name': 'keyword.control.coursescript'
+      }
+      {
+        'include': '#delimiters'
+      }
+    ]
+  'headings':
+    'patterns': [
+      {
+        'match': '^(={1,6})\\s*\\S*'
+        'name': 'markup.heading.coursescript'
+      }
+    ]
