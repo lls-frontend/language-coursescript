@@ -23,6 +23,7 @@ TR: one
 === Episode
 // Multi_choice_picture
 [TYPE MCP1/2/3]
+// TODO(yuan): should support bold/highlight text
 ID: 9123888aecdf
 Audio: What happens when citizens of a country fight each other?
 Opts:
@@ -114,8 +115,8 @@ Text: Since he and her mother didn't get along, he decided to change his schedul
 ID: 9123888aecdf
 Audio(question=true): What percent of the day does Emma spend at work?
 Audio(matching=true): According to the graph, she spends 33% of her day working.
-Dictation
 
+//Dictation
 [TYPE Dictation]
 ID: 9123888aecdf
 Audio: Scientists tell us that {{what we see in the universe}} is only a small part of what is there.
@@ -169,7 +170,7 @@ Audio: What did you do yesterday?
 
 // Presentation
 [TYPE Pre]
-DF10: Harry, hiTech_company, meeting
+DF1: Harry, hiTech_company, meeting
 Audio: Harry Beecham works for a hi-tech German company based in Munich.
 Animation:
 FI: Harry@0

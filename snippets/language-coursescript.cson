@@ -1,0 +1,267 @@
+'.source.coursescript':
+  'Presentation Video':
+    'prefix': 'prevideo'
+    'body': """
+      [TYPE Pre]
+      Video: $1
+      VideoClip: $2
+      VideoClip: $3
+    """
+  'Presentation Audio':
+    'prefix': 'preaudio'
+    'body': """
+      [TYPE Pre]
+      DF1: $1, $2
+      Audio: $3
+      Animation:
+      FI: $4
+      FI: $5
+    """
+  'Presentation Reading':
+    'prefix': 'prereading'
+    'body': """
+      [TYPE Pre]
+      Title: $1
+      Pic: $2
+      Text: $3
+    """
+  'Open Question':
+    'prefix': 'openquestion'
+    'body': """
+      [TYPE OpenQuestion]
+      Pic: $1
+      Audio: $2
+    """
+  'SentenceFragments':
+    'prefix': 'sentf'
+    'body': """
+      [TYPE SentenceFragments]
+      TR_Text: $1
+      Text: $2
+      Text: $3
+      Text: $4
+      Text: $5
+    """
+  'SpotErrors':
+    'prefix': 'spote'
+    'body': """
+      [TYPE SpotErrors]
+      Text: $1
+    """
+  'Locating':
+    'prefix': 'locating'
+    'body': """
+      [TYPE Locating]
+      Audio: $1
+    """
+  'Cloze':
+    'prefix': 'cloze'
+    'body': """
+      [TYPE Cloze]
+      // The first word in {{increases/changes/reductions/estimations}} is the correct answer.
+      Audio: $1
+      Audio: $2
+    """
+  'Dictation':
+    'prefix': 'dictation'
+    'body': """
+      [TYPE Dictation]
+      // example: Scientists tell us that {{what we see in the universe}} is only a small part of what is there.
+      Audio: $1
+    """
+  'MCQ5a':
+    'prefix': 'mcq5a'
+    'body': """
+      [TYPE MCQ5a][$1:true]
+      Audio(question=true): $2
+      Audio(matching=true): $3
+    """
+  'Sequencing':
+    'prefix': 'seq'
+    'body': """
+      [TYPE Sequencing]
+      Text: $1
+      Text: $2
+      Text: $3
+    """
+  'RP':
+    'prefix': 'rp'
+    'body': """
+      [TYPE RP]
+      ID:
+      Pic(role=$1): $1
+      Pic(role=$2): $2
+      Audio(role=$1): $3
+      Audio(role=$2): $4
+      Audio(role=$1): $5
+      Audio(role=$2): $6
+      Audio(role=$1): $7
+    """
+  'OR':
+    'prefix': 'or'
+    'body': """
+      [TYPE OR]
+      Pic: $1
+      Audio: $2
+      TR: $3
+    """
+  'SR':
+    'prefix': 'sr'
+    'body': """
+      [TYPE SR]
+      Pic: $1
+      Audio: $2
+      TR: $3
+    """
+  'C&D':
+    'prefix': 'cnd'
+    'body': """
+      [TYPE C&D]
+      // {{late/early/often}}默认第一个是正确答案
+      Pic: $1
+      Text: $2
+      TR: $3
+    """
+  'MCQ6':
+    'prefix': 'mcq6'
+    'body': """
+      [TYPE MCQ6]
+      Audio: $1
+      Pic: $2
+      Opts:
+        Audio: $3
+        Audio(checked=true): $4
+        Audio: $5
+      TR: $6
+    """
+  'MCQ1':
+    'prefix': 'mcq1'
+    'body': """
+      [TYPE MCQ1]
+      Audio: $1
+      Pic: $2
+      Text: $3
+      Opts:
+        Text: $4
+        Text(checked=true): $5
+        Text: $6
+        Text: $7
+      TR: $8
+    """
+  'MCQ2':
+    'prefix': 'mcq2'
+    'body': """
+      [TYPE MCQ1]
+      Audio: $1
+      Pic: $2
+      Text: $3
+      Opts:
+        Text: $4
+        Text(checked=true): $5
+        Text: $6
+        Text: $7
+      TR: $8
+    """
+  'MCQ3':
+    'prefix': 'mcq3'
+    'body': """
+      [TYPE MCQ1]
+      Audio: $1
+      Pic: $2
+      Text: $3
+      Opts:
+        Text: $4
+        Text(checked=true): $5
+        Text: $6
+        Text: $7
+      TR: $8
+    """
+  'MCQ1a':
+    'prefix': 'mcq1a'
+    'body': """
+      [TYPE MCQ1]
+      Audio: $1
+      Pic: $2
+      Text: $3
+      Opts:
+        Text: $4
+        Text(checked=true): $5
+        Text: $6
+        Text: $7
+      TR: $8
+    """
+  'MCQ2a':
+    'prefix': 'mcq2a'
+    'body': """
+      [TYPE MCQ1]
+      Audio: $1
+      Pic: $2
+      Text: $3
+      Opts:
+        Text: $4
+        Text(checked=true): $5
+        Text: $6
+        Text: $7
+      TR: $8
+    """
+  'MCQ4a':
+    'prefix': 'mcq4a'
+    'body': """
+      [TYPE MCQ1]
+      Audio: $1
+      Pic: $2
+      Text: $3
+      Opts:
+        Text: $4
+        Text(checked=true): $5
+        Text: $6
+        Text: $7
+      TR: $8
+    """
+  'MCQ7':
+    'prefix': 'mcq7'
+    'body': """
+      [TYPE MCQ1]
+      Audio: $1
+      Pic: $2
+      Text: $3
+      Opts:
+        Text: $4
+        Text(checked=true): $5
+        Text: $6
+        Text: $7
+      TR: $8
+    """
+  'MCP1':
+    'prefix': 'mcp1'
+    'body': """
+      [TYPE MCP1]
+      Audio: $1
+      Opts:
+        Text: $2
+        Text: $3
+        Pic(checked=true): $4
+      TR: $5
+    """
+  'MCP2':
+    'prefix': 'mcp2'
+    'body': """
+      [TYPE MCP1]
+      Audio: $1
+      Opts:
+        Text: $2
+        Text: $3
+        Pic(checked=true): $4
+      TR: $5
+    """
+  'MCP3':
+    'prefix': 'mcp3'
+    'body': """
+      [TYPE MCP1]
+      Audio: $1
+      Opts:
+        Text: $2
+        Text: $3
+        Pic(checked=true): $4
+      TR: $5
+    """
