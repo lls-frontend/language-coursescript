@@ -72,7 +72,7 @@
   'MCQ5a':
     'prefix': 'mcq5a'
     'body': """
-      [TYPE MCQ5a][$1:true]
+      [TYPE MCQ5a][${1:true}]
       Audio(question=true): $2
       Audio(matching=true): $3
     """
