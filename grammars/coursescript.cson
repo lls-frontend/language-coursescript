@@ -4,8 +4,6 @@
 'fileTypes': [
   'coursescript'
   'course'
-  'lls'
-  'llscs'
 ]
 'patterns': [
   {
