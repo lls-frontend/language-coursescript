@@ -80,9 +80,9 @@
     'prefix': 'seq'
     'body': """
       [TYPE Sequencing]
-      Text: $1
-      Text: $2
-      Text: $3
+      Audio: $1
+      Audio: $2
+      Audio: $3
     """
   'RP':
     'prefix': 'rp'
