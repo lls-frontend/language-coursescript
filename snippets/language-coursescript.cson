@@ -76,6 +76,13 @@
       Audio(question=true): $2
       Audio(matching=true): $3
     """
+    'MCQ5':
+    'prefix': 'mcq5'
+    'body': """
+      [TYPE MCQ5][${1:true}]
+      Audio: $2
+      Pic: $3
+    """
   'Sequencing':
     'prefix': 'seq'
     'body': """
