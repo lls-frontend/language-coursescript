@@ -11,11 +11,10 @@
     'prefix': 'preaudio'
     'body': """
       [TYPE Pre]
-      DF1: $1, $2
+      DF1: $1
       Audio: $3
       Animation:
-      FI: $4
-      FI: $5
+      Pic(effect={$4:fadeIn},time=0): Harry.png
     """
   'Presentation Reading':
     'prefix': 'prereading'
@@ -68,6 +67,13 @@
       [TYPE Dictation]
       // example: Scientists tell us that {{what we see in the universe}} is only a small part of what is there.
       Audio: $1
+    """
+  'MCQ5':
+    'prefix': 'mcq5'
+    'body': """
+      [TYPE MCQ5][${1:true}]
+      Audio: $2
+      Pic: $3
     """
   'MCQ5a':
     'prefix': 'mcq5a'
