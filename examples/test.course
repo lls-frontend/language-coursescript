@@ -26,11 +26,11 @@ TR: one
 ID: 9123888aecdf
 Audio: What happens when citizens of a country fight each other?
 Opts:
-  - Text: an invasion
-  - Text: terrorism
-  - Pic(checked=true): civilWars
-  - Pic: defensiveWar_01
-  - Pic: worldWars
+  Text: an invasion
+  Text: terrorism
+  Pic(checked=true): civilWars
+  Pic: defensiveWar_01
+  Pic: worldWars
 TR: Civil wars are fought between citizens of the same country.
 
 ==== Group
@@ -40,10 +40,10 @@ Audio: His name is Dan. What is the man’s name?
 Pic: Dan&Tina, Ben&Lisa
 Text: His name is ___.
 Opts:
-  - Text: Tina
-  - Text(checked=true):Dan
-  - Text: Ben
-  - Text: Lisa
+  Text: Tina
+  Text(checked=true): Dan
+  Text: Ben
+  Text: Lisa
 TR: His name is Dan.
 
 
@@ -81,13 +81,13 @@ TR: Dan is a man.
 // role_play
 [TYPE RP]
 ID: 9123888aecdf
-Pic(role=female_3L): female_3L
-Pic(role=male_6): male_6
-Audio(role=female_3L,): Do you know what day it is today?
-Audio(role=male_6): What do you mean? Is it a special day?
-Audio(role=female_3L): Oh, so you don't remember!
-Audio(role=male_6):Remember what?  What's so special?
-Audio(role=female_3L): It's our anniversary! We started dating a year ago today!
+Pic(role=1): female_3L
+Pic(role=2): male_6
+Audio(role=1,): Do you know what day it is today?
+Audio(role=2): What do you mean? Is it a special day?
+Audio(role=1): Oh, so you don't remember!
+Audio(role=2):Remember what?  What's so special?
+Audio(role=1): It's our anniversary! We started dating a year ago today!
 
 // Text_sequence
 // Ex.1
@@ -172,11 +172,11 @@ Audio: What did you do yesterday?
 DF1: Harry, hiTech_company, meeting
 Audio: Harry Beecham works for a hi-tech German company based in Munich.
 Animation:
-FI: Harry@0
-FI: hiTech_company@0.12
+Pic(id=edad123edadeade,effect=fadeIn,time=0): Harry.png
+Pic(id=edad123edadeade,effect=fadeIn,time=0): hiTech_company.png
 Audio: He was on his way to attend an important meeting in New York City.
 Animation:
-FI: meeting@0.23
+Pic(id=edad123edadeade,effect=fadeIn,time=0): hiTech_company.png
 
 [TYPE Pre]
 Video: L4U1V1.mp4
