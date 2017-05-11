@@ -11,10 +11,11 @@
     'prefix': 'preaudio'
     'body': """
       [TYPE Pre]
-      DF1: $1
-      Audio: $3
+      DF$1: $2
+      Pic: $3
+      Audio: $4
       Animation:
-      Pic(effect={$4:fadeIn},time=0): Harry.png
+      Pic(effect=${5:fadeIn},time=$6): $7
     """
   'Presentation Reading':
     'prefix': 'prereading'
@@ -94,7 +95,6 @@
     'prefix': 'rp'
     'body': """
       [TYPE RP]
-      ID:
       Pic(role=$1): $1
       Pic(role=$2): $2
       Audio(role=$1): $3
