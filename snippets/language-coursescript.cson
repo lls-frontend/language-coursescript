@@ -12,6 +12,7 @@
     'body': """
       [TYPE Pre]
       DF1: $1
+      Pic: $2 
       Audio: $3
       Animation:
       Pic(effect={$4:fadeIn},time=0): Harry.png
