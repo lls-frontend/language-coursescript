@@ -36,11 +36,9 @@
     'prefix': 'sentf'
     'body': """
       [TYPE SentenceFragments]
-      TR_Text: $1
+      Text: $1
       Text: $2
-      Text: $3
-      Text: $4
-      Text: $5
+      TR_Text: $3
     """
   'SpotErrors':
     'prefix': 'spote'
@@ -58,7 +56,6 @@
     'prefix': 'cloze'
     'body': """
       [TYPE Cloze]
-      // The first word in {{increases/changes/reductions/estimations}} is the correct answer.
       Audio: $1
       Audio: $2
     """
@@ -72,16 +69,16 @@
   'MCQ5':
     'prefix': 'mcq5'
     'body': """
-      [TYPE MCQ5][${1:true}]
-      Audio: $2
-      Pic: $3
+      [TYPE MCQ5]
+      Audio: $1
+      Pic: $1
     """
   'MCQ5a':
     'prefix': 'mcq5a'
     'body': """
-      [TYPE MCQ5a][${1:true}]
-      Audio(question=true): $2
-      Audio(matching=true): $3
+      [TYPE MCQ5a]
+      Audio(question=true): $1
+      Audio(matching=true): $2
     """
   'Sequencing':
     'prefix': 'seq'
@@ -123,10 +120,8 @@
     'prefix': 'cnd'
     'body': """
       [TYPE C&D]
-      // {{late/early/often}}默认第一个是正确答案
       Pic: $1
       Text: $2
-      TR: $3
     """
   'MCQ6':
     'prefix': 'mcq6'
