@@ -1,6 +1,6 @@
 {
   "name": "language-coursescript",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "Syntax highlighting and snippets for CourseScript.",
   "repository": "https://github.com/lingochamp/language-coursescript",
   "license": "MIT",
