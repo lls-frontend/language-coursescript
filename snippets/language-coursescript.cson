@@ -46,9 +46,9 @@
       [TYPE SpotErrors]
       Text: $1
       \"""
-        tips:
-          - activity:
-            - $2
+      tips:
+        - activity:
+          - $2
       \"""
     """
   'Locating':
@@ -64,15 +64,15 @@
       Audio: $1
       Audio: $2
       \"""
-        tips:
-          - choice:
-            - $3
-            activity:
-            - $4
-          - choice:
-            - $5
-            activity:
-            - $6
+      tips:
+        - choice:
+          - $3
+          activity:
+          - $4
+        - choice:
+          - $5
+          activity:
+          - $6
       \"""
     """
   'Dictation':
@@ -89,11 +89,11 @@
       Audio: $1
       Pic: $1
       \"""
-        tips:
-          - stem:
-            - $2
-            choice:
-            - $3
+      tips:
+        - stem:
+          - $2
+          choice:
+          - $3
       \"""
     """
   'MCQ5a':
@@ -103,11 +103,11 @@
       Audio(question=true): $1
       Audio(matching=true): $2
       \"""
-        tips:
-          - stem:
-            - $3
-            choice:
-            - $4
+      tips:
+        - stem:
+          - $3
+          choice:
+          - $4
       \"""
     """
   'Sequencing':
@@ -118,9 +118,9 @@
       Audio: $2
       Audio: $3
       \"""
-        tips:
-          - activity:
-            - $4
+      tips:
+        - activity:
+          - $4
       \"""
     """
   'RP':
@@ -158,11 +158,11 @@
       Pic: $1
       Text: $2
       \"""
-        tips:
-          - activity:
-            - $3
-          - activity:
-            - $4
+      tips:
+        - activity:
+          - $3
+        - activity:
+          - $4
       \"""
     """
   'MCQ6':
@@ -177,11 +177,11 @@
         Audio: $5
       TR: $6
       \"""
-        tips:
-          - stem:
-            - $7
-            activity:
-            - $8
+      tips:
+        - stem:
+          - $7
+          activity:
+          - $8
       \"""
     """
   'MCQ1':
@@ -198,11 +198,11 @@
         Text: $7
       TR: $8
       \"""
-        tips:
-          - stem:
-            - $9
-            activity:
-            - $10
+      tips:
+        - stem:
+          - $9
+          activity:
+          - $10
       \"""
     """
   'MCQ2':
@@ -219,13 +219,13 @@
         Text: $7
       TR: $8
       \"""
-        tips:
-          - stem:
-            - $9
-            choice:
-            - $10
-            activity:
-            - $11
+      tips:
+        - stem:
+          - $9
+          choice:
+          - $10
+          activity:
+          - $11
       \"""
     """
   'MCQ3':
@@ -309,9 +309,9 @@
         Pic(checked=true): $4
       TR: $5
       \"""
-        tips:
-          - stem:
-            - $6
+      tips:
+        - stem:
+          - $6
       \"""
     """
   'MCP2':
@@ -325,9 +325,9 @@
         Pic(checked=true): $4
       TR: $5
       \"""
-        tips:
-          - stem:
-            - $6
+      tips:
+        - stem:
+          - $6
       \"""
     """
   'MCP3':
