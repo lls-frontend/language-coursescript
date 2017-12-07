@@ -27,6 +27,18 @@
     'match': '[a-f0-9]{24}'
     'name': 'markup.italic.coursescript'
   }
+  ## Metadata
+  {
+    'comment': 'Metadata'
+    'begin': '^"{3}$'
+    'end': '^"{3}$'
+    'name': 'meta.block.note.coursescript'
+    'patterns': [
+      {
+        'include': 'source.yaml'
+      }
+    ]
+  }
   ## TYPE
   {
     'begin': '\\b(TYPE)\\s+'
@@ -164,7 +176,7 @@
     'beginCaptures':
       '0':
         'name': 'invalid.illegal.coursescript'
-    'end': '“'
+    'end': '”'
     'endCaptures':
       '0':
         'name': 'invalid.illegal.coursescript'
