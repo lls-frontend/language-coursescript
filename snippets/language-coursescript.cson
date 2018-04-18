@@ -341,3 +341,31 @@
         Pic(checked=true): $4
       TR: $5
     """
+  'WordGuess':
+    'prefix': 'wordguess'
+    'body': """
+      [TYPE WordGuess]
+      Audio: $1
+      Text: $2
+      TR: $3
+    """
+  'ChooseAllWords':
+    'prefix': 'chooseall'
+    'body': """
+      [TYPE ChooseAllWords]
+      Opts:
+        Text(checked=true): $1
+        Text(checked=true): $2
+        Text: $3
+        Text: $4
+        Text: $5
+        Text: $6
+    """
+  'WordFragments':
+    'prefix': 'wordfragmentsguess'
+    'body': """
+      [TYPE WordGuess]
+      Pic: $1
+      Audio: $2
+      Text: $3
+    """
