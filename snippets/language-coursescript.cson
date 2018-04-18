@@ -208,7 +208,7 @@
   'MCQ2':
     'prefix': 'mcq2'
     'body': """
-      [TYPE MCQ1]
+      [TYPE MCQ2]
       Audio: $1
       Pic: $2
       Text: $3
@@ -231,7 +231,7 @@
   'MCQ3':
     'prefix': 'mcq3'
     'body': """
-      [TYPE MCQ1]
+      [TYPE MCQ3]
       Audio: $1
       Pic: $2
       Text: $3
@@ -245,7 +245,7 @@
   'MCQ1a':
     'prefix': 'mcq1a'
     'body': """
-      [TYPE MCQ1]
+      [TYPE MCQ1a]
       Audio: $1
       Pic: $2
       Text: $3
@@ -259,7 +259,7 @@
   'MCQ2a':
     'prefix': 'mcq2a'
     'body': """
-      [TYPE MCQ1]
+      [TYPE MCQ2a]
       Audio: $1
       Pic: $2
       Text: $3
@@ -273,7 +273,7 @@
   'MCQ4a':
     'prefix': 'mcq4a'
     'body': """
-      [TYPE MCQ1]
+      [TYPE MCQ4a]
       Audio: $1
       Pic: $2
       Text: $3
@@ -287,7 +287,7 @@
   'MCQ7':
     'prefix': 'mcq7'
     'body': """
-      [TYPE MCQ1]
+      [TYPE MCQ7]
       Audio: $1
       Pic: $2
       Text: $3
@@ -317,7 +317,7 @@
   'MCP2':
     'prefix': 'mcp2'
     'body': """
-      [TYPE MCP1]
+      [TYPE MCP2]
       Audio: $1
       Opts:
         Text: $2
@@ -333,11 +333,39 @@
   'MCP3':
     'prefix': 'mcp3'
     'body': """
-      [TYPE MCP1]
+      [TYPE MCP3]
       Audio: $1
       Opts:
         Text: $2
         Text: $3
         Pic(checked=true): $4
       TR: $5
+    """
+  'WordGuess':
+    'prefix': 'wordguess'
+    'body': """
+      [TYPE WordGuess]
+      Audio: $1
+      Text: $2
+      TR: $3
+    """
+  'ChooseAllWords':
+    'prefix': 'chooseall'
+    'body': """
+      [TYPE ChooseAllWords]
+      Opts:
+        Text(checked=true): $1
+        Text(checked=true): $2
+        Text: $3
+        Text: $4
+        Text: $5
+        Text: $6
+    """
+  'WordFragments':
+    'prefix': 'wordfragmentsguess'
+    'body': """
+      [TYPE WordGuess]
+      Pic: $1
+      Audio: $2
+      Text: $3
     """
