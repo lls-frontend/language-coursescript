@@ -1,0 +1,11 @@
+'context-menu':
+  'atom-text-editor, .overlayer': [
+    {
+      'label': 'Insert Coursescript Session&Episode ID'
+      'command': 'language-coursescript:insert-id'
+    },
+    {
+      'label': 'Insert Coursescript Activity ID'
+      'command': 'language-coursescript:insert-id'
+    }
+  ]

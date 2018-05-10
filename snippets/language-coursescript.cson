@@ -3,357 +3,385 @@
     'prefix': 'prevideo'
     'body': """
       [TYPE Pre]
-      Video: $1
-      VideoClip: $2
+      ID: $1
+      Video: $2
       VideoClip: $3
+      VideoClip: $4
     """
   'Presentation Audio':
     'prefix': 'preaudio'
     'body': """
       [TYPE Pre]
-      DF$1: $2
-      Pic: $3
-      Audio: $4
+      ID: $1
+      DF$2: $3
+      Pic: $4
+      Audio: $5
       Animation:
-      Pic(effect=${5:fadeIn},time=$6): $7
+      Pic(effect=${6:fadeIn},time=$7): $8
     """
   'Presentation Reading':
     'prefix': 'prereading'
     'body': """
       [TYPE Pre]
-      Title: $1
-      Pic: $2
-      Text: $3
+      ID: $1
+      Title: $2
+      Pic: $3
+      Text: $4
     """
   'Open Question':
     'prefix': 'openquestion'
     'body': """
       [TYPE OpenQuestion]
-      Pic: $1
-      Audio: $2
+      ID: $1
+      Pic: $2
+      Audio: $3
     """
   'SentenceFragments':
     'prefix': 'sentf'
     'body': """
       [TYPE SentenceFragments]
-      Text: $1
+      ID: $1
       Text: $2
-      TR_Text: $3
+      Text: $3
+      TR_Text: $4
     """
   'SpotErrors':
     'prefix': 'spote'
     'body': """
       [TYPE SpotErrors]
-      Text: $1
+      ID: $1
+      Text: $2
       \"""
       tips:
       - activity:
-        - $2
+        - $3
       \"""
     """
   'Locating':
     'prefix': 'locating'
     'body': """
       [TYPE Locating]
-      Audio: $1
+      ID: $1
+      Audio: $2
     """
   'Cloze':
     'prefix': 'cloze'
     'body': """
       [TYPE Cloze]
-      Audio: $1
+      ID: $1
       Audio: $2
+      Audio: $3
       \"""
       tips:
       - choice:
-        - $3
-        activity:
         - $4
-      - choice:
-        - $5
         activity:
+        - $5
+      - choice:
         - $6
+        activity:
+        - $7
       \"""
     """
   'Dictation':
     'prefix': 'dictation'
     'body': """
       [TYPE Dictation]
+      ID: $1
       // example: Scientists tell us that {{what we see in the universe}} is only a small part of what is there.
-      Audio: $1
+      Audio: $2
     """
   'MCQ5':
     'prefix': 'mcq5'
     'body': """
       [TYPE MCQ5]
-      Audio: $1
-      Pic: $1
+      ID: $1
+      Audio: $2
+      Pic: $3
       \"""
       tips:
       - stem:
-        - $2
+        - $4
         choice:
-        - $3
+        - $5
       \"""
     """
   'MCQ5a':
     'prefix': 'mcq5a'
     'body': """
       [TYPE MCQ5a]
-      Audio(question=true): $1
-      Audio(matching=true): $2
+      ID: $1
+      Audio(question=true): $2
+      Audio(matching=true): $3
       \"""
       tips:
       - stem:
-        - $3
-        choice:
         - $4
+        choice:
+        - $5
       \"""
     """
   'Sequencing':
     'prefix': 'seq'
     'body': """
       [TYPE Sequencing]
-      Audio: $1
+      ID: $1
       Audio: $2
       Audio: $3
+      Audio: $4
       \"""
       tips:
       - activity:
-        - $4
+        - $5
       \"""
     """
   'RP':
     'prefix': 'rp'
     'body': """
       [TYPE RP]
-      Pic(role=$1): $1
-      Pic(role=$2): $2
-      Audio(role=$1): $3
-      Audio(role=$2): $4
-      Audio(role=$1): $5
-      Audio(role=$2): $6
-      Audio(role=$1): $7
+      ID: $1
+      Pic(role=$1): $2
+      Pic(role=$2): $3
+      Audio(role=$1): $4
+      Audio(role=$2): $5
+      Audio(role=$1): $6
+      Audio(role=$2): $7
+      Audio(role=$1): $8
     """
   'OR':
     'prefix': 'or'
     'body': """
       [TYPE OR]
-      Pic: $1
-      Audio: $2
-      TR: $3
+      ID: $1
+      Pic: $2
+      Audio: $3
+      TR: $4
     """
   'SR':
     'prefix': 'sr'
     'body': """
       [TYPE SR]
-      Pic: $1
-      Audio: $2
-      TR: $3
+      ID: $1
+      Pic: $2
+      Audio: $3
+      TR: $4
     """
   'C&D':
     'prefix': 'cnd'
     'body': """
       [TYPE C&D]
-      Pic: $1
-      Text: $2
+      ID: $1
+      Pic: $2
+      Text: $3
       \"""
       tips:
       - activity:
-        - $3
-      - activity:
         - $4
+      - activity:
+        - $5
       \"""
     """
   'MCQ6':
     'prefix': 'mcq6'
     'body': """
       [TYPE MCQ6]
-      Audio: $1
-      Pic: $2
+      ID: $1
+      Audio: $2
+      Pic: $3
       Opts:
-        Audio: $3
-        Audio(checked=true): $4
-        Audio: $5
-      TR: $6
+        Audio: $4
+        Audio(checked=true): $5
+        Audio: $6
+      TR: $7
       \"""
       tips:
       - stem:
-        - $7
-        activity:
         - $8
+        activity:
+        - $9
       \"""
     """
   'MCQ1':
     'prefix': 'mcq1'
     'body': """
       [TYPE MCQ1]
-      Audio: $1
-      Pic: $2
-      Text: $3
+      ID: $1
+      Audio: $2
+      Pic: $3
+      Text: $4
       Opts:
-        Text: $4
-        Text(checked=true): $5
-        Text: $6
+        Text: $5
+        Text(checked=true): $6
         Text: $7
-      TR: $8
+        Text: $8
+      TR: $9
       \"""
       tips:
       - stem:
-        - $9
-        activity:
         - $10
+        activity:
+        - $11
       \"""
     """
   'MCQ2':
     'prefix': 'mcq2'
     'body': """
       [TYPE MCQ2]
-      Audio: $1
-      Pic: $2
-      Text: $3
+      ID: $1
+      Audio: $2
+      Pic: $3
+      Text: $4
       Opts:
-        Text: $4
-        Text(checked=true): $5
-        Text: $6
+        Text: $5
+        Text(checked=true): $6
         Text: $7
-      TR: $8
+        Text: $8
+      TR: $9
       \"""
       tips:
       - stem:
-        - $9
-        choice:
         - $10
-        activity:
+        choice:
         - $11
+        activity:
+        - $12
       \"""
     """
   'MCQ3':
     'prefix': 'mcq3'
     'body': """
       [TYPE MCQ3]
-      Audio: $1
-      Pic: $2
-      Text: $3
+      ID: $1
+      Audio: $2
+      Pic: $3
+      Text: $4
       Opts:
-        Text: $4
-        Text(checked=true): $5
-        Text: $6
+        Text: $5
+        Text(checked=true): $6
         Text: $7
-      TR: $8
+        Text: $8
+      TR: $9
     """
   'MCQ1a':
     'prefix': 'mcq1a'
     'body': """
       [TYPE MCQ1a]
-      Audio: $1
-      Pic: $2
-      Text: $3
+      ID: $1
+      Audio: $2
+      Pic: $3
+      Text: $4
       Opts:
-        Text: $4
-        Text(checked=true): $5
-        Text: $6
+        Text: $5
+        Text(checked=true): $6
         Text: $7
-      TR: $8
+        Text: $8
+      TR: $9
     """
   'MCQ2a':
     'prefix': 'mcq2a'
     'body': """
       [TYPE MCQ2a]
-      Audio: $1
-      Pic: $2
-      Text: $3
+      ID: $1
+      Audio: $2
+      Pic: $3
+      Text: $4
       Opts:
-        Text: $4
-        Text(checked=true): $5
-        Text: $6
+        Text: $5
+        Text(checked=true): $6
         Text: $7
-      TR: $8
+        Text: $8
+      TR: $9
     """
   'MCQ4a':
     'prefix': 'mcq4a'
     'body': """
       [TYPE MCQ4a]
-      Audio: $1
-      Pic: $2
-      Text: $3
+      ID: $1
+      Audio: $2
+      Pic: $3
+      Text: $4
       Opts:
-        Text: $4
-        Text(checked=true): $5
-        Text: $6
+        Text: $5
+        Text(checked=true): $6
         Text: $7
+        Text: $8
       TR: $8
     """
   'MCQ7':
     'prefix': 'mcq7'
     'body': """
       [TYPE MCQ7]
-      Audio: $1
-      Pic: $2
-      Text: $3
+      ID: $1
+      Audio: $2
+      Pic: $3
+      Text: $4
       Opts:
-        Text: $4
-        Text(checked=true): $5
-        Text: $6
+        Text: $5
+        Text(checked=true): $6
         Text: $7
-      TR: $8
+        Text: $8
+      TR: $9
     """
   'MCP1':
     'prefix': 'mcp1'
     'body': """
       [TYPE MCP1]
-      Audio: $1
+      ID: $1
+      Audio: $2
       Opts:
-        Text: $2
         Text: $3
-        Pic(checked=true): $4
-      TR: $5
+        Text: $4
+        Pic(checked=true): $5
+      TR: $6
       \"""
       tips:
       - stem:
-        - $6
+        - $7
       \"""
     """
   'MCP2':
     'prefix': 'mcp2'
     'body': """
       [TYPE MCP2]
-      Audio: $1
+      ID: $1
+      Audio: $2
       Opts:
-        Text: $2
         Text: $3
-        Pic(checked=true): $4
-      TR: $5
+        Text: $4
+        Pic(checked=true): $5
+      TR: $6
       \"""
       tips:
       - stem:
-        - $6
+        - $7
       \"""
     """
   'MCP3':
     'prefix': 'mcp3'
     'body': """
       [TYPE MCP3]
-      Audio: $1
+      ID: $1
+      Audio: $2
       Opts:
-        Text: $2
         Text: $3
-        Pic(checked=true): $4
-      TR: $5
+        Text: $4
+        Pic(checked=true): $5
+      TR: $6
     """
   'WordGuess':
     'prefix': 'wordguess'
     'body': """
       [TYPE WordGuess]
-      Pic: $1
-      Text: $2
-      TR: $3
+      ID: $1
+      Audio: $2
+      Text: $3
+      TR: $4
     """
   'ChooseAllWords':
     'prefix': 'chooseall'
     'body': """
       [TYPE ChooseAllWords]
-      Text: $1
+      ID: $1
       Opts:
         Text(checked=true): $2
         Text(checked=true): $3
@@ -365,16 +393,54 @@
   'WordFragments':
     'prefix': 'wordfragments'
     'body': """
-      [TYPE wordfragments]
-      Pic: $1
-      Audio: $2
-      Text: $3
+      [TYPE WordFragments]
+      ID: $1
+      Pic: $2
+      Audio: $3
+      Text: $4
     """
   'SentenceCompletion':
-    'prefix': 'SentenceCompletion'
-    'body': """
+    'prefix': 'sentencecompletion'
+    'body':"""
       [TYPE SentenceCompletion]
-      Audio: $1
+      ID: $1
       Pic: $2
-      Text: $3
+      Audio: $3
+      Text: $4
+    """
+  'Level':
+    'prefix': "level"
+    'body': """
+    = Level $1
+    """
+  'Milestone':
+    'prefix': "milestone"
+    'body': """
+    == Milestone $1
+    \"""
+    summary: $2
+    \"""
+    """
+  'Session':
+    'prefix': "session"
+    'body': """
+    === Session $1 $2
+    \"""
+    name: $3
+    \"""
+    """
+  'Episode':
+    'prefix': "episode"
+    'body': """
+    ==== Episode $1
+    \"""
+    intro: $2
+    intro_language:
+      zh-Hans: $3
+    \"""
+    """
+  'Group':
+    'prefix': "group"
+    'body': """
+    ===== Group $1
     """
