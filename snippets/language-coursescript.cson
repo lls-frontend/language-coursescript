@@ -345,7 +345,7 @@
     'prefix': 'wordguess'
     'body': """
       [TYPE WordGuess]
-      Audio: $1
+      Pic: $1
       Text: $2
       TR: $3
     """
@@ -353,19 +353,28 @@
     'prefix': 'chooseall'
     'body': """
       [TYPE ChooseAllWords]
+      Text: $1
       Opts:
-        Text(checked=true): $1
         Text(checked=true): $2
-        Text: $3
+        Text(checked=true): $3
         Text: $4
         Text: $5
         Text: $6
+        Text: $7
     """
   'WordFragments':
-    'prefix': 'wordfragmentsguess'
+    'prefix': 'wordfragments'
     'body': """
-      [TYPE WordGuess]
+      [TYPE wordfragments]
       Pic: $1
       Audio: $2
+      Text: $3
+    """
+  'SentenceCompletion':
+    'prefix': 'SentenceCompletion'
+    'body': """
+      [TYPE SentenceCompletion]
+      Audio: $1
+      Pic: $2
       Text: $3
     """
