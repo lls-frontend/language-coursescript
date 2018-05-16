@@ -418,7 +418,9 @@
     'body': """
     == Milestone $1
     \"""
-    summary: $2
+    title: $2
+    summary: $3
+    image_url: $4
     \"""
     """
   'Session':
