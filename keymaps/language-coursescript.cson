@@ -1,2 +1,3 @@
 'atom-text-editor':
   'ctrl-c i': 'language-coursescript:insert-id'
+  'ctrl-c p': 'language-coursescript:preview'
