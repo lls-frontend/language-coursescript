@@ -9,7 +9,8 @@ import SelectType from './SelectType.jsx';
 
 export default class Preview extends React.Component {
   static propTypes = {
-    plainText: PropTypes.string.isRequired
+    plainText: PropTypes.string.isRequired,
+    onError: PropTypes.func,
   };
 
   state = {
@@ -25,8 +26,9 @@ export default class Preview extends React.Component {
 
   fetchList = async type => {
     this.setState({ isFetching: true })
+
+    const { plainText, onError } = this.props
     try {
-      const { plainText } = this.props
       const { data } = await axios.post('http://cms.llsapp.com/v1/coursescript/parse', {
         text: plainText,
         type
@@ -34,8 +36,9 @@ export default class Preview extends React.Component {
 
       this.setState({ data, isFetching: false })
     } catch (error) {
-      this.setState({ isFetching: false })
-      console.error(error)
+      const { data } = error.response
+      const message = `Line: ${data.line} ${data.message}`
+      onError(new Error(message))
     }
   }
 
@@ -49,6 +52,10 @@ export default class Preview extends React.Component {
   componentWillReceiveProps(nextProps) {
     const { type } = this.state
     this.fetchList(type)
+  }
+
+  componentDidCatch(err) {
+    this.props.onError(err)
   }
 
   render() {
