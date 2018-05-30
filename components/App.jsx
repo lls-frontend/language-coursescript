@@ -10,7 +10,8 @@ import SelectType from './SelectType.jsx';
 export default class Preview extends React.Component {
   static propTypes = {
     plainText: PropTypes.string.isRequired,
-    onError: PropTypes.func,
+    onError: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
   };
 
   state = {
@@ -21,18 +22,16 @@ export default class Preview extends React.Component {
 
   handleTypeSelect = type => {
     this.setState({ type })
-    this.fetchList(type)
+    this.fetchList(this.props.plainText, type)
   }
 
-  fetchList = async type => {
-    this.setState({ isFetching: true })
+  fetchList = async (text, type) => {
+    const { onError } = this.props
 
-    const { plainText, onError } = this.props
     try {
-      const { data } = await axios.post('http://cms.llsapp.com/v1/coursescript/parse', {
-        text: plainText,
-        type
-      })
+      this.setState({ isFetching: true })
+
+      const { data } = await axios.post('http://cms.llsapp.com/v1/coursescript/parse', { text, type })
 
       this.setState({ data, isFetching: false })
     } catch (error) {
@@ -42,16 +41,21 @@ export default class Preview extends React.Component {
     }
   }
 
-  handleCursor = active => {
-    const { courseList } = this.state;
-    if (courseList[active]) {
-      window.postMessage(courseList[active][0], '*');
-    }
+  handleCursor = id => {
+    const { activities_line } = this.state.data
+    this.props.onChange(activities_line[id])
   }
 
   componentWillReceiveProps(nextProps) {
+    const { plainText } = nextProps
     const { type } = this.state
-    this.fetchList(type)
+    if (type) {
+      this.fetchList(plainText, type)
+    }
+  }
+
+  componentDidCatch(err) {
+    this.props.onError(err)
   }
 
   componentDidCatch(err) {
@@ -68,7 +72,7 @@ export default class Preview extends React.Component {
     if (type !== null) {
       return (
         <div style={{padding: 20}}>
-          <CourscriptPreview data={data} type={type} />
+          <CourscriptPreview data={data} type={type} onActivityChange={this.handleCursor} />
         </div>
       )
     } else {
