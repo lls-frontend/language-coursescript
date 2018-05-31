@@ -71,7 +71,7 @@ export default class Preview extends React.Component {
 
     if (type !== null) {
       return (
-        <div style={{padding: 20}}>
+        <div>
           <CourscriptPreview data={data} type={type} onActivityChange={this.handleCursor} />
         </div>
       )
