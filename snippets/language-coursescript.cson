@@ -338,7 +338,6 @@
         Text: $5
         Text: $6
         Text: $7
-      TR: $8
     """
   'MCP1':
     'prefix': 'mcp1'
