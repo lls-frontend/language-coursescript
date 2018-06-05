@@ -22,7 +22,7 @@
   },
   "main": "./lib/language-coursescript",
   "dependencies": {
-    "@lls/coursescript-lib": "^1.3.0",
+    "@lls/coursescript-lib": "^1.5.0",
     "atom-space-pen-views": "^2.2.0",
     "axios": "^0.18.0",
     "react": "^16.4.0",
