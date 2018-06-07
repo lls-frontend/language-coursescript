@@ -10,7 +10,11 @@
   "activationCommands": {
     "atom-text-editor": [
       "language-coursescript:insert-id",
-      "language-coursescript:preview"
+      "language-coursescript:preview",
+      "language-coursescript:search"
+    ],
+    "atom-workspace": [
+      "language-coursescript:search-close"
     ]
   },
   "devDependencies": {
