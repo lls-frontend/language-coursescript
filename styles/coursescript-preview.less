@@ -101,15 +101,15 @@
     border-top: 1px solid #9da5b4;
   }
 }
-.search-item.pic {
+.search-item.pic, .search-item.video {
   display: flex;
-  .image {
-    width: 150px;
-    > img {
+  .left {
+    width: 200px;
+    > img, > video {
       width: 100%;
     }
   }
-  .text {
+  .right {
     flex: 1 0 auto;
     position: relative;
     margin-left: 10px;

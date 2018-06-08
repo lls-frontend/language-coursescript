@@ -24,16 +24,32 @@ const SearchItem = props => {
   if (type === 'pic') {
     return (
       <div className="search-item pic">
-        <div className="image">
+        <div className="left">
           <img src={data.url} alt=""/>
         </div>
-        <div className="text">
+        <div className="right">
           <p>{data.origin_filename}</p>
           {copyButton}
         </div>
       </div>
     )
   }
+
+  if (type === 'video') {
+    return (
+      <div className="search-item video">
+        <div className="left">
+          <video src={data.url} controls></video>
+        </div>
+        <div className="right">
+          <p>{data.filename}</p>
+          {copyButton}
+        </div>
+      </div>
+    )
+  }
+
+  return null
 }
 
 SearchItem.propTypes = {

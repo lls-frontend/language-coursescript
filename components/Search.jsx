@@ -71,7 +71,7 @@ export default class Search extends React.Component {
   }
 
   handleTypeChange = item => {
-    this.setState({ type: item.value, showTypes: false })
+    this.setState({ type: item.value, error: '', results: [], showTypes: false, showResults: false })
   }
 
   handleTypeClick = () => {
