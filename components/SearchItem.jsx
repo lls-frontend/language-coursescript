@@ -49,6 +49,18 @@ const SearchItem = props => {
     )
   }
 
+  if (type === 'audio') {
+    return (
+      <div className="search-item audio">
+        <p>{data.text}</p>
+        <div className="search-item-audio">
+          <audio src={data.url} controls></audio>
+          {copyButton}
+        </div>
+      </div>
+    )
+  }
+
   return null
 }
 
@@ -56,6 +68,7 @@ SearchItem.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape({
     url: PropTypes.string.isRequired,
     resource_id: PropTypes.string.isRequired,
+    text: PropTypes.string,
     origin_filename: PropTypes.string,
   })).isRequired,
   type: PropTypes.string.isRequired,
