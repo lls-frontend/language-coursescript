@@ -2,13 +2,15 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import axios from 'axios'
+import ApolloClient from 'apollo-boost'
+import { ApolloProvider, Query } from 'react-apollo'
+import gql from 'graphql-tag'
 import SearchItem from './SearchItem.jsx'
 
 const types = [
-  { name: 'Picture', value: 'pic' },
-  { name: 'Video', value: 'video' },
-  { name: 'Audio', value: 'audio' },
+  { name: 'Picture', value: 'pics' },
+  { name: 'Video', value: 'videos' },
+  { name: 'Audio', value: 'audios' },
 ]
 
 export default class Search extends React.Component {
@@ -19,59 +21,48 @@ export default class Search extends React.Component {
   state = {
     type: types[0].value,
     search: '',
-    error: '',
-    results: [],
+    query: null,
     showTypes: false,
     showResults: false,
-    isFetching: false,
   }
 
-  typeItem = (item, index) => {
-    return <li key={index} onClick={() => this.handleTypeChange(item)}>{item.name}</li>
-  }
-
-  searchItem = (item, index) => {
-    const { type } = this.state
-    return <SearchItem key={index} data={item} type={type} onCopy={this.handleCopy} />
-  }
-
-  renderResults = () => {
-    const { isFetching, error, results } = this.state
-
-    if (isFetching) {
+  renderResults = (loading, error, data) => {
+    if (loading) {
       return <p>Search...</p>
     }
 
     if (error) {
-      return <p>ERROR: {error}</p>
+      return <p>ERROR: {error.message}</p>
     }
 
-    if (!results.length) {
+    const { type } = this.state
+    const res = data[type]
+    if (!res.length) {
       return <p>Resource not found</p>
     }
 
-    return results.map(this.searchItem)
+    return res.map((item, index) => (
+      <SearchItem key={index} data={item} type={type} onCopy={this.props.onCopy} />
+    ))
   }
 
-  handleSearch = async () => {
+  handleSearch = () => {
     const { search, type } = this.state
     if (!search) {
       return false
     }
 
-    try {
-      this.setState({ showResults: true, isFetching: true })
+    const query = gql`{
+      ${type}(content: "${search}") {
+        resource_id, filename, url
+      }
+    }`
 
-      const { data } = await axios.get(`https://cms.llsapp.com/v1/asset/${type}/search?content=${search}`)
-
-      this.setState({ results: data, isFetching: false })
-    } catch (error) {
-      this.setState({ isFetching: false, error: error.message })
-    }
+    this.setState({ query, showResults: true })
   }
 
   handleTypeChange = item => {
-    this.setState({ type: item.value, error: '', results: [], showTypes: false, showResults: false })
+    this.setState({ type: item.value, search: '', showTypes: false, showResults: false })
   }
 
   handleTypeClick = () => {
@@ -83,20 +74,22 @@ export default class Search extends React.Component {
     this.setState({ search: e.target.value })
   }
 
-  handleCopy = text => {
-    this.props.onCopy(text)
+  handleKeyDown = e => {
+    if (e.keyCode === 13) {
+      this.handleSearch()
+    }
   }
 
   componentDidMount() {
-    this.input.addEventListener('keydown', e => {
-      if (e.keyCode === 13) {
-        this.handleSearch()
-      }
-    })
+    this.input.addEventListener('keydown', this.handleKeyDown)
+  }
+
+  componentWillUnmount() {
+    this.input.removeEventListener('keydown', this.handleKeyDown)
   }
 
   render() {
-    const { type, search, error, results, showTypes, showResults, isFetching } = this.state
+    const { type, search, query, showTypes, showResults } = this.state
     const activeType = types.find(v => v.value === type)
 
     return (
@@ -104,7 +97,13 @@ export default class Search extends React.Component {
         <div className="search-input">
           <div className="search-input-types">
             <p onClick={this.handleTypeClick}>{activeType.name}</p>
-            <ul className={showTypes ? 'show' : ''}>{types.map(this.typeItem)}</ul>
+            <ul className={showTypes ? 'show' : ''}>
+            {
+              types.map((item, index) => (
+                <li key={index} onClick={() => this.handleTypeChange(item)}>{item.name}</li>
+              ))
+            }
+            </ul>
           </div>
           <input
             ref={input => this.input = input}
@@ -116,8 +115,28 @@ export default class Search extends React.Component {
           />
           <i onClick={this.handleSearch}></i>
         </div>
-        {showResults && <div className="search-result">{this.renderResults()}</div>}
+        {showResults && query && (
+          <Query query={query}>
+          {({ loading, error, data }) => (
+            <div className="search-result">{this.renderResults(loading, error, data)}</div>
+          )}
+          </Query>
+        )}
       </div>
     )
   }
 }
+
+const client = new ApolloClient({ uri: 'https://cms.llsapp.com/v1/graphql/asset' })
+
+const App = props => (
+  <ApolloProvider client={client}>
+    <Search {...props} />
+  </ApolloProvider>
+)
+
+App.propTypes = {
+  onCopy: PropTypes.func.isRequired
+}
+
+export default App

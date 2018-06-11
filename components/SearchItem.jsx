@@ -21,7 +21,7 @@ const SearchItem = props => {
     }
   }
 
-  if (type === 'pic') {
+  if (type === 'pics') {
     return (
       <div className="search-item pic">
         <div className="left">
@@ -35,7 +35,7 @@ const SearchItem = props => {
     )
   }
 
-  if (type === 'video') {
+  if (type === 'videos') {
     return (
       <div className="search-item video">
         <div className="left">
@@ -49,7 +49,7 @@ const SearchItem = props => {
     )
   }
 
-  if (type === 'audio') {
+  if (type === 'audios') {
     return (
       <div className="search-item audio">
         <p>{data.text}</p>
