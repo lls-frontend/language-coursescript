@@ -2,6 +2,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import dayjs from 'dayjs'
 
 const SearchItem = props => {
   const { data, type, onCopy } = props
@@ -28,6 +29,7 @@ const SearchItem = props => {
           <img src={data.url} alt=""/>
         </div>
         <div className="right">
+          <p>{dayjs(data.created_at_sec * 1000).format('YYYY-MM-DD HH:mm')}</p>
           <p>{data.origin_filename}</p>
           {copyButton}
         </div>
@@ -42,7 +44,8 @@ const SearchItem = props => {
           <video src={data.url} controls></video>
         </div>
         <div className="right">
-          <p>{data.filename}</p>
+          <p>{dayjs(data.created_at_sec * 1000).format('YYYY-MM-DD HH:mm')}</p>
+          <p>{data.origin_filename}</p>
           {copyButton}
         </div>
       </div>
@@ -52,6 +55,7 @@ const SearchItem = props => {
   if (type === 'audios') {
     return (
       <div className="search-item audio">
+        <p>{dayjs(data.created_at_sec * 1000).format('YYYY-MM-DD HH:mm')}</p>
         <p>{data.text}</p>
         <div className="search-item-audio">
           <audio src={data.url} controls></audio>

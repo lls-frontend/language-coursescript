@@ -13,20 +13,74 @@ const types = [
   { name: 'Audio', value: 'audios' },
 ]
 
-export default class Search extends React.Component {
+const querySchema = {
+  GET_PICS: gql`
+    query pics($content: String!) {
+      pics(content: $content) { resource_id, origin_filename, url, created_at_sec }
+    }
+  `,
+  GET_VIDEOS: gql`
+    query videos($content: String!) {
+      videos(content: $content) { resource_id, origin_filename, url, created_at_sec }
+    }
+  `,
+  GET_AUDIOS: gql`
+    query audios($content: String!) {
+      audios(content: $content) { resource_id, text, url, created_at_sec }
+    }
+  `
+}
+
+class Search extends React.Component {
   static propTypes = {
     onCopy: PropTypes.func.isRequired
   }
 
   state = {
     type: types[0].value,
+    query: querySchema[`GET_${types[0].value.toUpperCase()}`],
     search: '',
-    query: null,
+    content: '',
     showTypes: false,
     showResults: false,
   }
 
-  renderResults = (loading, error, data) => {
+  handleSearch = () => {
+    const { search } = this.state
+    if (!search) {
+      return false
+    }
+
+    this.setState({ content: search, showResults: true })
+  }
+
+  handleTypeChange = item => {
+    this.setState({
+      type: item.value,
+      query: querySchema[`GET_${item.value.toUpperCase()}`],
+      search: '',
+      content: '',
+      showTypes: false,
+      showResults: false
+    })
+  }
+
+  handleTypeClick = () => {
+    const { showTypes } = this.state
+    this.setState({ showTypes: !showTypes })
+  }
+
+  handleInputChange = e => {
+    this.setState({ search: e.target.value })
+  }
+
+  handleKeyDown = e => {
+    if (e.keyCode === 13) {
+      this.handleSearch()
+    }
+  }
+
+  handleResults = ({ loading, error, data }) => {
     if (loading) {
       return <p>Search...</p>
     }
@@ -46,42 +100,9 @@ export default class Search extends React.Component {
     ))
   }
 
-  handleSearch = () => {
-    const { search, type } = this.state
-    if (!search) {
-      return false
-    }
-
-    const query = gql`{
-      ${type}(content: "${search}") {
-        resource_id, filename, url
-      }
-    }`
-
-    this.setState({ query, showResults: true })
-  }
-
-  handleTypeChange = item => {
-    this.setState({ type: item.value, search: '', showTypes: false, showResults: false })
-  }
-
-  handleTypeClick = () => {
-    const { showTypes } = this.state
-    this.setState({ showTypes: !showTypes })
-  }
-
-  handleInputChange = e => {
-    this.setState({ search: e.target.value })
-  }
-
-  handleKeyDown = e => {
-    if (e.keyCode === 13) {
-      this.handleSearch()
-    }
-  }
-
   componentDidMount() {
     this.input.addEventListener('keydown', this.handleKeyDown)
+    this.input.focus()
   }
 
   componentWillUnmount() {
@@ -89,7 +110,7 @@ export default class Search extends React.Component {
   }
 
   render() {
-    const { type, search, query, showTypes, showResults } = this.state
+    const { type, search, content, query, showTypes, showResults } = this.state
     const activeType = types.find(v => v.value === type)
 
     return (
@@ -110,17 +131,16 @@ export default class Search extends React.Component {
             className="native-key-bindings"
             type="text"
             placeholder="Search"
+            tabIndex="1"
             value={search}
             onChange={this.handleInputChange}
           />
           <i onClick={this.handleSearch}></i>
         </div>
-        {showResults && query && (
-          <Query query={query}>
-          {({ loading, error, data }) => (
-            <div className="search-result">{this.renderResults(loading, error, data)}</div>
-          )}
-          </Query>
+        {showResults && (
+          <div className="search-result">
+            <Query query={query} variables={{ content }}>{this.handleResults}</Query>
+          </div>
         )}
       </div>
     )

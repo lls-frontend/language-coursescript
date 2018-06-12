@@ -26,10 +26,11 @@
   },
   "main": "./lib/language-coursescript",
   "dependencies": {
-    "@lls/coursescript-lib": "^1.5.0",
+    "@lls/coursescript-lib": "^1.5.1",
     "apollo-boost": "^0.1.7",
     "atom-space-pen-views": "^2.2.0",
     "axios": "^0.18.0",
+    "dayjs": "^1.6.7",
     "graphql": "^14.0.0-rc.1",
     "graphql-tag": "^2.9.2",
     "react": "^16.4.0",
