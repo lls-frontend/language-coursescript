@@ -16,7 +16,7 @@ const SearchItem = props => {
 
   const handleCopy = field => {
     if (field === 'name') {
-      onCopy(data.origin_filename)
+      onCopy(data.origin_filename || data.text)
     } else {
       onCopy(data.resource_id)
     }
