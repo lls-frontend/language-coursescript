@@ -408,6 +408,14 @@
       Audio: $3
       Text: $4
     """
+  'Errorhunting':
+    'prefix': 'Errorhunting'
+    'body': """
+      [TYPE ErrorHunting]
+      ID: $1
+      Text: $2
+      TR: $3
+    """
   'Level':
     'prefix': "level"
     'body': """
