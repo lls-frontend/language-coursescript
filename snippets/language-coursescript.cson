@@ -96,6 +96,15 @@
       Audio: $6
       TR: $7
     """
+  'Spelling':
+    'prefix': 'spelling'
+    'body': """
+      [TYPE spelling]
+      ID: $1
+      // example: Scientists tell us that {{what we see in the universe}} is only a small part of what is there.
+      Audio: $2
+      TR: $3
+    """
   'MCQ5':
     'prefix': 'mcq5'
     'body': """
@@ -118,7 +127,7 @@
       [TYPE MCQ5a]
       ID: $1
       Audio(question=true): $2
-      Audio(matching=true): $3
+      Audio(matching=true, checked=true): $3
       \"""
       tips:
       - stem:
@@ -423,18 +432,6 @@
       Text: $4
       TR: $5
     """
-  'SentenceFragments':
-    'prefix': 'Sentencefragments'
-    'body': """
-      [TYPE SentenceFragments]
-      ID: $1
-      TR_Text: $2
-      Text: $3
-      Text: $4
-      Text: $5
-      Text: $6
-      TR: $7
-    """
   'SentenceCompletion':
     'prefix': 'sentencecompletion'
     'body':"""
@@ -444,8 +441,8 @@
       Audio: $3
       Text: $4
     """
-  'Errorhunting':
-    'prefix': 'Errorhunting'
+  'ErrorHunting':
+    'prefix': 'errorhunting'
     'body': """
       [TYPE ErrorHunting]
       ID: $1
