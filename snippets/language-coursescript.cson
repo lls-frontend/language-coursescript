@@ -118,7 +118,7 @@
       [TYPE MCQ5a]
       ID: $1
       Audio(question=true): $2
-      Audio(matching=true): $3
+      Audio(matching=true, checked=true): $3
       \"""
       tips:
       - stem:
