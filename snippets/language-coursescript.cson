@@ -395,7 +395,8 @@
       ID: $1
       Pic: $2
       Text: $3
-      TR: $4
+      Audio: $4
+      TR: $5
     """
   'ChooseAllWords':
     'prefix': 'chooseall'
@@ -421,6 +422,18 @@
       Audio: $3
       Text: $4
       TR: $5
+    """
+  'SentenceFragments':
+    'prefix': 'Sentencefragments'
+    'body': """
+      [TYPE SentenceFragments]
+      ID: $1
+      TR_Text: $2
+      Text: $3
+      Text: $4
+      Text: $5
+      Text: $6
+      TR: $7
     """
   'SentenceCompletion':
     'prefix': 'sentencecompletion'
