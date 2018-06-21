@@ -7,5 +7,13 @@
     {
       'label': 'Insert Coursescript Activity ID'
       'command': 'language-coursescript:insert-id'
+    },
+    {
+      "label": "Preview CourseScript",
+      "command": "language-coursescript:preview"
+    },
+    {
+      "label": "Search Resources",
+      "command": "language-coursescript:search"
     }
   ]

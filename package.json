@@ -1,15 +1,20 @@
 {
   "name": "language-coursescript",
-  "version": "2.8.0",
+  "version": "3.3.1",
   "description": "Syntax highlighting and snippets for CourseScript.",
-  "repository": "https://github.com/lingochamp/language-coursescript",
+  "repository": "https://github.com/lenage/language-coursescript",
   "license": "MIT",
   "engines": {
     "atom": "*"
   },
   "activationCommands": {
     "atom-text-editor": [
-      "language-coursescript:insert-id"
+      "language-coursescript:insert-id",
+      "language-coursescript:preview",
+      "language-coursescript:search"
+    ],
+    "atom-workspace": [
+      "language-coursescript:search-close"
     ]
   },
   "devDependencies": {
@@ -19,5 +24,18 @@
     "season": "^5.0.2",
     "underscore-plus": "^1.0.6"
   },
-  "main": "./lib/language-coursescript"
+  "main": "./lib/language-coursescript",
+  "dependencies": {
+    "@lls/coursescript-lib": "^1.5.1",
+    "apollo-boost": "^0.1.7",
+    "atom-space-pen-views": "^2.2.0",
+    "axios": "^0.18.0",
+    "dayjs": "^1.6.7",
+    "graphql": "^14.0.0-rc.1",
+    "graphql-tag": "^2.9.2",
+    "react": "^16.4.0",
+    "react-apollo": "^2.1.4",
+    "react-dom": "^16.4.0",
+    "uninstall": "0.0.0"
+  }
 }

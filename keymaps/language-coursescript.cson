@@ -1,2 +1,6 @@
 'atom-text-editor':
   'ctrl-c i': 'language-coursescript:insert-id'
+  'ctrl-c p': 'language-coursescript:preview'
+  'ctrl-c f': 'language-coursescript:search'
+'atom-workspace':
+  'escape': 'language-coursescript:search-close'

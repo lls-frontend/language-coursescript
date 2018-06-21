@@ -88,8 +88,13 @@
     'body': """
       [TYPE Dictation]
       ID: $1
+      Pic: $2
       // example: Scientists tell us that {{what we see in the universe}} is only a small part of what is there.
-      Audio: $2
+      Audio: $3
+      Audio: $4
+      Audio: $5
+      Audio: $6
+      TR: $7
     """
   'MCQ5':
     'prefix': 'mcq5'
@@ -97,13 +102,14 @@
       [TYPE MCQ5]
       ID: $1
       Audio: $2
-      Pic: $3
+      Pic(checked=true): $3
+      Text(checked=true): $4
       \"""
       tips:
       - stem:
-        - $4
-        choice:
         - $5
+        choice:
+        - $6
       \"""
     """
   'MCQ5a':
@@ -173,12 +179,13 @@
       ID: $1
       Pic: $2
       Text: $3
+      TR: $4
       \"""
       tips:
       - activity:
-        - $4
-      - activity:
         - $5
+      - activity:
+        - $6
       \"""
     """
   'MCQ6':
@@ -189,16 +196,17 @@
       Audio: $2
       Pic: $3
       Opts:
-        Audio: $4
-        Audio(checked=true): $5
+        Audio(checked=true): $4
+        Audio: $5
         Audio: $6
-      TR: $7
+        Audio: $7
+      TR: $8
       \"""
       tips:
       - stem:
-        - $8
-        activity:
         - $9
+        activity:
+        - $10
       \"""
     """
   'MCQ1':
@@ -208,19 +216,18 @@
       ID: $1
       Audio: $2
       Pic: $3
-      Text: $4
       Opts:
-        Text: $5
-        Text(checked=true): $6
+        Text: $4
+        Text(checked=true): $5
+        Text: $6
         Text: $7
-        Text: $8
-      TR: $9
+      TR: $8
       \"""
       tips:
       - stem:
-        - $10
+        - $9
         activity:
-        - $11
+        - $10
       \"""
     """
   'MCQ2':
@@ -253,14 +260,13 @@
       [TYPE MCQ3]
       ID: $1
       Audio: $2
-      Pic: $3
-      Text: $4
+      Text: $3
       Opts:
-        Text: $5
-        Text(checked=true): $6
+        Text: $4
+        Text(checked=true): $5
+        Text: $6
         Text: $7
-        Text: $8
-      TR: $9
+      TR: $8
     """
   'MCQ1a':
     'prefix': 'mcq1a'
@@ -307,20 +313,31 @@
         Text: $8
       TR: $8
     """
+  'MCQ4b':
+    'prefix': 'mcq4b'
+    'body': """
+      [TYPE MCQ4b]
+      ID: $1
+      Audio: $2
+      Text: $3
+      Opts:
+        Text(checked=true): $4
+        Text: $5
+        Text: $6
+      TR: $7
+    """
   'MCQ7':
     'prefix': 'mcq7'
     'body': """
       [TYPE MCQ7]
       ID: $1
       Audio: $2
-      Pic: $3
-      Text: $4
       Opts:
+        Text(checked=true): $3
+        Text(checked=true): $4
         Text: $5
-        Text(checked=true): $6
+        Text: $6
         Text: $7
-        Text: $8
-      TR: $9
     """
   'MCP1':
     'prefix': 'mcp1'
@@ -329,14 +346,15 @@
       ID: $1
       Audio: $2
       Opts:
-        Text: $3
-        Text: $4
-        Pic(checked=true): $5
-      TR: $6
+        Pic(checked=true): $3
+        Pic: $4
+        Pic: $5
+        Pic: $6
+      TR: $7
       \"""
       tips:
       - stem:
-        - $7
+        - $8
       \"""
     """
   'MCP2':
@@ -346,14 +364,16 @@
       ID: $1
       Audio: $2
       Opts:
-        Text: $3
-        Text: $4
-        Pic(checked=true): $5
-      TR: $6
+        Pic(checked=true): $3
+        Pic: $4
+        Pic: $5
+        Pic: $6
+        Pic: $7
+      TR: $8
       \"""
       tips:
       - stem:
-        - $7
+        - $9
       \"""
     """
   'MCP3':
@@ -373,7 +393,7 @@
     'body': """
       [TYPE WordGuess]
       ID: $1
-      Audio: $2
+      Pic: $2
       Text: $3
       TR: $4
     """
@@ -382,13 +402,15 @@
     'body': """
       [TYPE ChooseAllWords]
       ID: $1
+      Audio: $2
+      Text: $3
       Opts:
-        Text(checked=true): $2
-        Text(checked=true): $3
-        Text: $4
-        Text: $5
-        Text: $6
+        Text(checked=true): $4
+        Text(checked=true): $5
+        Text(checked=true): $6
         Text: $7
+        Text: $8
+        Text: $9
     """
   'WordFragments':
     'prefix': 'wordfragments'
@@ -398,6 +420,7 @@
       Pic: $2
       Audio: $3
       Text: $4
+      TR: $5
     """
   'SentenceCompletion':
     'prefix': 'sentencecompletion'
@@ -426,7 +449,9 @@
     'body': """
     == Milestone $1
     \"""
-    summary: $2
+    title: $2
+    summary: $3
+    image_url: $4
     \"""
     """
   'Session':
