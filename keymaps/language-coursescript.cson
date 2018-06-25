@@ -4,3 +4,4 @@
   'ctrl-c f': 'language-coursescript:search'
 'atom-workspace':
   'escape': 'language-coursescript:search-close'
+  'ctrl-i': 'language-coursescript:focus-search'

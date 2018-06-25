@@ -14,7 +14,8 @@
       "language-coursescript:search"
     ],
     "atom-workspace": [
-      "language-coursescript:search-close"
+      "language-coursescript:search-close",
+      "language-coursescript:focus-search"
     ]
   },
   "devDependencies": {
