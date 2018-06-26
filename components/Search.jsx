@@ -16,24 +16,40 @@ const types = [
 const querySchema = {
   GET_PICS: gql`
     query pics($content: String!) {
-      pics(content: $content) { resource_id, origin_filename, url, created_at_sec }
+      pics(content: $content) {
+        resource_id
+        origin_filename
+        url
+        created_at_sec
+      }
     }
   `,
   GET_VIDEOS: gql`
     query videos($content: String!) {
-      videos(content: $content) { resource_id, origin_filename, url, created_at_sec }
+      videos(content: $content) {
+        resource_id
+        origin_filename
+        url
+        created_at_sec
+      }
     }
   `,
   GET_AUDIOS: gql`
     query audios($content: String!) {
-      audios(content: $content) { resource_id, text, url, created_at_sec }
+      audios(content: $content) {
+        resource_id
+        text
+        url
+        created_at_sec
+      }
     }
   `
 }
 
 class Search extends React.Component {
   static propTypes = {
-    onCopy: PropTypes.func.isRequired
+    focus: PropTypes.bool.isRequired,
+    onCopy: PropTypes.func.isRequired,
   }
 
   state = {
@@ -102,7 +118,12 @@ class Search extends React.Component {
 
   componentDidMount() {
     this.input.addEventListener('keydown', this.handleKeyDown)
-    this.input.focus()
+  }
+
+  componentDidUpdate(prevProps) {
+    if (!prevProps.focus && this.props.focus) {
+      this.input.focus()
+    }
   }
 
   componentWillUnmount() {

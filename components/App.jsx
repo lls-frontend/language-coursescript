@@ -10,6 +10,7 @@ import SelectType from './SelectType.jsx';
 export default class Preview extends React.Component {
   static propTypes = {
     plainText: PropTypes.string.isRequired,
+    onCodeCopy: PropTypes.func.isRequired,
     onError: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
   };
@@ -41,9 +42,14 @@ export default class Preview extends React.Component {
     }
   }
 
-  handleCursor = id => {
+  handleActivityChange = id => {
     const { activities_line } = this.state.data
     this.props.onChange(activities_line[id])
+  }
+
+  handleCodeCopy = () => {
+    const { course } = this.state.data
+    this.props.onCodeCopy(course)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -58,10 +64,6 @@ export default class Preview extends React.Component {
     this.props.onError(err)
   }
 
-  componentDidCatch(err) {
-    this.props.onError(err)
-  }
-
   render() {
     const { data, isFetching, type } = this.state;
 
@@ -69,14 +71,19 @@ export default class Preview extends React.Component {
       return <div>Loading...</div>
     }
 
-    if (type !== null) {
-      return (
-        <div>
-          <CourscriptPreview data={data} type={type} onActivityChange={this.handleCursor} />
-        </div>
-      )
-    } else {
+    if (type === null) {
       return <SelectType onSelect={this.handleTypeSelect} />
     }
+
+    return (
+      <div>
+        <CourscriptPreview
+          data={data}
+          type={type}
+          onActivityChange={this.handleActivityChange}
+          onCodeCopy={this.handleCodeCopy}
+        />
+      </div>
+    )
   }
 }
