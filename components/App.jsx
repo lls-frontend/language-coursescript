@@ -10,6 +10,7 @@ import SelectType from './SelectType.jsx';
 export default class Preview extends React.Component {
   static propTypes = {
     plainText: PropTypes.string.isRequired,
+    onCodeCopy: PropTypes.func.isRequired,
     onError: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
   };
@@ -48,8 +49,7 @@ export default class Preview extends React.Component {
 
   handleCodeCopy = () => {
     const { course } = this.state.data
-    atom.clipboard.write(course)
-    atom.notifications.addSuccess('Copy Success!')
+    this.props.onCodeCopy(course)
   }
 
   componentWillReceiveProps(nextProps) {
