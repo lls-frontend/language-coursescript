@@ -26,7 +26,8 @@ const SelectType = props => {
     DARWIN: 1,
     LT: 2,
     PT: 3,
-    OCC: 4
+    OCC: 4,
+    BE: 5,
   }
 
   const typeItem = (item, index) => {
