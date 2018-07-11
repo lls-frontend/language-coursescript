@@ -29,6 +29,7 @@ const querySchema = {
       videos(content: $content) {
         resource_id
         origin_filename
+        filename
         url
         clips {
           resource_id

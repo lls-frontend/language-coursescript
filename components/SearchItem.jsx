@@ -22,7 +22,7 @@ const SearchItem = props => {
     if (field === 'name') {
       text = data.origin_filename || data.text
     } else if (field === 'clips') {
-      text = data.clips.map(item => (
+      text = `Video(id=${data.resource_id}): ${data.filename}\n` + data.clips.map(item => (
         `VideoClip(id=${item.resource_id}): ${item.spoken_text}`
       )).join('\n')
     }
