@@ -29,10 +29,13 @@ export default class Preview extends React.Component {
   fetchList = async (text, type) => {
     const { onError } = this.props
 
+    this.setState({ isFetching: true })
     try {
-      this.setState({ isFetching: true })
-
-      const { data } = await axios.post('http://cms.llsapp.com/v1/coursescript/parse', { text, type })
+      const params = {
+        text,
+        type: type.apiType,
+      }
+      const { data } = await axios.post('http://cms.llsapp.com/v1/coursescript/parse', params)
 
       this.setState({ data, isFetching: false })
     } catch (error) {
@@ -79,7 +82,7 @@ export default class Preview extends React.Component {
       <div>
         <CourscriptPreview
           data={data}
-          type={type}
+          type={type.courseType}
           onActivityChange={this.handleActivityChange}
           onCodeCopy={this.handleCodeCopy}
         />
