@@ -30,6 +30,11 @@ const querySchema = {
         resource_id
         origin_filename
         url
+        clips {
+          resource_id
+          spoken_text
+          start_at
+        }
         created_at_sec
       }
     }
