@@ -23,10 +23,11 @@ const styles = {
 
 const SelectType = props => {
   const types = {
-    DARWIN: 1,
-    LT: 2,
-    PT: 3,
-    OCC: 4
+    DARWIN: { courseType: 1, apiType: 1 },
+    LT: { courseType: 2, apiType: 2 },
+    PT: { courseType: 3, apiType: 3 },
+    OCC: { courseType: 4, apiType: 4 },
+    BE: { courseType: 4, apiType: 5 },
   }
 
   const typeItem = (item, index) => {

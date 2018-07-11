@@ -29,7 +29,13 @@ const querySchema = {
       videos(content: $content) {
         resource_id
         origin_filename
+        filename
         url
+        clips {
+          resource_id
+          spoken_text
+          start_at
+        }
         created_at_sec
       }
     }
