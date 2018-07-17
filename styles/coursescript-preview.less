@@ -4,6 +4,7 @@
 }
 
 .search {
+  position: relative;
   margin: -9px;
 }
 .search-input {
@@ -155,4 +156,29 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.search-close {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin: 20px 0 0 -15px;
+  width: 30px;
+  height: 30px;
+  color: #999;
+  border: 2px solid #999;
+  border-radius: 100%;
+  background: none;
+  box-sizing: border-box;
+  &:after {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: -2px;
+    width: 26px;
+    height: 26px;
+    line-height: 1;
+    font-size: 26px;
+    content: '\00d7';
+  }
 }

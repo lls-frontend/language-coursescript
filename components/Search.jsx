@@ -56,6 +56,7 @@ class Search extends React.Component {
   static propTypes = {
     focus: PropTypes.bool.isRequired,
     onCopy: PropTypes.func.isRequired,
+    onClose: PropTypes.func.isRequired,
   }
 
   state = {
@@ -122,6 +123,10 @@ class Search extends React.Component {
     ))
   }
 
+  handleClose = () => {
+    this.props.onClose()
+  }
+
   componentDidMount() {
     this.input.addEventListener('keydown', this.handleKeyDown)
   }
@@ -169,6 +174,7 @@ class Search extends React.Component {
             <Query query={query} variables={{ content }}>{this.handleResults}</Query>
           </div>
         )}
+        <button type="button" className="search-close" onClick={this.handleClose}></button>
       </div>
     )
   }
