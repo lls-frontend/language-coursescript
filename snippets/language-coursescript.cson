@@ -415,23 +415,34 @@
   'Speakinglink':
     'prefix': 'Speakingl'
     'body': """
-      [TYPE SL]
-      ID: $1
-      Audio: $2
-      Opts:
-        Text: $3
-        Text: $4
-        Text: $5
-        Text: $6
-        Text: $7
-        TR_text: $8
+    [TYPE SL]
+    ID: $1
+    Audio: $2
+    Opts:
+      Text: $3
+      Text: $4
+      Text: $5
+      Text: $6
+      Text: $7
+      TR_text: $8
     """
-    'RA':
+  'RA':
       'prefix': 'RA'
       'body': """
-        [TYPE RA]
-        ID: $1
-        Pic: $2
-        Audio: $3
-        TR: $4
+      [TYPE RA]
+      ID: $1
+      Pic: $2
+      Audio: $3
+      TR: $4
+      """
+  'note':
+      'prefix': 'note'
+      'body': """
+      \"""
+      note:
+      - title: $1
+        item:
+        - text: $2
+        - pic: $3
+      \"""
       """
