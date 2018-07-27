@@ -51,11 +51,6 @@
       [TYPE SpotErrors]
       ID: $1
       Text: $2
-      \"""
-      tips:
-      - activity:
-        - $3
-      \"""
     """
   'Locating':
     'prefix': 'locating'
@@ -71,17 +66,6 @@
       ID: $1
       Audio: $2
       Audio: $3
-      \"""
-      tips:
-      - choice:
-        - $4
-        activity:
-        - $5
-      - choice:
-        - $6
-        activity:
-        - $7
-      \"""
     """
   'Dictation':
     'prefix': 'dictation'
@@ -104,13 +88,6 @@
       Audio: $2
       Pic(checked=true): $3
       Text(checked=true): $4
-      \"""
-      tips:
-      - stem:
-        - $5
-        choice:
-        - $6
-      \"""
     """
   'MCQ5a':
     'prefix': 'mcq5a'
@@ -119,13 +96,6 @@
       ID: $1
       Audio(question=true): $2
       Audio(matching=true): $3
-      \"""
-      tips:
-      - stem:
-        - $4
-        choice:
-        - $5
-      \"""
     """
   'Sequencing':
     'prefix': 'seq'
@@ -135,11 +105,6 @@
       Audio: $2
       Audio: $3
       Audio: $4
-      \"""
-      tips:
-      - activity:
-        - $5
-      \"""
     """
   'RP':
     'prefix': 'rp'
@@ -180,13 +145,6 @@
       Pic: $2
       Text: $3
       TR: $4
-      \"""
-      tips:
-      - activity:
-        - $5
-      - activity:
-        - $6
-      \"""
     """
   'MCQ6':
     'prefix': 'mcq6'
@@ -201,13 +159,6 @@
         Audio: $6
         Audio: $7
       TR: $8
-      \"""
-      tips:
-      - stem:
-        - $9
-        activity:
-        - $10
-      \"""
     """
   'MCQ1':
     'prefix': 'mcq1'
@@ -222,13 +173,6 @@
         Text: $6
         Text: $7
       TR: $8
-      \"""
-      tips:
-      - stem:
-        - $9
-        activity:
-        - $10
-      \"""
     """
   'MCQ2':
     'prefix': 'mcq2'
@@ -244,15 +188,6 @@
         Text: $7
         Text: $8
       TR: $9
-      \"""
-      tips:
-      - stem:
-        - $10
-        choice:
-        - $11
-        activity:
-        - $12
-      \"""
     """
   'MCQ3':
     'prefix': 'mcq3'
@@ -351,11 +286,6 @@
         Pic: $5
         Pic: $6
       TR: $7
-      \"""
-      tips:
-      - stem:
-        - $8
-      \"""
     """
   'MCP2':
     'prefix': 'mcp2'
@@ -370,11 +300,6 @@
         Pic: $6
         Pic: $7
       TR: $8
-      \"""
-      tips:
-      - stem:
-        - $9
-      \"""
     """
   'MCP3':
     'prefix': 'mcp3'
@@ -469,3 +394,26 @@
     'body': """
     ===== Group $1
     """
+  'Speakinglink':
+    'prefix': 'Speakingl'
+    'body': """
+      [TYPE SL]
+      ID: $1
+      Audio: $2
+      Opts:
+        Text: $3
+        Text: $4
+        Text: $5
+        Text: $6
+        Text: $7
+        TR_text: $8
+    """
+    'RA':
+      'prefix': 'RA'
+      'body': """
+        [TYPE RA]
+        ID: $1
+        Pic: $2
+        Audio: $3
+        TR: $4
+      """
