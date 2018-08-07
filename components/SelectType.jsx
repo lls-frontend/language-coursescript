@@ -28,6 +28,7 @@ const SelectType = props => {
     PT: { courseType: 3, apiType: 3 },
     OCC: { courseType: 4, apiType: 4 },
     BE: { courseType: 4, apiType: 5 },
+    PILOT: { courseType: 4, apiType: 6 },
   }
 
   const typeItem = (item, index) => {
