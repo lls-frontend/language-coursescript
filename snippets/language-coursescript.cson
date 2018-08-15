@@ -1,4 +1,60 @@
 '.source.coursescript':
+  'VT':
+    'prefix': 'VT'
+    'body': """
+      [TYPE VT]
+      ID: $1
+      Video: $2
+      VideoClip: $3
+      VideoClip: $4
+    """
+  'HW':
+    'prefix': 'HW'
+    'body': """
+      [TYPE HW]
+      ID: $1
+      TEXT: $2
+    """    
+  'T2P':
+    'prefix': 't2p'
+    'body': """
+      [TYPE T2P]
+      ID: $1
+      Pic: $3
+      Opts:
+        Pic(checked=true): $4
+        Pic: $5
+        Pic: $6
+        Pic: $7
+      TR: $8
+    """
+  'A2T':
+    'prefix': 'a2t'
+    'body': """
+      [TYPE A2T]
+      ID: $1
+      Audio: $2
+      Pic: $3
+      Opts:
+        Text: $4
+        Text(checked=true): $5
+        Text: $6
+        Text: $7
+      TR: $8
+    """
+  'A2P':
+    'prefix': 'a2p'
+    'body': """
+      [TYPE A2P]
+      ID: $1
+      Audio: $2
+      Opts:
+        Pic(checked=true): $3
+        Pic: $4
+        Pic: $5
+        Pic: $6
+      TR: $7
+    """    
   'Presentation Video':
     'prefix': 'prevideo'
     'body': """
