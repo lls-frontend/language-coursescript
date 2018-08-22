@@ -10,6 +10,7 @@ import SelectType from './SelectType.jsx';
 export default class Preview extends React.Component {
   static propTypes = {
     plainText: PropTypes.string.isRequired,
+    onTimeCopy: PropTypes.func.isRequired,
     onCodeCopy: PropTypes.func.isRequired,
     onError: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
@@ -68,7 +69,8 @@ export default class Preview extends React.Component {
   }
 
   render() {
-    const { data, isFetching, type } = this.state;
+    const { onTimeCopy } = this.props
+    const { data, isFetching, type } = this.state
 
     if (isFetching) {
       return <div>Loading...</div>
@@ -83,7 +85,9 @@ export default class Preview extends React.Component {
         <CourscriptPreview
           data={data}
           type={type.courseType}
+          showActivityMetadata={type.courseType === 1}
           onActivityChange={this.handleActivityChange}
+          onTimeCopy={onTimeCopy}
           onCodeCopy={this.handleCodeCopy}
         />
       </div>
