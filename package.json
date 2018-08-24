@@ -26,7 +26,7 @@
   },
   "main": "./lib/language-coursescript",
   "dependencies": {
-    "@lls/coursescript-lib": "^2.1.0",
+    "@lls/coursescript-lib": "^2.1.1",
     "apollo-boost": "^0.1.7",
     "atom-space-pen-views": "^2.2.0",
     "axios": "^0.18.0",
