@@ -1,6 +1,5 @@
 'use babel';
 
-import atom from 'atom';
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
@@ -36,7 +35,10 @@ export default class Preview extends React.Component {
         text,
         type: type.apiType,
       }
-      const { data } = await axios.post('http://cms.llsapp.com/v1/coursescript/parse', params)
+      const { data } = await axios.post(
+        'http://cms.llsapp.com/v1/coursescript/parse',
+        params,
+      )
 
       this.setState({ data, isFetching: false })
     } catch (error) {

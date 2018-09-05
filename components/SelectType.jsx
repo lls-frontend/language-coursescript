@@ -33,14 +33,22 @@ const SelectType = props => {
   }
 
   const typeItem = (item, index) => {
-    return <span key={index} style={styles.item} onClick={() => handleClick(item)}>{item}</span>
+    return (
+      <span key={index} style={styles.item} onClick={() => handleClick(item)}>
+        {item}
+      </span>
+    )
   }
 
   const handleClick = type => {
     props.onSelect(types[type])
   }
 
-  return <div className="select-type" style={styles.list}>{Object.keys(types).map(typeItem)}</div>
+  return (
+    <div className="select-type" style={styles.list}>
+      {Object.keys(types).map(typeItem)}
+    </div>
+  )
 }
 
 SelectType.propTypes = {
