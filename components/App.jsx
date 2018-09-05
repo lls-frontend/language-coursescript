@@ -18,13 +18,9 @@ export default class Preview extends React.Component {
   state = {
     data: null,
     type: null,
+    selectedActivity: '',
     isFetching: false
   };
-
-  handleTypeSelect = type => {
-    this.setState({ type })
-    this.fetchList(this.props.plainText, type)
-  }
 
   fetchList = async (text, type) => {
     const { onError } = this.props
@@ -48,6 +44,11 @@ export default class Preview extends React.Component {
     }
   }
 
+  handleTypeSelect = type => {
+    this.setState({ type })
+    this.fetchList(this.props.plainText, type)
+  }
+
   handleActivityChange = id => {
     const { activities_line } = this.state.data
     this.props.onChange(activities_line[id])
@@ -56,6 +57,22 @@ export default class Preview extends React.Component {
   handleCodeCopy = () => {
     const { course } = this.state.data
     this.props.onCodeCopy(course)
+  }
+
+  handleSelectLineChange = line => {
+    const { data } = this.state
+    if (!data || !data.activities_line) {
+      return false
+    }
+
+    const selectedActivity = Object.keys(data.activities_line).find(
+      item => data.activities_line[item] === line
+    )
+    if (!selectedActivity) {
+      return false
+    }
+
+    this.setState({ selectedActivity })
   }
 
   componentWillReceiveProps(nextProps) {
@@ -72,7 +89,7 @@ export default class Preview extends React.Component {
 
   render() {
     const { onTimeCopy } = this.props
-    const { data, isFetching, type } = this.state
+    const { data, type, selectedActivity, isFetching } = this.state
 
     if (isFetching) {
       return <div>Loading...</div>
@@ -87,6 +104,7 @@ export default class Preview extends React.Component {
         <CourscriptPreview
           data={data}
           type={type.courseType}
+          activeActivityId={selectedActivity}
           showActivityMetadata={type.courseType === 1}
           onActivityChange={this.handleActivityChange}
           onTimeCopy={onTimeCopy}
