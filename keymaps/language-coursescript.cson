@@ -1,5 +1,6 @@
 'atom-text-editor':
-  'ctrl-c i': 'language-coursescript:insert-id'
+  'ctrl-c i': 'language-coursescript:insert-darwin-id'
+  'ctrl-c c': 'language-coursescript:insert-cc-id'
   'ctrl-c p': 'language-coursescript:preview'
   'ctrl-c f': 'language-coursescript:search'
 'atom-workspace':
