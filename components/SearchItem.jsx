@@ -12,23 +12,38 @@ const SearchItem = props => {
       {type === 'videos' && data.clips && data.clips.length > 0 &&
         <span onClick={() => handleCopy('clips')}>Copy Clips</span>
       }
+      {['pics', 'audios'].includes(type) && (
+        <span onClick={() => handleCopy('code')}>Copy Code</span>
+      )}
       <span onClick={() => handleCopy('name')}>Copy name</span>
       <span onClick={() => handleCopy('id')}>Copy id</span>
     </div>
   )
 
   const handleCopy = field => {
-    let text = data.resource_id
-    if (field === 'name') {
-      text = data.origin_filename || data.text
-    } else if (field === 'clips') {
-      text = `Video(id=${data.resource_id}): ${data.filename}\n` + data.clips.map(item => (
-        `VideoClip(id=${item.resource_id}): ${item.spoken_text}`
-      )).join('\n')
+    switch (field) {
+      case 'name':
+        onCopy(data.origin_filename || data.text)
+        break
+      case 'clips':
+        const clips = data.clips
+          .map(item => `VideoClip(id=${item.resource_id}): ${item.spoken_text}`)
+          .join('\n')
+        onCopy(
+          `Video(id=${data.resource_id}): ${data.origin_filename}\n${clips}`
+        )
+        break
+      case 'code':
+        if (type === 'audios') {
+          onCopy(`Audio(id=${data.resource_id}):${data.text}`)
+        } else if (type === 'pics') {
+          onCopy(`Pic(id=${data.resource_id}):${data.origin_filename}`)
+        }
+        break
+      default:
+        onCopy(data.resource_id)
     }
-
-    onCopy(text)
-  }
+  };
 
   const handleClipClick = clip => {
     const time = clip.start_at / 1000
@@ -66,6 +81,7 @@ const SearchItem = props => {
           <div className="right">
             <p>{date}</p>
             <p>{data.origin_filename}</p>
+            <p>{data.resource_id}</p>
             {copyButton}
           </div>
         </div>
@@ -74,9 +90,14 @@ const SearchItem = props => {
       return (
         <div className="search-item video">
           <p>{date} {data.origin_filename}</p>
+          <p>{data.resource_id}</p>
           <div className="search-item-video">
             <div className="left">
-              <video ref={video => this.video = video} src={data.url} controls></video>
+              <video
+                ref={video => this.video = video}
+                src={data.url}
+                controls
+              />
               {copyButton}
             </div>
             <ol className="right">{renderVideoClips(data.clips)}</ol>
@@ -87,6 +108,7 @@ const SearchItem = props => {
       return (
         <div className="search-item audio">
           <p>{date}</p>
+          <p>{data.resource_id}</p>
           <p>{data.text}</p>
           <div className="search-item-audio">
             <audio src={data.url} controls></audio>

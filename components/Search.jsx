@@ -119,7 +119,12 @@ class Search extends React.Component {
     }
 
     return res.map((item, index) => (
-      <SearchItem key={index} data={item} type={type} onCopy={this.props.onCopy} />
+      <SearchItem
+        key={index}
+        data={item}
+        type={type}
+        onCopy={this.props.onCopy}
+      />
     ))
   }
 
@@ -153,7 +158,9 @@ class Search extends React.Component {
             <ul className={showTypes ? 'show' : ''}>
             {
               types.map((item, index) => (
-                <li key={index} onClick={() => this.handleTypeChange(item)}>{item.name}</li>
+                <li key={index} onClick={() => this.handleTypeChange(item)}>
+                  {item.name}
+                </li>
               ))
             }
             </ul>
@@ -171,16 +178,24 @@ class Search extends React.Component {
         </div>
         {showResults && (
           <div className="search-result">
-            <Query query={query} variables={{ content }}>{this.handleResults}</Query>
+            <Query query={query} variables={{ content }}>
+              {this.handleResults}
+            </Query>
           </div>
         )}
-        <button type="button" className="search-close" onClick={this.handleClose}></button>
+        <button
+          type="button"
+          className="search-close"
+          onClick={this.handleClose}
+        />
       </div>
     )
   }
 }
 
-const client = new ApolloClient({ uri: 'https://cms.llsapp.com/v1/graphql/asset' })
+const client = new ApolloClient({
+  uri: 'https://cms.llsapp.com/v1/graphql/asset'
+})
 
 const App = props => (
   <ApolloProvider client={client}>

@@ -1,12 +1,12 @@
 'context-menu':
   'atom-text-editor, .overlayer': [
     {
-      'label': 'Insert Coursescript Session&Episode ID'
-      'command': 'language-coursescript:insert-id'
+      'label': 'Insert ID (Darwin/Sprout)'
+      'command': 'language-coursescript:insert-darwin-id'
     },
     {
-      'label': 'Insert Coursescript Activity ID'
-      'command': 'language-coursescript:insert-id'
+      'label': 'Insert ID (CC/BE/Pilot)'
+      'command': 'language-coursescript:insert-cc-id'
     },
     {
       "label": "Preview CourseScript",
