@@ -69,8 +69,12 @@
   # TR_TEXT
   # Video
   # Videoclip
+  # Mix
+  # Scene
+  # coordinate
+  # QuestionPart
   {
-    'match': '(ID|Text|Audio|Pic|Video|VideoClip|Opts|TR_TEXT|TR|Title):\\s'
+    'match': '(ID|Text|Audio|Pic|Video|VideoClip|Opts|TR_TEXT|TR|Title|Mix|Scene|QuestionPart|coordinate):\\s'
     'name': 'storage.type.coursescript'
   }
   # DF01
