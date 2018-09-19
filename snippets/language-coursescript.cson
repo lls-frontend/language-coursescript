@@ -453,6 +453,11 @@
     name: $3
     \"""
     """
+  'Assessment':
+    'prefix': "assessment"
+    'body': """
+    === Assessment $1
+    """
   'Episode':
     'prefix': "episode"
     'body': """
