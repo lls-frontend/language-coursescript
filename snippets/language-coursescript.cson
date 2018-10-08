@@ -411,7 +411,7 @@
         Text: $7
         Text: $8
         Text: $9
-    """
+   """
   'WordFragments':
     'prefix': 'wordfragments'
     'body': """
@@ -464,8 +464,64 @@
       zh-Hans: $3
     \"""
     """
+  'Episode':
+    'prefix': "episode"
+    'body': """
+    ==== Episode $1
+    \"""
+    part: $2
+    intro: $3
+    intro_language:
+      zh-Hans: $4
+    \"""
+    """
   'Group':
     'prefix': "group"
     'body': """
     ===== Group $1
-    """
+   """
+  'SpeakingQA':
+    'prefix': 'SpeakingQA'
+    'body':"""
+      [TYPE SpeakingQA]
+      ID: $1
+      Audio: $2
+      Pic: $3
+      Hint: $4
+      Text: $5
+   """
+  'SpeakingMCQ':
+    'prefix': 'SpeakingMCQ'
+    'body':"""
+      [TYPE SpeakingMCQ]
+      ID: $1
+      Audio: $2
+      Text: $3
+      Opts:
+      Text(checked=true): $4
+      Text: $5
+      Text: $6
+   """
+    'PreDialoguePlay':
+      'prefix': 'PreDialoguePlay'
+      'body':"""
+        [TYPE PreDialoguePlay]
+        ID: $1
+        Pic(checked=true): $2
+        Pic(role=): $3
+        Pic(role=): $4
+        Audio: $5
+        Audio: $6
+        Audio: $7
+        Audio: $8
+   """
+    'vocab':
+    'prefix': 'vocab'
+    'body': """
+    \"""
+    vocab:
+    - word: $1
+      desc: $2
+      pos: $3
+    \"""
+   """
