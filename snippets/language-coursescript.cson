@@ -464,17 +464,6 @@
       zh-Hans: $3
     \"""
     """
-  'Episode':
-    'prefix': "episode"
-    'body': """
-    ==== Episode $1
-    \"""
-    part: $2
-    intro: $3
-    intro_language:
-      zh-Hans: $4
-    \"""
-    """
   'Group':
     'prefix': "group"
     'body': """
@@ -524,4 +513,14 @@
       desc: $2
       pos: $3
     \"""
+   """
+   'part':
+      'prefix': 'part'
+      'body': """
+      \"""
+      part: $1
+      intro: $2
+      intro_language:
+        zh-Hans: $3
+      \"""
    """
