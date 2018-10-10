@@ -14,7 +14,7 @@
       [TYPE HW]
       ID: $1
       TEXT: $2
-    """    
+    """
   'T2P':
     'prefix': 't2p'
     'body': """
@@ -54,7 +54,7 @@
         Pic: $5
         Pic: $6
       TR: $7
-    """    
+    """
   'Presentation Video':
     'prefix': 'prevideo'
     'body': """
@@ -176,13 +176,12 @@
     'body': """
       [TYPE RP]
       ID: $1
-      Pic(role=$1): $2
-      Pic(role=$2): $3
-      Audio(role=$1): $4
-      Audio(role=$2): $5
-      Audio(role=$1): $6
-      Audio(role=$2): $7
-      Audio(role=$1): $8
+      Pic(role=1): $2
+      Pic(role=2): $3
+      Audio(role=1): $4
+      Audio(role=2): $5
+      Audio(role=1): $6
+      Audio(role=2): $7
     """
   'OR':
     'prefix': 'or'
@@ -463,9 +462,10 @@
     'body': """
     ==== Episode $1
     \"""
-    intro: $2
+    part: $2
+    intro: $3
     intro_language:
-      zh-Hans: $3
+      zh-Hans: $4
     \"""
     """
   'Group':
@@ -485,7 +485,7 @@
       Text: $5
       Text: $6
       Text: $7
-      TR_text: $8
+      TR_Text: $8
     """
   'RA':
       'prefix': 'RA'
@@ -507,3 +507,49 @@
         - pic: $3
       \"""
       """
+  'SpeakingQA':
+    'prefix': 'SpeakingQA'
+    'body':"""
+      [TYPE SpeakingQA]
+      ID: $1
+      Audio: $2
+      Pic: $3
+      Hint: $4
+      Text: $5
+   """
+  'SpeakingMCQ':
+      'prefix': 'SpeakingMCQ'
+      'body':"""
+      [TYPE SpeakingMCQ]
+      ID: $1
+      Audio: $2
+      Text: $3
+      Opts:
+      Text(checked=true): $4
+      Text: $5
+      Text: $6
+   """
+  'PreDialoguePlay':
+      'prefix': 'PreDialoguePlay'
+      'body':"""
+      [TYPE PreDialoguePlay]
+      ID: $1
+      Pic(checked=true): $2
+      Pic(role=1): $3
+      Pic(role=2): $4
+      Audio(role=1): $5
+      Audio(role=2): $6
+      Audio(role=1): $7
+      Audio(role=2): $8
+   """
+  'vocab':
+      'prefix': 'vocab'
+      'body': """
+      \"""
+      vocab:
+      - word: $1
+        desc: $2
+        pos: $3
+      \"""
+      """
+
