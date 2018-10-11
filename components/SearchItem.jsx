@@ -27,7 +27,7 @@ const SearchItem = props => {
         break
       case 'clips':
         const clips = data.clips
-          .map(item => `VideoClip(id=${item.resource_id}): ${item.spoken_text}`)
+          .map(item => `VideoClip(id=${item.resource_id}): ${item.text}`)
           .join('\n')
         onCopy(
           `Video(id=${data.resource_id}): ${data.origin_filename}\n${clips}`
@@ -61,7 +61,7 @@ const SearchItem = props => {
     return clips.map(item => {
       return (
         <li key={item.resource_id} onClick={() => handleClipClick(item)}>
-          {item.spoken_text}
+          {item.text}
         </li>
       )
     })

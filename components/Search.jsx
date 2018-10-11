@@ -33,7 +33,7 @@ const querySchema = {
         url
         clips {
           resource_id
-          spoken_text
+          text
           start_at
         }
         created_at_sec
