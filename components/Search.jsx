@@ -1,11 +1,11 @@
 'use babel'
 
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider, Query } from 'react-apollo'
 import gql from 'graphql-tag'
-import SearchItem from './SearchItem.jsx'
+import SearchList from './SearchList.jsx'
 
 const types = [
   { name: 'Picture', value: 'pics' },
@@ -15,8 +15,8 @@ const types = [
 
 const querySchema = {
   GET_PICS: gql`
-    query pics($content: String!) {
-      pics(content: $content) {
+    query pics($content: String!, $page: Int!, $limit: Int!) {
+      pics(content: $content, page: $page, limit: $limit) {
         resource_id
         origin_filename
         url
@@ -25,8 +25,8 @@ const querySchema = {
     }
   `,
   GET_VIDEOS: gql`
-    query videos($content: String!) {
-      videos(content: $content) {
+    query videos($content: String!, $page: Int!, $limit: Int!) {
+      videos(content: $content, page: $page, limit: $limit) {
         resource_id
         origin_filename
         filename
@@ -41,8 +41,8 @@ const querySchema = {
     }
   `,
   GET_AUDIOS: gql`
-    query audios($content: String!) {
-      audios(content: $content) {
+    query audios($content: String!, $page: Int!, $limit: Int!) {
+      audios(content: $content, page: $page, limit: $limit) {
         resource_id
         text
         url
@@ -52,7 +52,7 @@ const querySchema = {
   `
 }
 
-class Search extends React.Component {
+class Search extends Component {
   static propTypes = {
     focus: PropTypes.bool.isRequired,
     onCopy: PropTypes.func.isRequired,
@@ -64,6 +64,7 @@ class Search extends React.Component {
     query: querySchema[`GET_${types[0].value.toUpperCase()}`],
     search: '',
     content: '',
+    page: 1,
     showTypes: false,
     showResults: false,
   }
@@ -74,7 +75,7 @@ class Search extends React.Component {
       return false
     }
 
-    this.setState({ content: search, showResults: true })
+    this.setState({ content: search, page: 1, showResults: true })
   }
 
   handleTypeChange = item => {
@@ -83,8 +84,9 @@ class Search extends React.Component {
       query: querySchema[`GET_${item.value.toUpperCase()}`],
       search: '',
       content: '',
+      page: 1,
       showTypes: false,
-      showResults: false
+      showResults: false,
     })
   }
 
@@ -105,27 +107,42 @@ class Search extends React.Component {
 
   handleResults = ({ loading, error, data }) => {
     if (loading) {
-      return <p>Search...</p>
+      return <p className="search-text">Search...</p>
     }
 
     if (error) {
-      return <p>ERROR: {error.message}</p>
+      return <p className="search-text">ERROR: {error.message}</p>
     }
 
-    const { type } = this.state
+    const { type, page } = this.state
     const res = data[type]
-    if (!res.length) {
-      return <p>Resource not found</p>
+    if (!res.length && page === 1) {
+      return <p className="search-text">Resource not found</p>
     }
 
-    return res.map((item, index) => (
-      <SearchItem
-        key={index}
-        data={item}
-        type={type}
-        onCopy={this.props.onCopy}
-      />
-    ))
+    const props = {
+      type,
+      page,
+      data: res,
+      onCopy: this.props.onCopy,
+      onPrev: this.handlePrev,
+      onNext: this.handleNext,
+    }
+
+    return <SearchList {...props} />
+  }
+
+  handlePrev = () => {
+    const { page } = this.state
+    if (page === 1) {
+      return false
+    }
+    this.setState({ page: page - 1 })
+  }
+
+  handleNext = () => {
+    const { page } = this.state
+    this.setState({ page: page + 1 })
   }
 
   handleClose = () => {
@@ -147,7 +164,7 @@ class Search extends React.Component {
   }
 
   render() {
-    const { type, search, content, query, showTypes, showResults } = this.state
+    const { type, search, content, query, page, showTypes, showResults } = this.state
     const activeType = types.find(v => v.value === type)
 
     return (
@@ -177,11 +194,9 @@ class Search extends React.Component {
           <i onClick={this.handleSearch}></i>
         </div>
         {showResults && (
-          <div className="search-result">
-            <Query query={query} variables={{ content }}>
-              {this.handleResults}
-            </Query>
-          </div>
+          <Query query={query} variables={{ content, page, limit: 25 }}>
+            {this.handleResults}
+          </Query>
         )}
         <button
           type="button"

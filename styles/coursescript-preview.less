@@ -87,15 +87,15 @@
     }
   }
 }
-.search-result {
+.search-results {
   max-height: 500px;
   font-size: 14px;
   border-top: 1px solid #9da5b4;
   overflow: auto;
-  > p {
-    margin: 0;
-    padding: 10px;
-  }
+}
+.search-text {
+  margin: 0;
+  padding: 10px;
 }
 .search-item {
   padding: 10px;
@@ -156,6 +156,23 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.search-pagination {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  padding: 10px 0;
+  list-style: none;
+  > li {
+    font-size: 14px;
+    color: #6494ed;
+    cursor: pointer;
+    &.disabled {
+      color: #999;
+      cursor: not-allowed;
+    }
+  }
 }
 .search-close {
   position: absolute;
