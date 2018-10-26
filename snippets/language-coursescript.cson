@@ -13,7 +13,7 @@
     'body': """
       [TYPE HW]
       ID: $1
-      TEXT: $2
+      Text: $2
     """
   'T2P':
     'prefix': 't2p'
@@ -552,4 +552,85 @@
         pos: $3
       \"""
       """
-
+  'SO':
+    'prefix': 'so'
+    'body': """
+      [TYPE SO$1]
+      ID: $2
+      Pic: $3
+      Audio: $4
+      TR: $5
+    """
+  'P2T':
+    'prefix': 'p2t'
+    'body': """
+      [TYPE P2T]
+      ID: $1
+      Pic: $2
+      Opts: 
+      Text(checked=true): $3
+      Text: $4
+    """
+  'DubShow':
+    'prefix':'dubshow'
+    'body':"""
+      [TYPE DubShow]
+      ID: $1
+      Video: $2
+      VideoClip: $3
+      VideoClip: $4
+      VideoClip: $5
+      Audio: $6
+      Audio(isBGM=true): $7
+    """
+  'A2T2':
+    'prefix': 'a2t2'
+    'body': """
+      [TYPE A2T2]
+      ID: $1
+      Audio: $2
+      Pic: $3
+      Opts:
+        Text: $4
+        Text(checked=true): $5
+        Text: $6
+        Text: $7
+      TR: $8
+    """
+  'A2P_MQSA':
+    'prefix': 'mqsa'
+    'body': """
+      [TYPE A2P_MQSA]
+      ID: $1
+      Opts:
+      Mix:
+        Pic: $2
+        Audio: $3
+        Text: $4
+      Scene:
+        Pic: $5
+        coordinate: x=$6,y=$7,w=$8,h=$9
+      QuestionPart:
+        Pic: $10
+        Audio: $11
+    """
+  'A2P_SQMA':
+    'prefix': 'sqma'
+    'body': """
+      [TYPE A2P_SQMA]
+      ID: $1
+      Audio: $2
+      Opts:
+      Mix:
+        Pic(checked=true): $3
+        Audio: $4
+        Text: $5
+      Mix:
+        Pic: $6
+        Audio: $7
+        Text: $8
+      Scene:
+        Pic: $9
+        coordinate: x=$10,y=$11,w=$12,h=$13
+        coordinate: x=$14,y=$15,w=$16,h=$17
+    """
