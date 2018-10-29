@@ -570,6 +570,8 @@
       Opts: 
       Text(checked=true): $3
       Text: $4
+      Text: $5
+      TR: $6
     """
   'DubShow':
     'prefix':'dubshow'
@@ -594,8 +596,7 @@
         Text: $4
         Text(checked=true): $5
         Text: $6
-        Text: $7
-      TR: $8
+      TR: $7
     """
   'A2P_MQSA':
     'prefix': 'mqsa'
