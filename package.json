@@ -34,7 +34,6 @@
     "dayjs": "^1.6.7",
     "prop-types": "^15.6.2",
     "react": "^16.4.0",
-    "react-apollo": "^2.1.4",
     "react-dom": "^16.4.0"
   }
 }
