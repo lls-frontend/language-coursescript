@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 const resourceTypes = ['Pictures', 'Audios', 'Videos']
 const tags = ['All', 'OCC', 'BE', 'Pilot', 'Darwin', 'Phonics']
-const searchTypes = ['ID', 'Filename', 'Text']
+const searchTypes = ['Filename', 'Text', 'ID']
 
 export default class Filter extends Component {
   static propTypes = {
@@ -22,13 +22,8 @@ export default class Filter extends Component {
   }
 
   handleResourceTypeChange = (e) => {
-    const { searchType } = this.state
     const { value } = e.target
-    const changed =
-      (value === "Pictures" && searchType === "Text") ||
-      (value === "Audios" && searchType === "Filename")
-        ? searchTypes[0]
-        : searchType
+    const changed = value === "Audios" ? 'Text' : searchTypes[0]
 
     this.setState({
       resourceType: value,
