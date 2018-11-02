@@ -1,7 +1,7 @@
 'context-menu':
   'atom-text-editor, .overlayer': [
     {
-      'label': 'Insert ID (Darwin/Sprout)'
+      'label': 'Insert ID (Darwin/Sprout/LT)'
       'command': 'language-coursescript:insert-darwin-id'
     },
     {

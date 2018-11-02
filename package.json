@@ -32,10 +32,8 @@
     "atom-space-pen-views": "^2.2.0",
     "axios": "^0.18.0",
     "dayjs": "^1.6.7",
-    "graphql": "^14.0.0-rc.1",
-    "graphql-tag": "^2.9.2",
+    "prop-types": "^15.6.2",
     "react": "^16.4.0",
-    "react-apollo": "^2.1.4",
     "react-dom": "^16.4.0"
   }
 }
