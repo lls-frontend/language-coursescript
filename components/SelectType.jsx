@@ -29,7 +29,9 @@ const SelectType = props => {
     OCC: { courseType: 4, apiType: 4 },
     BE: { courseType: 4, apiType: 5 },
     PILOT: { courseType: 4, apiType: 6 },
-    PHONICS: { courseType: 5, apiType: 7 }
+    PHONICS: { courseType: 5, apiType: 7 },
+    BELL: { courseType: 6, apiType: 8 },
+    TOURISM: { courseType: 4, apiType: 9 },
   }
 
   const typeItem = (item, index) => {
