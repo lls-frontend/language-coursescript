@@ -3,6 +3,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import axios from 'axios'
+import apiUrls from '../api-urls.js'
 import Filter from './Filter.jsx'
 import PictureItem from './PictureItem.jsx'
 import AudioItem from './AudioItem.jsx'
@@ -11,7 +12,7 @@ import Pagination from './Pagination.jsx'
 
 const PAGE_SIZE = 25
 
-const request = axios.create({ baseURL: 'https://cms.llsapp.com/v1/asset/' })
+const request = axios.create({ baseURL: apiUrls.asset })
 request.interceptors.response.use(
   res => res.data.msg,
   error => {
