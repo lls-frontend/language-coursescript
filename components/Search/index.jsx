@@ -3,6 +3,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import axios from 'axios'
+import { stringify } from 'query-string'
 import apiUrls from '../api-urls.js'
 import Filter from './Filter.jsx'
 import PictureItem from './PictureItem.jsx'
@@ -103,13 +104,11 @@ export default class Search extends Component {
       const baseQuery = { page, page_size: PAGE_SIZE, query: search }
 
       if (searchType === 'Filename') {
-        const query = { ...baseQuery, tag: tag.toLowerCase() }
-        const queryString = Object.keys(query)
-          .map(item => `${item}=${query[item]}`)
-          .join('&')
-
         const res = await request.get(
-          `/${resourceType.toLowerCase()}?${queryString}`
+          `/${resourceType.toLowerCase()}?${stringify({
+            ...baseQuery,
+            tag: tag.toLowerCase()
+          })}`
         )
         this.setState({
           result: {
@@ -120,28 +119,19 @@ export default class Search extends Component {
         return
       }
 
-      const query = { ...baseQuery, id: searchType === 'ID' || undefined }
-      const queryString = Object.keys(query)
-        .map(item => query[item] && `${item}=${query[item]}`)
-        .filter(item => item)
-        .join('&')
-
       const res = await request.get(
-        `/search_${
-          resourceType === 'Videos' ? 'video' : ''
-        }clips?${queryString}`
+        `/search_${resourceType === 'Videos' ? 'video' : ''}clips?${stringify({
+          ...baseQuery,
+          id: searchType === 'ID' || undefined
+        })}`
       )
       const clips = res[resourceType === 'Videos' ? 'videoClips' : 'clips']
 
       if (resourceType === 'Videos') {
         const services = clips
-          .reduce((res, item) => {
-            if (res.includes(item.videoID)) {
-              return res
-            }
-
-            return [...res, item.videoID]
-          }, [])
+          .reduce((res, item) => (
+            res.includes(item.videoID) ? res : [...res, item.videoID]
+          ), [])
           .map(item => request.get(`/video/${item}`))
         const videos = await Promise.all(services)
         this.setState({
