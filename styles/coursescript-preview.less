@@ -175,11 +175,15 @@
   }
 }
 .search-item-buttons {
-  color: #6494ed;
+  > p {
+    display: inline-block;
+    margin: 0 10px 0 0;
+  }
   > span {
     display: inline-block;
     line-height: 1;
     font-size: 14px;
+    color: #6494ed;
     cursor: pointer;
     &.loading {
       color: #9da5b4;

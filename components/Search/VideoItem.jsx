@@ -154,16 +154,17 @@ export default class VideoItem extends Component {
               controls
             />
             <div className="search-item-buttons">
+              <p>Copy:</p>
               {clips.length > 0 &&
                 <span
                   className={isCopying && 'loading'}
                   onClick={this.handleCopy}
                 >
-                  Copy Clips
+                  Clips
                 </span>
               }
-              <span onClick={this.handleCopy}>Copy Name</span>
-              <span onClick={this.handleCopy}>Copy ID</span>
+              <span onClick={this.handleCopy}>Name</span>
+              <span onClick={this.handleCopy}>ID</span>
             </div>
           </div>
           <div className="right">{this.renderClips()}</div>
