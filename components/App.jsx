@@ -4,6 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import CourscriptPreview from '@lls/coursescript-lib';
+import apiUrls from './api-urls.js'
 import SelectType from './SelectType.jsx';
 
 export default class Preview extends React.Component {
@@ -27,14 +28,8 @@ export default class Preview extends React.Component {
 
     this.setState({ isFetching: true })
     try {
-      const params = {
-        text,
-        type: type.apiType,
-      }
-      const { data } = await axios.post(
-        'http://cms.llsapp.com/v1/coursescript/parse',
-        params,
-      )
+      const params = { text, type: type.apiType }
+      const { data } = await axios.post(apiUrls.parse, params)
 
       this.setState({ data, isFetching: false })
     } catch (error) {

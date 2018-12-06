@@ -6,11 +6,12 @@ import dayjs from 'dayjs'
 
 const AudioItem = ({ data, onCopy }) => {
   const handleCopy = (e) => {
-    const type = e.target.innerHTML.split(' ').pop().toLowerCase()
+    const type = e.target.innerHTML.toLowerCase().replace(/\s\w/, s => s.trim().toUpperCase())
     const contents = {
       id: data.id,
       name: data.description,
       code: `Audio(id=${data.id}):${data.description}`,
+      trCode: `TR(id=${data.id}):${data.description}`
     }
 
     onCopy(contents[type] || '')
@@ -24,9 +25,11 @@ const AudioItem = ({ data, onCopy }) => {
       <div className="search-item-audio">
         <audio src={data.url} controls></audio>
         <div className="search-item-buttons">
-          <span onClick={handleCopy}>Copy Code</span>
-          <span onClick={handleCopy}>Copy Name</span>
-          <span onClick={handleCopy}>Copy ID</span>
+          <p>Copy:</p>
+          <span onClick={handleCopy}>TR Code</span>
+          <span onClick={handleCopy}>Code</span>
+          <span onClick={handleCopy}>Name</span>
+          <span onClick={handleCopy}>ID</span>
         </div>
       </div>
     </div>

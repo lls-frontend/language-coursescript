@@ -4,21 +4,21 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 const resourceTypes = ['Pictures', 'Audios', 'Videos']
-const tags = ['All', 'OCC', 'BE', 'Pilot', 'Darwin', 'Phonics']
 const searchTypes = ['Filename', 'Text', 'ID']
 
 export default class Filter extends Component {
   static propTypes = {
+    sources: PropTypes.arrayOf(PropTypes.string).isRequired,
     focus: PropTypes.bool.isRequired,
     onSearch: PropTypes.func.isRequired,
   }
 
   state = {
     resourceType: resourceTypes[0],
-    tag: tags[0],
+    source: 'All',
     searchType: searchTypes[0],
     search: '',
-    showTagsDropdown: false,
+    showsourcesDropdown: false,
   }
 
   handleResourceTypeChange = (e) => {
@@ -28,23 +28,23 @@ export default class Filter extends Component {
     this.setState({
       resourceType: value,
       searchType: changed,
-      showTagsDropdown: false
+      showsourcesDropdown: false
     })
   }
 
-  handleTagClick = () => {
-    const { showTagsDropdown } = this.state
-    this.setState({ showTagsDropdown: !showTagsDropdown })
+  handlesourceClick = () => {
+    const { showsourcesDropdown } = this.state
+    this.setState({ showsourcesDropdown: !showsourcesDropdown })
   }
 
-  handleTagChange = (e) => {
-    const { resourceType, searchType, tag, search } = this.state
+  handleSourceChange = (e) => {
+    const { resourceType, searchType, search } = this.state
     const value = e.target.innerHTML
     if (search) {
-      this.props.onSearch({ resourceType, searchType, tag: value, search })
+      this.props.onSearch({ resourceType, searchType, source: value, search })
     }
 
-    this.setState({ tag: value, showTagsDropdown: false })
+    this.setState({ source: value, showsourcesDropdown: false })
   }
 
   handleInputChange = e => {
@@ -52,16 +52,16 @@ export default class Filter extends Component {
   }
 
   handleSearchTypeChange = (e) => {
-    this.setState({ searchType: e.target.value, showTagsDropdown: false })
+    this.setState({ searchType: e.target.value, showsourcesDropdown: false })
   }
 
   handleSearch = () => {
-    const { resourceType, searchType, tag, search } = this.state
+    const { resourceType, searchType, source, search } = this.state
     if (!search) {
       return false
     }
 
-    this.props.onSearch({ resourceType, searchType, tag, search })
+    this.props.onSearch({ resourceType, searchType, source, search })
   }
 
   handleKeyDown = e => {
@@ -85,12 +85,13 @@ export default class Filter extends Component {
   }
 
   render() {
+    const { sources } = this.props
     const {
       resourceType,
-      tag,
+      source,
       searchType,
       search,
-      showTagsDropdown
+      showsourcesDropdown
     } = this.state
 
     return (
@@ -134,15 +135,15 @@ export default class Filter extends Component {
         </div>
         <div className="search-input">
           <div
-            className={`search-input-tags ${searchType === 'Filename' && 'show'}`}
+            className={`search-input-sources ${searchType === 'Filename' && 'show'}`}
           >
-            <p onClick={this.handleTagClick}>{tag}</p>
-            <ul className={showTagsDropdown ? 'show' : ''}>
-              {tags.map(item => (
+            <p onClick={this.handlesourceClick}>{source}</p>
+            <ul className={showsourcesDropdown ? 'show' : ''}>
+              {sources.map(item => (
                 <li
                   key={item}
-                  className={item === tag ? 'active' : ''}
-                  onClick={this.handleTagChange}
+                  className={item === source ? 'active' : ''}
+                  onClick={this.handleSourceChange}
                 >
                   {item}
                 </li>

@@ -30,9 +30,10 @@ const PictureItem = ({ data, onCopy }) => {
         <p>{data.filename}</p>
         <p>{data.id}</p>
         <div className="search-item-buttons">
-          <span onClick={handleCopy}>Copy Code</span>
-          <span onClick={handleCopy}>Copy Name</span>
-          <span onClick={handleCopy}>Copy ID</span>
+          <p>Copy:</p>
+          <span onClick={handleCopy}>Code</span>
+          <span onClick={handleCopy}>Name</span>
+          <span onClick={handleCopy}>ID</span>
         </div>
       </div>
     </div>

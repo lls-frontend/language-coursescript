@@ -3,6 +3,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import axios from 'axios'
+import { stringify } from 'query-string'
+import apiUrls from '../api-urls.js'
 import Filter from './Filter.jsx'
 import PictureItem from './PictureItem.jsx'
 import AudioItem from './AudioItem.jsx'
@@ -11,7 +13,7 @@ import Pagination from './Pagination.jsx'
 
 const PAGE_SIZE = 25
 
-const request = axios.create({ baseURL: 'https://cms.llsapp.com/v1/asset/' })
+const request = axios.create({ baseURL: apiUrls.asset })
 request.interceptors.response.use(
   res => res.data.msg,
   error => {
@@ -33,6 +35,7 @@ export default class Search extends Component {
 
   state = {
     filter: {},
+    sources: [],
     result: { list: [], count: 0 },
     error: '',
     page: 1,
@@ -85,7 +88,7 @@ export default class Search extends Component {
     )
   }
 
-  fetch = async (page, { resourceType, searchType, tag, search }) => {
+  fetch = async (page, { resourceType, searchType, source, search }) => {
     this.setState({ isFetching: true, showResults: true, error: '' })
     try {
       if (resourceType === 'Pictures' && searchType === 'ID') {
@@ -99,16 +102,11 @@ export default class Search extends Component {
         return
       }
 
-      const baseQuery = { page, page_size: PAGE_SIZE, query: search }
-
       if (searchType === 'Filename') {
-        const query = { ...baseQuery, tag: tag.toLowerCase() }
-        const queryString = Object.keys(query)
-          .map(item => `${item}=${query[item]}`)
-          .join('&')
-
         const res = await request.get(
-          `/${resourceType.toLowerCase()}?${queryString}`
+          `/${resourceType.toLowerCase()}?${stringify({
+            page, page_size: PAGE_SIZE, query: search, source
+          })}`
         )
         this.setState({
           result: {
@@ -119,28 +117,19 @@ export default class Search extends Component {
         return
       }
 
-      const query = { ...baseQuery, id: searchType === 'ID' || undefined }
-      const queryString = Object.keys(query)
-        .map(item => query[item] && `${item}=${query[item]}`)
-        .filter(item => item)
-        .join('&')
-
       const res = await request.get(
-        `/search_${
-          resourceType === 'Videos' ? 'video' : ''
-        }clips?${queryString}`
+        `/search_${resourceType === 'Videos' ? 'video' : ''}clips?${stringify({
+          ...baseQuery,
+          id: searchType === 'ID' || undefined
+        })}`
       )
       const clips = res[resourceType === 'Videos' ? 'videoClips' : 'clips']
 
       if (resourceType === 'Videos') {
         const services = clips
-          .reduce((res, item) => {
-            if (res.includes(item.videoID)) {
-              return res
-            }
-
-            return [...res, item.videoID]
-          }, [])
+          .reduce((res, item) => (
+            res.includes(item.videoID) ? res : [...res, item.videoID]
+          ), [])
           .map(item => request.get(`/video/${item}`))
         const videos = await Promise.all(services)
         this.setState({
@@ -160,6 +149,21 @@ export default class Search extends Component {
     }
   }
 
+  fetchSources = async () => {
+    try {
+      const sources = await request.get('/sources')
+      this.setState({
+        sources: [
+          'All',
+          ...sources.filter(item => item !== 'All' && item !== 'None'),
+          'None',
+        ]
+      })
+    } catch (error) {
+      this.setState({ error: error.message })
+    }
+  }
+
   handleSearch = async (filter) => {
     this.fetch(1, filter)
     this.setState({ filter, page: 1 })
@@ -174,13 +178,17 @@ export default class Search extends Component {
 
   handleClose = () => this.props.onClose()
 
+  componentDidMount() {
+    this.fetchSources()
+  }
+
   render() {
     const { focus } = this.props
-    const { page, result } = this.state
+    const { sources, page, result } = this.state
 
     return (
       <div className="search">
-        <Filter focus={focus} onSearch={this.handleSearch} />
+        <Filter sources={sources} focus={focus} onSearch={this.handleSearch} />
         {this.renderResults()}
         {result.count > PAGE_SIZE && (
           <Pagination
