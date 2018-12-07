@@ -102,10 +102,12 @@ export default class Search extends Component {
         return
       }
 
+      const baseQuery = { page, page_size: PAGE_SIZE, query: search }
+
       if (searchType === 'Filename') {
         const res = await request.get(
           `/${resourceType.toLowerCase()}?${stringify({
-            page, page_size: PAGE_SIZE, query: search, source
+            ...baseQuery, source
           })}`
         )
         this.setState({
@@ -120,6 +122,7 @@ export default class Search extends Component {
       const res = await request.get(
         `/search_${resourceType === 'Videos' ? 'video' : ''}clips?${stringify({
           ...baseQuery,
+          source: searchType === 'ID' ? undefined : source,
           id: searchType === 'ID' || undefined
         })}`
       )

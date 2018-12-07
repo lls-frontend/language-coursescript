@@ -18,7 +18,7 @@ export default class Filter extends Component {
     source: 'All',
     searchType: searchTypes[0],
     search: '',
-    showsourcesDropdown: false,
+    showSourcesDropdown: false,
   }
 
   handleResourceTypeChange = (e) => {
@@ -28,13 +28,13 @@ export default class Filter extends Component {
     this.setState({
       resourceType: value,
       searchType: changed,
-      showsourcesDropdown: false
+      showSourcesDropdown: false
     })
   }
 
-  handlesourceClick = () => {
-    const { showsourcesDropdown } = this.state
-    this.setState({ showsourcesDropdown: !showsourcesDropdown })
+  handleSourceClick = () => {
+    const { showSourcesDropdown } = this.state
+    this.setState({ showSourcesDropdown: !showSourcesDropdown })
   }
 
   handleSourceChange = (e) => {
@@ -44,7 +44,7 @@ export default class Filter extends Component {
       this.props.onSearch({ resourceType, searchType, source: value, search })
     }
 
-    this.setState({ source: value, showsourcesDropdown: false })
+    this.setState({ source: value, showSourcesDropdown: false })
   }
 
   handleInputChange = e => {
@@ -52,7 +52,7 @@ export default class Filter extends Component {
   }
 
   handleSearchTypeChange = (e) => {
-    this.setState({ searchType: e.target.value, showsourcesDropdown: false })
+    this.setState({ searchType: e.target.value, showSourcesDropdown: false })
   }
 
   handleSearch = () => {
@@ -91,7 +91,7 @@ export default class Filter extends Component {
       source,
       searchType,
       search,
-      showsourcesDropdown
+      showSourcesDropdown
     } = this.state
 
     return (
@@ -135,10 +135,10 @@ export default class Filter extends Component {
         </div>
         <div className="search-input">
           <div
-            className={`search-input-sources ${searchType === 'Filename' && 'show'}`}
+            className={`search-input-sources ${searchType !== 'ID' && 'show'}`}
           >
-            <p onClick={this.handlesourceClick}>{source}</p>
-            <ul className={showsourcesDropdown ? 'show' : ''}>
+            <p onClick={this.handleSourceClick}>{source}</p>
+            <ul className={showSourcesDropdown ? 'show' : ''}>
               {sources.map(item => (
                 <li
                   key={item}
