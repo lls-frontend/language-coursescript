@@ -635,3 +635,17 @@
         coordinate: x=$10,y=$11,w=$12,h=$13
         coordinate: x=$14,y=$15,w=$16,h=$17
     """
+   'MCQx':
+    'prefix': 'MCQx'
+    'body': """
+      [TYPE MCQx]
+      ID: $1
+      Text: $2
+      Audio: $3
+      Text: $4
+      Opts:
+      Text(checked=true): $5
+      Text(checked=true): $6
+      Text: $7
+      Text: $8
+      """
