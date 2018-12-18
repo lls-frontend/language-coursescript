@@ -567,7 +567,7 @@
       [TYPE P2T]
       ID: $1
       Pic: $2
-      Opts: 
+      Opts:
       Text(checked=true): $3
       Text: $4
       Text: $5
@@ -648,4 +648,25 @@
       Text(checked=true): $6
       Text: $7
       Text: $8
+     """
+    'explanation':
+        'prefix': 'explanation'
+        'body': """
+        \"""
+        explanation:""
+        \"""
       """
+    'PreTextTeaching':
+      'prefix': 'PreTextTeaching'
+      'body':"""
+        [TYPE PreDialoguePlay]
+        ID: $1
+        text_teaching:
+        - title: $2
+          paragraph: $3
+        - title: $4
+          bullet_points:
+          - $5
+          - $6
+          - $7
+       """
