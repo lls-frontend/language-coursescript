@@ -3,8 +3,13 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-const resourceTypes = ['Pictures', 'Audios', 'Videos']
-const searchTypes = ['Filename', 'Text', 'ID']
+const types = {
+  Audios: ['Text', 'ID', 'Filename'],
+  Pictures: ['Filename', 'ID'],
+  Videos: ['Filename', 'Text','ID'],
+}
+
+const defaultType = Object.keys(types)[0]
 
 export default class Filter extends Component {
   static propTypes = {
@@ -14,20 +19,19 @@ export default class Filter extends Component {
   }
 
   state = {
-    resourceType: resourceTypes[0],
+    resourceType: defaultType,
     source: 'All',
-    searchType: searchTypes[0],
+    searchType: types[defaultType][0],
     search: '',
     showSourcesDropdown: false,
   }
 
   handleResourceTypeChange = (e) => {
     const { value } = e.target
-    const changed = value === "Audios" ? 'Text' : searchTypes[0]
 
     this.setState({
       resourceType: value,
-      searchType: changed,
+      searchType: types[value][0],
       showSourcesDropdown: false
     })
   }
@@ -98,7 +102,7 @@ export default class Filter extends Component {
       <div>
         <div className="search-radios">
           <div className="search-resources">
-            {resourceTypes.map(item =>
+            {Object.keys(types).map(item =>
               <label key={item}>
                 <input
                   type="radio"
@@ -111,26 +115,17 @@ export default class Filter extends Component {
             )}
           </div>
           <div className="search-types">
-            {searchTypes.map(item => {
-              if (
-                (resourceType === "Pictures" && item === "Text") ||
-                (resourceType === "Audios" && item === "Filename")
-              ) {
-                return null
-              }
-
-              return (
-                <label key={item}>
-                  <input
-                    type="radio"
-                    name="searchType"
-                    value={item}
-                    checked={item === searchType}
-                    onChange={this.handleSearchTypeChange}
-                  /> {item}
-                </label>
-              )
-            })}
+            {types[resourceType].map(item =>
+              <label key={item}>
+                <input
+                  type="radio"
+                  name="searchType"
+                  value={item}
+                  checked={item === searchType}
+                  onChange={this.handleSearchTypeChange}
+                /> {item}
+              </label>
+            )}
           </div>
         </div>
         <div className="search-input">
