@@ -27,6 +27,13 @@
     'match': '[a-f0-9]{24}'
     'name': 'markup.italic.coursescript'
   }
+  {
+    'match': '(ID:)([a-f0-9]{24})'
+    'captures': {
+      1: { 'name': 'storage.type.coursescript' }
+      2: { 'name': 'markup.italic.coursescript' }
+    }
+  }
   ## Metadata
   {
     'comment': 'Metadata'
@@ -74,7 +81,7 @@
   # coordinate
   # QuestionPart
   {
-    'match': '(ID|Text|Audio|Pic|Video|VideoClip|Opts|TR_TEXT|TR_Text|TR|Title|Mix|Scene|QuestionPart|coordinate):\\s'
+    'match': '(ID|Text|Video|VideoClip|Opts|TR_TEXT|TR_Text|Title|Mix|Scene|QuestionPart|coordinate):\\S'
     'name': 'storage.type.coursescript'
   }
   # DF01
