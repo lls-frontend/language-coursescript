@@ -82,7 +82,9 @@
   # QuestionPart
   {
     'match': '(ID|Text|Audio|Pic|Video|VideoClip|Opts|TR_TEXT|TR_Text|Title|Mix|Scene|QuestionPart|coordinate):\\S'
-    'name': 'storage.type.coursescript'
+    'captures': {
+      1: { 'name': 'storage.type.coursescript' }
+    }
   }
   # DF01
   {
