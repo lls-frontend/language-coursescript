@@ -601,7 +601,7 @@
         coordinate: x=$10,y=$11,w=$12,h=$13
         coordinate: x=$14,y=$15,w=$16,h=$17
     """
-   'MCQx':
+  'MCQx':
     'prefix': 'MCQx'
     'body': """
       [TYPE MCQx]
@@ -614,14 +614,14 @@
       Text: $6
       Text: $7
       """
-   'explanation':
+  'explanation':
     'prefix': 'explanation'
     'body': """
       \"""
       explanation: "$1"
       \"""
     """
-   'PreTextTeaching':
+  'PreTextTeaching':
     'prefix': 'pretextteaching'
     'body':"""
       [TYPE PreTextTeaching]
@@ -636,3 +636,335 @@
         - $7
       \"""
     """
+  'SentenceQuiz':
+    'prefix': 'SentenceQuiz'
+    'body': """
+      [TYPE SentenceQuiz]
+      ID: $1
+      Audio: $2
+      \"""
+      category: $3
+      \"""
+    """
+  'WordQuiz':
+    'prefix': 'WordQuiz'
+    'body': """
+      [TYPE WordQuiz]
+      ID: $1
+      Audio: $2
+      Text: $3
+      \"""
+      category: $4
+      \"""
+    """
+  'TeachingVideo':
+    'prefix': 'TeachingVideo'
+    'body': """
+      [TYPE TeachingVideo]
+      ID: $1
+      Video: $2
+      VideoClip: $3
+      VideoClip: $4
+      VideoClip: $5
+      VideoClip: $6
+      VideoClip: $7
+      \"""
+      category: $8
+      \"""
+    """
+  'PhonemePractice':
+    'prefix': 'PhonemePractice'
+    'body': """
+      [TYPE PhonemePractice]
+      ID: $1
+      Video: $2
+      Audio: $3
+      Text: $4
+      Text: $5
+      \"""
+      category: $6
+      \"""
+    """
+  'WordPronoun':
+    'prefix': 'WordPronoun'
+    'body': """
+      [TYPE WordPronoun]
+      ID: $1
+      Audio: $2
+      Text: $3
+      \"""
+      category: $4
+      \"""
+      """
+  'SentencePronoun':
+    'prefix': 'SentencePronoun'
+    'body': """
+      [TYPE SentencePronoun]
+      ID: $1
+      Audio: $2
+      """
+  'MPListeningPractice':
+    'prefix': 'MPListeningPractice'
+    'body': """
+      [TYPE MPListeningPractice]
+      ID: $1
+      Audio: $2
+      Text: $3
+      Audio: $4
+      Text: $5
+      \"""
+      category: $6
+      tag: $7
+      \"""
+      """
+  'MPTeachingVideo':
+    'prefix': 'MPTeachingVideo'
+    'body': """
+      [TYPE MPTeachingVideo]
+      ID: $1
+      Video: $2
+      Audio: $3
+      Audio: $4
+      Audio: $5
+      \"""
+      category: $6
+      tag: $7
+      \"""
+      """
+  'MPPronounPractice':
+    'prefix': 'MPPronounPractice'
+    'body': """
+      [TYPE MPPronounPractice]
+      ID: $1
+      Audio: $2
+      Text: $3
+      \"""
+      category: $4
+      tag: $5
+      \"""
+      """
+  'RimePronoun':
+    'prefix': 'RimePronoun'
+    'body': """
+      [TYPE RimePronoun]
+      ID: $1
+      Audio: $2
+      \"""
+      category: $3
+      tag: $4
+      \"""
+      """
+  'ConsonantPractice':
+    'prefix': 'ConsonantPractice'
+    'body': """
+      [TYPE ConsonantPractice]
+      ID: $1
+      Video: $2
+      Audio: $3
+      Text: $4
+      Text: $5
+      """
+  'SyllablePractice':
+    'prefix': 'SyllablePractice'
+    'body': """
+      [TYPE SyllablePractice]
+      ID: $1
+      Audio: $2
+      Text: $3
+      \"""
+      category: $4
+      \"""
+      """
+  'SyllableStress':
+    'prefix': 'SyllableStress'
+    'body': """
+      [TYPE SyllableStress]
+      ID: $1
+      Audio: $2
+      Text: $3
+      Text: $4
+      \"""
+      category: $5
+      vocab: $6
+      - word: $7
+        desc: $8
+        pos: $9
+      \"""
+      """
+  'RhythmInGroup':
+    'prefix': 'RhythmInGroup'
+    'body': """
+      [TYPE RhythmInGroup]
+      ID: $1
+      Audio: $2
+      Text: $3
+      Text: $4
+      \"""
+      category: $5
+      \"""
+      """
+  'RhythmInGroupS':
+    'prefix': 'RhythmInGroupS'
+    'body': """
+      [TYPE RhythmInGroupS]
+      ID: $1
+      Audio: $2
+      Text: $3
+      QuestionPart:
+      Audio: $4
+      Text: $5
+      Text: $6
+      QuestionPart:
+      Audio: $7
+      Text: $8
+      Text: $9
+      Text: $10
+      \"""
+      category: $11
+      \"""
+      """
+  'WordIntonation':
+    'prefix': 'WordIntonation'
+    'body': """
+      [TYPE WordIntonation]
+      ID: $1
+      Audio: $2
+      Text: $3
+      Text: $4
+      """
+  'IntonationInGroup':
+    'prefix': 'IntonationInGroup'
+    'body': """
+      [TYPE IntonationInGroup]
+      ID: $1
+      Audio: $2
+      Text: $3
+      Text: $4
+      """
+  'IntonationInGroupS':
+    'prefix': 'IntonationInGroupS'
+    'body': """
+      [TYPE IntonationInGroupS]
+      ID: $1
+      Audio: $2
+      Text: $3
+      Text: $4
+      QuestionPart:
+      Audio: $5
+      Text: $6
+      QuestionPart:
+      Audio: $7
+      Text: $8
+      QuestionPart:
+      Audio: $9
+      Text: $10
+      QuestionPart:
+      Audio: $11
+      Text: $12
+      """
+  'LinkingCVDF1':
+    'prefix': 'LinkingCVDF1'
+    'body': """
+      [TYPE LinkingCV]
+      ID: $1
+      DF1:
+      Audio: $2
+      Text: $3
+      Text: $4
+      Text: $5
+      """
+  'LinkingCVDF2':
+    'prefix': 'LinkingCVDF2'
+    'body': """
+      [TYPE LinkingCV]
+      ID: $1
+      DF2:
+      Audio: $2
+      Text: $3
+      Text: $4
+      Text: $5
+      """
+  'LinkingCVDF3':
+    'prefix': 'LinkingCVDF3'
+    'body': """
+      [TYPE LinkingCV]
+      ID: $1
+      DF3:
+      Audio: $2
+      Text: $3
+      Text: $4
+      Text: $5
+      """
+  'LossOfPlosion':
+    'prefix': 'LossOfPlosion'
+    'body': """
+      [TYPE LossOfPlosion]
+      ID: $1
+      Audio: $2
+      Text: $3
+      Text: $4
+      """
+  'ReducingPronoun':
+    'prefix': 'ReducingPronoun'
+    'body': """
+      [TYPE ReducingPronoun]
+      ID: $1
+      Audio: $2
+      Text: $3
+      Text: $4
+      Text: $5
+      """
+  'ConsecutiveLinkings':
+    'prefix': 'ConsecutiveLinkings'
+    'body': """
+      [TYPE ConsecutiveLinkings]
+      ID: $1
+      Audio: $2
+      Text: $3
+      Text: $4
+      Text: $5
+      Text: $6
+      """
+  'MultipleLinkings':
+    'prefix': 'MultipleLinkings'
+    'body': """
+      [TYPE MultipleLinkings]
+      ID: $1
+      Audio: $2
+      Text: $3
+      QuestionPart: 
+      Audio: $4
+      Text: $5
+      Text: $6
+      Text: $7
+      Text: $8
+      QuestionPart: 
+      Audio: $9
+      Text: $10
+      Text: $11
+      QuestionPart: 
+      Audio: $12
+      Text: $13
+      Text: $14
+      Text: $15
+      """
+  'T2A':
+    'prefix': 'T2A'
+    'body': """
+      [TYPE T2A]
+      ID: $1
+      Text: $2
+      Opts: 
+      Audio: $3
+      Audio: $4
+      Audio: $5
+      """
+  'ORBell':
+    'prefix': 'ORBell'
+    'body': """
+      [TYPE ORBell]
+      ID: $1
+      Audio: $2
+      Text: $3
+      Text: $4
+      """
