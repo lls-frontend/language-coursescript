@@ -11,6 +11,7 @@
     "atom-text-editor": [
       "language-coursescript:insert-darwin-id",
       "language-coursescript:insert-cc-id",
+      "language-coursescript:insert-bell-id",
       "language-coursescript:preview",
       "language-coursescript:search"
     ],

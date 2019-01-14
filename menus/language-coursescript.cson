@@ -9,6 +9,10 @@
       'command': 'language-coursescript:insert-cc-id'
     },
     {
+      'label': 'Insert Bell ID'
+      'command': 'language-coursescript:insert-bell-id'
+    },
+    {
       "label": "Preview CourseScript",
       "command": "language-coursescript:preview"
     },
