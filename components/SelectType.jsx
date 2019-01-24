@@ -32,6 +32,7 @@ const SelectType = props => {
     PHONICS: { courseType: 5, apiType: 7 },
     BELL: { courseType: 6, apiType: 8 },
     TOURISM: { courseType: 4, apiType: 9 },
+    LINGOCHAMP: { courseType: 7, apiType: 10 },
   }
 
   const typeItem = (item, index) => {
