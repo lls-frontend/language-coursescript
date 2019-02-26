@@ -31,7 +31,21 @@ export default class Preview extends React.Component {
       const params = { text, type: type.apiType }
       const { data } = await axios.post(apiUrls.parse, params)
 
-      this.setState({ data, isFetching: false })
+      if (type.courseType === 7) {
+        const ids = Object.values(data.indexed_activities)
+          .reduce((res, item) => ({
+            ...res, [item.atom_id]: item.resource_id
+          }), {})
+        const activities_line = Object.keys(data.activities_line)
+          .reduce((res, item) => ({
+            ...res, [ids[item]]: data.activities_line[item]
+          }), {})
+        this.setState({ data: { ...data, activities_line } })
+      } else {
+        this.setState({ data })
+      }
+
+      this.setState({ isFetching: false })
     } catch (error) {
       const { data } = error.response
       const message = `Line: ${data.line} ${data.message}`
