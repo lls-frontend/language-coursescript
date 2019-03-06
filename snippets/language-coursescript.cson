@@ -968,3 +968,84 @@
       Text: $3
       Text: $4
       """
+  'A2A':
+    'prefix': 'A2A'
+    'body': """
+      [TYPE A2A]
+      ID:$1
+      Audio:$2
+      Opts:
+      Audio(checked=true):$3
+      Audio:$4
+      Audio:$5
+      Audio:$6
+      """
+  'RA2':
+    'prefix': 'RA2'
+    'body': """
+      [TYPE RA2]
+      ID:$1
+      Audio:$2
+      """
+  'P2S':
+    'prefix': 'P2S'
+    'body': """
+      [TYPE P2S]
+      ID:$1
+      Pic:$2
+      Audio:$3
+      Text: $4
+      """
+  'OR2':
+    'prefix': 'OR2'
+    'body': """
+      [TYPE OR2]
+      ID:$1
+      Audio:$2
+      """
+  'OR3':
+    'prefix': 'OR3'
+    'body': """
+      [TYPE OR3]
+      ID:$1
+      Audio:$2
+      Text: $3
+      Text: $4
+      """
+  'OR4':
+    'prefix': 'OR4'
+    'body': """
+      [TYPE OR4]
+      ID:$1
+      Audio:$2
+      QuestionPart:
+      Text: $3
+      Text: $4
+      QuestionPart:
+      Text: $5
+      Text: $6
+      QuestionPart:
+      Text: $7
+      Text: $8
+      """
+  'SituationalQA':
+    'prefix': 'SituationalQA'
+    'body': """
+      [TYPE SituationalQA]
+      ID:$1
+      Text:$2
+      QuestionPart:
+      Audio: $3
+      Text: $4
+      QuestionPart:
+      Audio: $5
+      Text: $6
+      """
+  'TopicParaphrase':
+    'prefix': 'TopicParaphrase'
+    'body': """
+      [TYPE TopicParaphrase]
+      ID:$1
+      Text:$2
+      Text: $3
+      """
