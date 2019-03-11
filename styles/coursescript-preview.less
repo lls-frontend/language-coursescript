@@ -247,3 +247,37 @@
     content: '\00d7';
   }
 }
+.copy-feedback {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  padding: 10px 15px;
+  font-size: 14px;
+  border-radius: 20px;
+  background-color: rgba(9, 12, 21, 0.85);
+  transform: translateX(-50%);
+  transition: top 0.3s ease-in-out;
+  &.show {
+    top: 90px;
+  }
+  > * {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  > i {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    color: #000;
+    background-color: #52C41A;
+    border-radius: 100%;
+    &:after {
+      display: block;
+      width: 16px;
+      text-align: center;
+      line-height: 20px;
+      content: '\2713';
+    }
+  }
+}

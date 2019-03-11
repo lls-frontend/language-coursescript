@@ -40,11 +40,12 @@ export default class Search extends Component {
     error: '',
     page: 1,
     showResults: false,
+    showCopied: false,
     isFetching: false,
   }
 
   renderResults = () => {
-    const { onCopy, onError } = this.props
+    const { onError } = this.props
     const {
       filter: { resourceType },
       result,
@@ -74,11 +75,16 @@ export default class Search extends Component {
         {result.list.map(item => {
           switch (resourceType) {
             case 'Pictures':
-              return <PictureItem data={item} onCopy={onCopy} />
+              return <PictureItem data={item} onCopy={this.handleCopy} />
             case 'Audios':
-              return <AudioItem data={item} onCopy={onCopy} />
+              return <AudioItem data={item} onCopy={this.handleCopy} />
             case 'Videos':
-              const props = { data: item, request, onCopy, onError }
+              const props = {
+                data: item,
+                request,
+                onError,
+                onCopy: this.handleCopy,
+              }
               return <VideoItem {...props} />
             default:
               return null
@@ -179,6 +185,17 @@ export default class Search extends Component {
     this.setState({ page })
   }
 
+  handleCopy = (text) => {
+    const { onCopy } = this.props
+
+    onCopy(text)
+
+    this.setState({ showCopied: true })
+    setTimeout(() => {
+      this.setState({ showCopied: false })
+    }, 1000 * 1.5)
+  }
+
   handleClose = () => this.props.onClose()
 
   componentDidMount() {
@@ -187,7 +204,7 @@ export default class Search extends Component {
 
   render() {
     const { focus } = this.props
-    const { sources, page, result } = this.state
+    const { sources, page, result, showCopied } = this.state
 
     return (
       <div className="search">
@@ -201,6 +218,10 @@ export default class Search extends Component {
             onChange={this.handlePage}
           />
         )}
+        <div className={`copy-feedback ${showCopied ? 'show' : ''}`}>
+          <i></i>
+          <span>Copied to clipboard</span>
+        </div>
         <button
           type="button"
           className="search-close"
