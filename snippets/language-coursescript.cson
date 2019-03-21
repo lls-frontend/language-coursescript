@@ -1049,3 +1049,66 @@
       Text:$2
       Text: $3
       """
+  'WordFormation':
+    'prefix': 'wf'
+    'body': """
+      [TYPE WF$1]
+      ID: $2
+      Pic: $3
+      Audio: $4
+      TR: $5
+      TR_Pic: $6
+      TR_Text: $7
+    """
+  'SpeakSentence':
+    'prefix': 'ss'
+    'body': """
+      [TYPE SS]
+      ID: $1
+      Audio: $2
+      Pic: $3
+      Opts:
+      QuestionPart:
+      Audio: $4
+      QuestionPart:
+      Audio: $5
+      QuestionPart:
+      Audio: $6
+      TR: $7
+      TR_Text: $8
+      TR_Pic: $9
+    """
+  'SpeakWords':
+    'prefix': 'SW1'
+    'body': """
+      [TYPE SW1]
+      ID: $1
+      QuestionPart:
+        Pic: $2
+        Audio: $3
+        Text: $4
+      QuestionPart:
+        Pic: $5
+        Audio: $6
+        Text: $7
+    """
+  'PPT':
+    'prefix': 'ppt'
+    'body': """
+      [TYPE PPT]
+      ID: $1
+      Audio: $2
+      Opts:
+      Mix:
+      Pic: $3
+      Audio: $4
+      Text: $5
+      Mix:
+      Pic(checked=true): $6
+      Audio: $7
+      Text: $8
+      Mix:
+      Pic: $9
+      Audio: $10
+      Text: $11
+    """

@@ -81,7 +81,7 @@
   # coordinate
   # QuestionPart
   {
-    'match': '(ID|Text|Audio|Pic|Video|VideoClip|Opts|TR|TR_TEXT|TR_Text|Title|Mix|Scene|QuestionPart|coordinate):(?!\\s)'
+    'match': '(ID|Text|Audio|Pic|Video|VideoClip|Opts|TR|TR_TEXT|TR_Text|Title|Mix|Scene|QuestionPart|coordinate|TR_Pic):\\s?(?!\\s)'
     'name': 'storage.type.coursescript'
   }
   # DF01
