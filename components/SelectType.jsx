@@ -31,7 +31,7 @@ const SelectType = props => {
     PILOT: { courseType: 4, apiType: 6 },
     PHONICS: { courseType: 5, apiType: 7 },
     BELL: { courseType: 6, apiType: 8 },
-    TOURISM: { courseType: 8, apiType: 9 },
+    TOURISM: { courseType: 1, apiType: 9 },
     LINGOCHAMP: { courseType: 7, apiType: 10 },
     KION: { courseType: 9, apiType: 11 },
     'KION EXAM': { courseType: 10, apiType: 12 },
