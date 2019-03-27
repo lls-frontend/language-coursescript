@@ -421,6 +421,14 @@
     name_language:
       zh-Hans: $4
     intro: $5
+    freetalk:
+     name: $6
+     vteacher_msg: $7
+      avatar: $8
+      nickname: $9
+      description:"$10"
+      cover: $11
+      title: $12
     \"""
     """
   'Assessment':
@@ -627,13 +635,13 @@
       [TYPE PreTextTeaching]
       \"""
       text_teaching:
-      - title: $2
-        paragraph: $3
-      - title: $4
+      - title: "$2"
+        paragraph: "$3"
+      - title: "$4"
         bullet_points:
-        - $5
-        - $6
-        - $7
+        - "$5"
+        - "$6"
+        - "$7"
       \"""
     """
   'SentenceQuiz':
@@ -932,17 +940,17 @@
       ID: $1
       Audio: $2
       Text: $3
-      QuestionPart: 
+      QuestionPart:
       Audio: $4
       Text: $5
       Text: $6
       Text: $7
       Text: $8
-      QuestionPart: 
+      QuestionPart:
       Audio: $9
       Text: $10
       Text: $11
-      QuestionPart: 
+      QuestionPart:
       Audio: $12
       Text: $13
       Text: $14
@@ -954,7 +962,7 @@
       [TYPE T2A]
       ID: $1
       Text: $2
-      Opts: 
+      Opts:
       Audio: $3
       Audio: $4
       Audio: $5
@@ -1112,3 +1120,42 @@
       Audio: $10
       Text: $11
     """
+  'C2E':
+    'prefix': 'c2e'
+    'body':"""
+      [TYPE C2E]
+      \"""
+      c2e:
+        text: $1
+        hint:
+        - "$2"
+        - "$3"
+        - "$4"
+        answers:
+        - "$5"
+        - "$6"
+        - "$7"
+        \"""
+      """
+    'SemiSentConstruct':
+      'prefix': 'semisentconstruct'
+      'body':"""
+        [TYPE SemiSentConstruct]
+        \"""
+        ssc:
+          vocabs:
+          - "$1"
+          - "$2"
+          - "$3"
+          - "$4"
+          - "$5"
+          - "$6"
+          knowledge_points:
+          - "$7"
+          - "$8"
+          - "$9"
+          - "$10"
+          - "$11"
+          - "$12"
+          \"""
+        """
