@@ -1159,3 +1159,38 @@
           - "$12"
           \"""
         """
+    'BlockA2P':
+      'prefix': 'BlockA2P'
+      'body':"""
+        [TYPE B_A2P]
+        ID: $1
+        Audio: $2
+        Opts:
+        Pic(checked=true): $3
+        Pic: $4
+      """
+    'BlockA2T':
+      'prefix': 'BlockA2T'
+      'body':"""
+        [TYPE B_A2T]
+        ID: $1
+        Audio: $2
+        Opts:
+        Text(checked=true): $3
+        Text: $4
+      """
+    'BlockA2PT':
+      'prefix': 'BlockA2PT'
+      'body': """
+        [TYPE B_A2PT]
+        ID: $1
+        Audio: $2
+        Opts:
+        Mix:
+          Pic(checked=true): $3
+          Text: $4
+        Mix:
+          Pic: $5
+          Text: $6
+      """
+
