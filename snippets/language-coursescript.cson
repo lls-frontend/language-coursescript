@@ -1137,60 +1137,60 @@
         - "$7"
         \"""
       """
-    'SemiSentConstruct':
-      'prefix': 'semisentconstruct'
-      'body':"""
-        [TYPE SemiSentConstruct]
+  'SemiSentConstruct':
+    'prefix': 'semisentconstruct'
+    'body':"""
+      [TYPE SemiSentConstruct]
+      \"""
+      ssc:
+        vocabs:
+        - "$1"
+        - "$2"
+        - "$3"
+        - "$4"
+        - "$5"
+        - "$6"
+        knowledge_points:
+        - "$7"
+        - "$8"
+        - "$9"
+        - "$10"
+        - "$11"
+        - "$12"
         \"""
-        ssc:
-          vocabs:
-          - "$1"
-          - "$2"
-          - "$3"
-          - "$4"
-          - "$5"
-          - "$6"
-          knowledge_points:
-          - "$7"
-          - "$8"
-          - "$9"
-          - "$10"
-          - "$11"
-          - "$12"
-          \"""
-        """
-    'BlockA2P':
-      'prefix': 'BlockA2P'
-      'body':"""
-        [TYPE B_A2P]
-        ID: $1
-        Audio: $2
-        Opts:
+      """
+  'BlockA2P':
+    'prefix': 'BlockA2P'
+    'body':"""
+      [TYPE B_A2P]
+      ID: $1
+      Audio: $2
+      Opts:
+      Pic(checked=true): $3
+      Pic: $4
+    """
+  'BlockA2T':
+    'prefix': 'BlockA2T'
+    'body':"""
+      [TYPE B_A2T]
+      ID: $1
+      Audio: $2
+      Opts:
+      Text(checked=true): $3
+      Text: $4
+    """
+  'BlockA2PT':
+    'prefix': 'BlockA2PT'
+    'body': """
+      [TYPE B_A2PT]
+      ID: $1
+      Audio: $2
+      Opts:
+      Mix:
         Pic(checked=true): $3
-        Pic: $4
-      """
-    'BlockA2T':
-      'prefix': 'BlockA2T'
-      'body':"""
-        [TYPE B_A2T]
-        ID: $1
-        Audio: $2
-        Opts:
-        Text(checked=true): $3
         Text: $4
-      """
-    'BlockA2PT':
-      'prefix': 'BlockA2PT'
-      'body': """
-        [TYPE B_A2PT]
-        ID: $1
-        Audio: $2
-        Opts:
-        Mix:
-          Pic(checked=true): $3
-          Text: $4
-        Mix:
-          Pic: $5
-          Text: $6
-      """
+      Mix:
+        Pic: $5
+        Text: $6
+    """
 
