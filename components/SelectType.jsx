@@ -35,6 +35,7 @@ const SelectType = props => {
     LINGOCHAMP: { courseType: 7, apiType: 10 },
     KION: { courseType: 9, apiType: 11 },
     'KION EXAM': { courseType: 10, apiType: 12 },
+    'DARWIN BUSINESS': { courseType: 1, apiType: 9 },
   }
 
   const typeItem = (item, index) => {
