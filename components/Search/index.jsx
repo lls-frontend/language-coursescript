@@ -108,7 +108,12 @@ export default class Search extends Component {
         return
       }
 
-      const baseQuery = { page, page_size: PAGE_SIZE, query: search }
+      const baseQuery = {
+        page,
+        page_size: PAGE_SIZE,
+        query: search,
+        is_tts: resourceType === 'Audios' ? -1 : undefined,
+      }
 
       if (searchType === 'Filename') {
         const res = await request.get(
