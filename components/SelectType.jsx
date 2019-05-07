@@ -36,6 +36,7 @@ const SelectType = props => {
     KION: { courseType: 9, apiType: 11 },
     'KION EXAM': { courseType: 10, apiType: 12 },
     'DARWIN BUSINESS': { courseType: 1, apiType: 9 },
+    TELIS: { courseType: 11, apiType: 14 },
   }
 
   const typeItem = (item, index) => {
