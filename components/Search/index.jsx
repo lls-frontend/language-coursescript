@@ -113,6 +113,7 @@ export default class Search extends Component {
         page_size: PAGE_SIZE,
         query: search,
         is_tts: resourceType === 'Audios' ? -1 : undefined,
+        is_delite: resourceType === 'Audios' ? -1 : undefined,
       }
 
       if (searchType === 'Filename') {
