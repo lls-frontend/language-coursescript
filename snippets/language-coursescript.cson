@@ -1215,7 +1215,7 @@
      'prefix': 'matching'
      'body': """
        [TYPE Matching]
-       //每一组为audio对text，或者text对text
+       //每一组为audio对text，或者text对text，最多3组
        QuestionPart:
        Audio: $1
        Text: $2
