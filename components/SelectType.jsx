@@ -51,9 +51,11 @@ const SelectType = props => {
     props.onSelect(types[type])
   }
 
+  const previewCourse = atom.config.get('language-coursescript.previewCourse')
+
   return (
     <div className="select-type" style={styles.list}>
-      {Object.keys(types).map(typeItem)}
+      {Object.keys(types).filter(item => previewCourse[item]).map(typeItem)}
     </div>
   )
 }
