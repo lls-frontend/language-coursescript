@@ -1226,3 +1226,35 @@
        Audio: $5
        Text: $6
       """
+    'BlockP':
+      'prefix': 'BlockP'
+      'body': """
+        [TYPE B_P]
+        ID: $1
+        // delite audio，用于语音识别和打分，必须写ID
+        Audio: $2
+        Audio: $3
+        Pic: $4
+        Text: $4
+      """
+    'BlockT':
+      'prefix': 'BlockT'
+      'body': """
+        [TYPE B_T]
+        ID: $1
+        // delite audio，用于语音识别和打分，必须写ID
+        Audio: $2
+        Audio: $3
+        Text: $4
+      """
+    'BlockPT':
+      'prefix': 'BlockPT'
+      'body': """
+        [TYPE B_PT]
+        ID: $1
+        // delite audio，用于语音识别和打分，必须写ID
+        Audio: $2
+        Audio: $3
+        Pic: $4
+        Text: $5
+      """
