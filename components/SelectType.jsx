@@ -2,6 +2,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import COURSE_TYPES from './course-types'
 
 const styles = {
   list: {
@@ -22,23 +23,6 @@ const styles = {
 }
 
 const SelectType = props => {
-  const types = {
-    DARWIN: { courseType: 1, apiType: 1 },
-    LT: { courseType: 2, apiType: 2 },
-    PT: { courseType: 3, apiType: 3 },
-    OCC: { courseType: 4, apiType: 4 },
-    BE: { courseType: 4, apiType: 5 },
-    PILOT: { courseType: 4, apiType: 6 },
-    PHONICS: { courseType: 5, apiType: 7 },
-    BELL: { courseType: 6, apiType: 8 },
-    TOURISM: { courseType: 1, apiType: 9 },
-    LINGOCHAMP: { courseType: 7, apiType: 10 },
-    KION: { courseType: 9, apiType: 11 },
-    'KION EXAM': { courseType: 10, apiType: 12 },
-    'DARWIN BUSINESS': { courseType: 1, apiType: 9 },
-    TELIS: { courseType: 11, apiType: 14 },
-  }
-
   const typeItem = (item, index) => {
     return (
       <span key={index} style={styles.item} onClick={() => handleClick(item)}>
@@ -48,14 +32,14 @@ const SelectType = props => {
   }
 
   const handleClick = type => {
-    props.onSelect(types[type])
+    props.onSelect(COURSE_TYPES[type])
   }
 
   const previewCourse = atom.config.get('language-coursescript.previewCourse')
 
   return (
     <div className="select-type" style={styles.list}>
-      {Object.keys(types).filter(item => previewCourse[item]).map(typeItem)}
+      {Object.keys(COURSE_TYPES).filter(item => previewCourse[item]).map(typeItem)}
     </div>
   )
 }
