@@ -129,12 +129,14 @@
       TR: $6
     """
   'Spelling':
-    'prefix': 'spelling'
+    'prefix': 'Spelling'
     'body': """
-      [TYPE spelling]
+      [TYPE Spelling]
       // example: Scientists tell us that {{what we see in the universe}} is only a small part of what is there.
+      //题干音频或文本二选一
       Audio: $1
-      TR: $2
+      Text:$2
+      TR: $3
     """
   'MCQ5':
     'prefix': 'mcq5'
@@ -164,7 +166,7 @@
     'prefix': 'rp'
     'body': """
       [TYPE RP]
-      Pic(role=1): $1
+      Pic(role=1, practice_role=true): $1
       Pic(role=2): $2
       Audio(role=1): $3
       Audio(role=2): $4
@@ -230,6 +232,21 @@
       Text: $3
       Opts:
         Text: $4
+        Text(checked=true): $5
+        Text: $6
+        Text: $7
+      TR: $8
+    """
+  'MCT':
+    'prefix': 'mct'
+    'body': """
+      [TYPE MCT]
+      //支持题干audio/pic/text组合搭配，支持单选／多选
+      Audio: $1
+      Pic: $2
+      Text: $3
+      Opts:
+        Text(checked=true): $4
         Text(checked=true): $5
         Text: $6
         Text: $7
@@ -393,6 +410,7 @@
   'ErrorHunting':
     'prefix': 'errorhunting'
     'body': """
+    //正确选项在前，错误项在后，用\n换行，\n前后都需要加空格
       [TYPE ErrorHunting]
       Text: $1
       TR: $2
@@ -497,6 +515,7 @@
       'prefix': 'SpeakingMCQ'
       'body':"""
       [TYPE SpeakingMCQ]
+      //题干支持仅audio或仅text或仅pic或audio加text
       Audio: $1
       Text: $2
       Opts:
@@ -526,6 +545,17 @@
         pos: $3
       \"""
       """
+   """
+ 'vocabkp':
+     'prefix': 'vocabkp'
+     'body': """
+     \"""
+     vocabkp:
+       - $1
+       - $2
+       - $3
+     \"""
+     """
   'SO':
     'prefix': 'so'
     'body': """
@@ -1196,7 +1226,7 @@
       Mix:
         Pic: $5
         Text: $6
-    """
+  """
   'MCP':
     'prefix': 'mcp'
     'body': """
@@ -1216,15 +1246,16 @@
      'body': """
        [TYPE Matching]
        //每一组为audio对text，或者text对text，最多3组
+       Instruction:$1
        QuestionPart:
-       Audio: $1
-       Text: $2
+       Audio:$2
+       Text:$3
        QuestionPart:
-       Audio: $3
-       Text: $4
+       Audio:$4
+       Text:$5
        QuestionPart:
-       Audio: $5
-       Text: $6
+       Audio:$6
+       Text:$7
       """
     'BlockP':
       'prefix': 'BlockP'
