@@ -166,7 +166,7 @@
     'prefix': 'rp'
     'body': """
       [TYPE RP]
-      Pic(role=1): $1
+      Pic(role=1, practice_role=true): $1
       Pic(role=2): $2
       Audio(role=1): $3
       Audio(role=2): $4
@@ -551,9 +551,9 @@
      'body': """
      \"""
      vocabkp:
-       -
-       -
-       -
+       - $1
+       - $2
+       - $3
      \"""
      """
   'SO':
@@ -1246,16 +1246,16 @@
      'body': """
        [TYPE Matching]
        //每一组为audio对text，或者text对text，最多3组
-       Instruction:
+       Instruction:$1
        QuestionPart:
-       Audio:$1
-       Text:$2
+       Audio:$2
+       Text:$3
        QuestionPart:
-       Audio:$3
-       Text:$4
+       Audio:$4
+       Text:$5
        QuestionPart:
-       Audio:$5
-       Text:$6
+       Audio:$6
+       Text:$7
       """
     'BlockP':
       'prefix': 'BlockP'
