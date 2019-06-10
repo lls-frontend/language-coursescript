@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@lls/coursescript-lib@^2.16.1":
-  version "2.16.1"
-  resolved "http://reg-npmjs.llsstaging.com/@lls/coursescript-lib/download/@lls/coursescript-lib-2.16.1.tgz#5a81529e3d6fc29176b8db34735012a871940511"
-  integrity sha1-WoFSnj1vwpF2uNs0c1ASqHGUBRE=
+"@lls/coursescript-lib@^2.16.3":
+  version "2.16.3"
+  resolved "http://reg-npmjs.llsstaging.com/@lls/coursescript-lib/download/@lls/coursescript-lib-2.16.3.tgz#80e41db50df4d224033866e9f482354039d8c750"
+  integrity sha1-gOQdtQ300iQDOGbp9II1QDnYx1A=
   dependencies:
     prop-types "^15.6.1"
     react "^16.4.0"
