@@ -4,9 +4,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 const types = {
-  Audios: ['Text', 'ID', 'Filename'],
-  Pictures: ['Filename', 'ID'],
-  Videos: ['Filename', 'Text','ID'],
+  Audios: ['Text', 'ClipID', 'Filename'],
+  Pictures: ['Filename', 'ClipID'],
+  Videos: ['Filename', 'Text', 'ClipID', 'VideoID'],
 }
 
 const defaultType = Object.keys(types)[0]

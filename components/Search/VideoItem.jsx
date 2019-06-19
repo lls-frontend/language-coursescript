@@ -21,7 +21,7 @@ export default class VideoItem extends Component {
         caption: PropTypes.string,
       })),
     }).isRequired,
-    request: PropTypes.object.isRequired,
+    request: PropTypes.func.isRequired,
     onCopy: PropTypes.func.isRequired,
     onError: PropTypes.func.isRequired,
   }
@@ -157,7 +157,7 @@ export default class VideoItem extends Component {
               <p>Copy:</p>
               {clips.length > 0 &&
                 <span
-                  className={isCopying && 'loading'}
+                  className={isCopying ? 'loading' : undefined}
                   onClick={this.handleCopy}
                 >
                   Clips

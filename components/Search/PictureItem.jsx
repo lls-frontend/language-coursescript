@@ -41,12 +41,12 @@ const PictureItem = ({ data, onCopy }) => {
 }
 
 PictureItem.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.shape({
-    url: PropTypes.string.isRequired,
+  data: PropTypes.shape({
+    url: PropTypes.string,
     id: PropTypes.string.isRequired,
     text: PropTypes.string,
     filename: PropTypes.string,
-  })).isRequired,
+  }).isRequired,
   onCopy: PropTypes.func.isRequired,
 }
 
