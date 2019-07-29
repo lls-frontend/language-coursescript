@@ -410,10 +410,39 @@
   'ErrorHunting':
     'prefix': 'errorhunting'
     'body': """
-    //正确选项在前，错误项在后，用\n换行，\n前后都需要加空格
       [TYPE ErrorHunting]
       Text: $1
       TR: $2
+    """
+  'MCP':
+    'prefix': 'mcp'
+    'body': """
+      [TYPE MCP]
+      //题干audio和text任选一个
+      Audio: $1
+      Text: $2
+      Opts:
+        Pic(checked=true): $3
+        Pic: $4
+        Pic: $5
+        Text: $6
+      TR: $7
+    """
+  'Matching':
+    'prefix': 'matching'
+    'body': """
+      [TYPE Matching]
+      //每一组为audio对text，或者text对text，最多3组
+      Instruction:$1
+      QuestionPart:
+      Audio:$2
+      Text:$3
+      QuestionPart:
+      Audio:$4
+      Text:$5
+      QuestionPart:
+      Audio:$6
+      Text:$7
     """
   'Level':
     'prefix': "level"
@@ -650,7 +679,7 @@
       Text(checked=true): $5
       Text: $6
       Text: $7
-      """
+    """
   'explanation':
     'prefix': 'explanation'
     'body': """
@@ -1169,7 +1198,7 @@
         - "$9"
         - "$10"
         \"""
-      """
+    """
   'SemiSentConstruct':
     'prefix': 'semisentconstruct'
     'body':"""
@@ -1191,7 +1220,7 @@
         - "$11"
         - "$12"
         \"""
-      """
+    """
   'BlockA2P':
     'prefix': 'BlockA2P'
     'body':"""
@@ -1225,36 +1254,6 @@
       Mix:
         Pic: $5
         Text: $6
-  """
-  'MCP':
-    'prefix': 'mcp'
-    'body': """
-      [TYPE MCP]
-      Audio: $1
-      Text: $2
-      //题干audio和text任选一个
-      Opts:
-      Pic(checked=true): $3
-      Pic: $4
-      Pic: $5
-      Text: $6
-      TR: $7
-     """
-   'Matching':
-     'prefix': 'matching'
-     'body': """
-       [TYPE Matching]
-       //每一组为audio对text，或者text对text，最多3组
-       Instruction:$1
-       QuestionPart:
-       Audio:$2
-       Text:$3
-       QuestionPart:
-       Audio:$4
-       Text:$5
-       QuestionPart:
-       Audio:$6
-       Text:$7
       """
     'BlockP':
       'prefix': 'BlockP'
