@@ -4,16 +4,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import CourscriptPreview from '@lls/coursescript-lib';
-import apiUrls from './api-urls.js'
+import apiUrls from './api-urls.js';
 import SelectType from './SelectType.jsx';
 
 export default class Preview extends React.Component {
   static propTypes = {
     plainText: PropTypes.string.isRequired,
+    showFilename: PropTypes.bool.isRequired,
     onTimeCopy: PropTypes.func.isRequired,
     onCodeCopy: PropTypes.func.isRequired,
     onError: PropTypes.func.isRequired,
-    onChange: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired
   };
 
   state = {
@@ -24,88 +25,94 @@ export default class Preview extends React.Component {
   };
 
   fetchList = async (text, type) => {
-    const { onError } = this.props
+    const { onError } = this.props;
 
-    this.setState({ isFetching: true })
+    this.setState({ isFetching: true });
     try {
-      const params = { text, type: type.apiType }
-      const { data } = await axios.post(apiUrls.parse, params)
+      const params = { text, type: type.apiType };
+      const { data } = await axios.post(apiUrls.parse, params);
 
       if (type.courseType === 7) {
-        const ids = Object.values(data.indexed_activities)
-          .reduce((res, item) => ({
-            ...res, [item.atom_id]: item.resource_id
-          }), {})
-        const activities_line = Object.keys(data.activities_line)
-          .reduce((res, item) => ({
-            ...res, [ids[item]]: data.activities_line[item]
-          }), {})
-        this.setState({ data: { ...data, activities_line } })
+        const ids = Object.values(data.indexed_activities).reduce(
+          (res, item) => ({
+            ...res,
+            [item.atom_id]: item.resource_id
+          }),
+          {}
+        );
+        const activities_line = Object.keys(data.activities_line).reduce(
+          (res, item) => ({
+            ...res,
+            [ids[item]]: data.activities_line[item]
+          }),
+          {}
+        );
+        this.setState({ data: { ...data, activities_line } });
       } else {
-        this.setState({ data })
+        this.setState({ data });
       }
 
-      this.setState({ isFetching: false })
+      this.setState({ isFetching: false });
     } catch (error) {
-      const { data } = error.response
-      const message = `Line: ${data.line} ${data.message}`
-      onError(new Error(message))
+      const { data } = error.response;
+      const message = `Line: ${data.line} ${data.message}`;
+      onError(new Error(message));
     }
-  }
+  };
 
   handleTypeSelect = type => {
-    this.setState({ type })
-    this.fetchList(this.props.plainText, type)
-  }
+    this.setState({ type });
+    this.fetchList(this.props.plainText, type);
+  };
 
   handleActivityChange = id => {
-    const { activities_line } = this.state.data
-    this.props.onChange(activities_line[id])
-  }
+    const { activities_line } = this.state.data;
+    this.props.onChange(activities_line[id]);
+  };
 
   handleCodeCopy = () => {
-    const { course } = this.state.data
-    this.props.onCodeCopy(course)
-  }
+    const { course } = this.state.data;
+    this.props.onCodeCopy(course);
+  };
 
   handleSelectLineChange = line => {
-    const { data } = this.state
+    const { data } = this.state;
     if (!data || !data.activities_line) {
-      return false
+      return false;
     }
 
     const selectedActivity = Object.keys(data.activities_line).find(
       item => data.activities_line[item] === line
-    )
+    );
     if (!selectedActivity) {
-      return false
+      return false;
     }
 
-    this.setState({ selectedActivity })
-  }
+    this.setState({ selectedActivity });
+  };
 
   componentWillReceiveProps(nextProps) {
-    const { plainText } = nextProps
-    const { type } = this.state
+    const { plainText } = nextProps;
+    const { type } = this.state;
     if (type) {
-      this.fetchList(plainText, type)
+      this.fetchList(plainText, type);
     }
   }
 
   componentDidCatch(err) {
-    this.props.onError(err)
+    this.props.onError(err);
   }
 
   render() {
-    const { onTimeCopy } = this.props
-    const { data, type, selectedActivity, isFetching } = this.state
+    const { onTimeCopy, showFilename } = this.props;
+    const { data, type, selectedActivity, isFetching } = this.state;
 
     if (isFetching) {
-      return <div>Loading...</div>
+      return <div>Loading...</div>;
     }
 
     if (type === null) {
-      return <SelectType onSelect={this.handleTypeSelect} />
+      return <SelectType onSelect={this.handleTypeSelect} />;
     }
 
     return (
@@ -118,8 +125,9 @@ export default class Preview extends React.Component {
           onActivityChange={this.handleActivityChange}
           onTimeCopy={onTimeCopy}
           onCodeCopy={this.handleCodeCopy}
+          showFilename={showFilename}
         />
       </div>
-    )
+    );
   }
 }
