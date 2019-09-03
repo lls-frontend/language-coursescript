@@ -406,6 +406,7 @@
       Pic: $1
       Audio: $2
       Text: $3
+      Scorer: $4
     """
   'ErrorHunting':
     'prefix': 'errorhunting'
@@ -505,12 +506,9 @@
     [TYPE SL]
     Audio: $1
     Opts:
-      Text: $2
-      Text: $3
-      Text: $4
-      Text: $5
-      Text: $6
-      TR_Text: $7
+      Scorer: $2
+      TR_Text: $3
+      TR: $4
     """
   'RA':
       'prefix': 'RA'
@@ -538,7 +536,7 @@
       Audio: $1
       Pic: $2
       Hint: $3
-      Text: $4
+      Scorer: $4
    """
   'SpeakingMCQ':
       'prefix': 'SpeakingMCQ'
