@@ -1,4 +1,4 @@
-'use babel'
+"use babel";
 
 const COURSE_TYPES = {
   DARWIN: { courseType: 1, apiType: 1 },
@@ -12,10 +12,11 @@ const COURSE_TYPES = {
   TOURISM: { courseType: 1, apiType: 9 },
   LINGOCHAMP: { courseType: 7, apiType: 10 },
   KION: { courseType: 9, apiType: 11 },
-  'KION EXAM': { courseType: 10, apiType: 12 },
-  'DARWIN BUSINESS': { courseType: 1, apiType: 9 },
+  "KION EXAM": { courseType: 10, apiType: 12 },
+  "KION EXAM V2": { courseType: 12, apiType: 16 },
+  "DARWIN BUSINESS": { courseType: 1, apiType: 9 },
   TELIS: { courseType: 11, apiType: 14 },
-  'DARWIN HIFI': { courseType: 1, apiType: 15 },
-}
+  "DARWIN HIFI": { courseType: 1, apiType: 15 }
+};
 
-export default COURSE_TYPES
+export default COURSE_TYPES;
