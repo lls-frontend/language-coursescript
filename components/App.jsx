@@ -1,11 +1,11 @@
-'use babel';
+"use babel";
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import axios from 'axios';
-import CourscriptPreview from '@lls/coursescript-lib';
-import apiUrls from './api-urls.js';
-import SelectType from './SelectType.jsx';
+import React from "react";
+import PropTypes from "prop-types";
+import axios from "axios";
+import CourscriptPreview from "@lls/coursescript-lib";
+import apiUrls from "./api-urls.js";
+import SelectType from "./SelectType.jsx";
 
 export default class Preview extends React.Component {
   static propTypes = {
@@ -20,7 +20,7 @@ export default class Preview extends React.Component {
   state = {
     data: null,
     type: null,
-    selectedActivity: '',
+    selectedActivity: "",
     isFetching: false
   };
 
@@ -51,7 +51,6 @@ export default class Preview extends React.Component {
       } else {
         this.setState({ data });
       }
-
       this.setState({ isFetching: false });
     } catch (error) {
       const { data } = error.response;
@@ -67,7 +66,9 @@ export default class Preview extends React.Component {
 
   handleActivityChange = id => {
     const { activities_line } = this.state.data;
-    this.props.onChange(activities_line[id]);
+    if (activities_line && activities_line[id]) {
+      this.props.onChange(activities_line[id]);
+    }
   };
 
   handleCodeCopy = () => {
