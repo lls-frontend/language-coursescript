@@ -3,10 +3,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
-import CourscriptPreview from "@lls/coursescript-lib";
+import CourscriptPreview from "@laix/coursescript-lib";
 import apiUrls from "./api-urls.js";
 import SelectType from "./SelectType.jsx";
-
 export default class Preview extends React.Component {
   static propTypes = {
     plainText: PropTypes.string.isRequired,
