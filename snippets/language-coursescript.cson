@@ -1,4 +1,14 @@
 '.source.coursescript':
+  'DialoguePractice':
+    'prefix': 'DP'
+    'body': """
+      [TYPE DP]
+      Text:$1
+      Audio(role=):$2
+      Pic:$3
+      Scorer(role=, practice_role=true):$4
+      Hint:$5
+    """
   'VT':
     'prefix': 'VT'
     'body': """
