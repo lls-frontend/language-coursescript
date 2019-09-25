@@ -14,9 +14,11 @@ const COURSE_TYPES = {
   KION: { courseType: 9, apiType: 11 },
   "KION EXAM": { courseType: 10, apiType: 12 },
   "KION EXAM V2": { courseType: 12, apiType: 16 },
+  "KION BOOSTER": { courseType: 13, apiType: 16 },
   "DARWIN BUSINESS": { courseType: 1, apiType: 9 },
   TELIS: { courseType: 11, apiType: 14 },
-  "DARWIN HIFI": { courseType: 1, apiType: 15 }
+  "DARWIN HIFI": { courseType: 1, apiType: 15 },
+  "DARWIN HOMEWORK": { courseType: 1, apiType: 17 }
 };
 
 export default COURSE_TYPES;
