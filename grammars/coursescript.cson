@@ -82,8 +82,9 @@
   # QuestionPart
   # Hint
   # Scorer
+  # Instruction
   {
-    'match': '(ID|Text|Hint|Scorer|Audio|Pic|Video|VideoClip|Opts|TR|TR_TEXT|TR_Text|Title|Mix|Scene|QuestionPart|coordinate|TR_Pic):\\s?(?!\\s)'
+    'match': '(ID|Text|Hint|Scorer|Audio|Pic|Video|VideoClip|Opts|TR|TR_TEXT|TR_Text|Title|Mix|Scene|QuestionPart|coordinate|TR_Pic|Instruction):\\s?(?!\\s)'
     'name': 'storage.type.coursescript'
   }
   # DF01
