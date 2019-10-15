@@ -9,6 +9,27 @@
       Scorer(role=, practice_role=true):$4
       Hint:$5
     """
+  'OpenSpeaking':
+    'prefix': 'OpenSpeaking'
+    'body': """
+      [TYPE OpenSpeaking]
+      \"""
+      open_speaking:
+        instruction: $1
+        text:
+        - "$2"
+        - "$3"
+        - "$4"
+        hint:
+        - "$5"
+        - "$6"
+        - "$7"
+        answers:
+          - "$8"
+          - "$9"
+          - "$10"
+      \"""
+    """
   'VT':
     'prefix': 'VT'
     'body': """
@@ -519,6 +540,9 @@
       Scorer: $2
       TR_Text: $3
       TR: $4
+      Text:$5
+      TR_Text:$6
+      TR:$7
     """
   'RA':
       'prefix': 'RA'
