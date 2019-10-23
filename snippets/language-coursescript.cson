@@ -1323,9 +1323,8 @@
     'prefix':'aixpt'
     'body':"""
       [TYPE AIXPresentationTeaching]
-      ID: $1
-      Video(stream=true): $2
-      Video(video_point=true): $3
+      Video(stream=true): $1
+      Video(video_point=true): $2
       \"""
       display_layout: REGULAR
       \"""
@@ -1334,8 +1333,7 @@
     'prefix': 'aixpa'
     'body': """
       [TYPE AIXPresentationAward]
-      ID: $1
-      Video(id=$2, stream=true): $3
+      Video(stream=true): $1
       \"""
       display_layout: REGULAR
       \"""
@@ -1344,8 +1342,7 @@
     'prefix': 'aixpe'
     'body': """
       [TYPE AIXPresentationExchange]
-      ID: $1
-      Video(id=$2, stream=true): $3
+      Video(stream=true): $1
       \"""
       display_layout: REGULAR
       \"""
@@ -1354,18 +1351,17 @@
     'prefix': 'aixa2a'
     'body':"""
       [TYPE AIXAudio2Audio]
-      ID: $1
-      Video(id=,stream=true): $2
-      Video(id=,stream=true): $3
-      Video(id=,stream=true): $4
-      Video(id=,stream=true): $5
-      Video(id=,stream=true): $6
-      Video(id=,stream=true): $7
-      Video(id=,stream=true): $8
-      Video(id=,stream=true): $9
-      Audio(id=, video_point=true): $10
+      Video(stream=true): $1
+      Video(stream=true): $2
+      Video(stream=true): $3
+      Video(stream=true): $4
+      Video(stream=true): $5
+      Video(stream=true): $6
+      Video(stream=true): $7
+      Video(stream=true): $8
+      Audio(video_point=true): $9
       QuestionPart:
-      Scorer(id=): $11
+      Scorer: $10
       \"""
       display_layout: REGULAR
       \"""
@@ -1374,16 +1370,15 @@
     'prefix': 'aixa2afree'
     'body': """
       [TYPE AIXAudio2AudioFree]
-      ID: $1
-      Video(id=, stream=true): $2
-      Video(id=, stream=true): $3
-      Video(id=, stream=true): $4
-      Video(id=, stream=true): $5
-      Text(stream=true): $6
-      Video(id=, stream=true): $7
-      Text(stream=true): $8 
+      Video(stream=true): $1
+      Video(stream=true): $2
+      Video(stream=true): $3
+      Video(stream=true): $4
+      Text(stream=true): $5
+      Video(stream=true): $6
+      Text(stream=true): $7
       QuestionPart:
-      Scorer(id=): $9
+      Scorer(): $8
       \"""
       display_layout: REGULAR
       \"""
@@ -1392,35 +1387,34 @@
     'prefix': 'aixa2ppuzzle'
     'body': """
       [TYPE AIXA2PPuzzle]
-      ID: $1
-      Video(id=, stream=true): 
-      Video(id=, stream=true):  
-      Video(id=, stream=true): 
-      Video(id=, stream=true): 
-      Video(id=, stream=true): 
-      Pic(id=, background=true): 
-      Pic(id=, sr_start=true): 
-      Pic(id=, sr_end=true): 
-      QuestionPart:
-      Pic(id=): 
-      coordinate: x=,y=
+      Video(stream=true): $1
+      Video(stream=true): $2
+      Video(stream=true): $3
+      Video(stream=true): $4
+      Video(stream=true): $5
+      Pic(background=true): $6
+      Pic(sr_start=true): $7
+      Pic(sr_end=true): $8
+      QuestionPart: $9
+      Pic: $10
+      coordinate: x=$11,y=$12
       Opts:
       Mix:
-      Audio(id=, sound_effect=true): 
-      Animation:
-      Pic(id=): 
-      coordinate: x=,y=
-      Pic(id=): 
-      coordinate: x=,y=
+      Audio(sound_effect=true): $13 
+      Animation: 
+      Pic: $14
+      coordinate: x=$15,y=$16
+      Pic: $17
+      coordinate: x=$18,y=$19
       Mix:
-      Audio(id=, sound_effect=true): 
+      Audio(sound_effect=true): $20 
       Animation:
-      Pic(id=): 
-      coordinate: x=,y=
-      Pic(id=): 
-      coordinate: x=,y=
-      TR_Pic(id=): 
-      coordinate: x=,y=
+      Pic: $21
+      coordinate: x=$22,y=$23
+      Pic: $24
+      coordinate: x=$25,y=$26
+      TR_Pic: $27
+      coordinate: x=$28,y=$29
       \"""
       display_layout: REGULAR
       \"""
@@ -1429,28 +1423,27 @@
     'prefix': 'aixa2ptool'
     'body': """
       [TYPE AIXA2PTool]
-      ID: 
-      Video(id=, stream=true): 
-      Video(id=, stream=true): 
-      Video(id=, stream=true): 
-      Video(id=, stream=true): 
-      Video(id=, stream=true): 
+      Video(stream=true): $1
+      Video(stream=true): $2
+      Video(stream=true): $3
+      Video(stream=true): $4
+      Video(stream=true): $5
       QuestionPart:
-      Pic(id=): 
-      coordinate: x=,y=
+      Pic: $6
+      coordinate: x=$7,y=$8
       Opts:
       Mix:
-      Audio(id=, sound_effect=true): 
+      Audio(sound_effect=true): $9 
       Animation:
-      Pic(id=, checked=true): 
-      coordinate: x=,y=
-      Pic(id=): 
+      Pic(checked=true): $10
+      coordinate: x=$11,y=$12
+      Pic: $13
       Mix:
-      Audio(id=, sound_effect=true): 
+      Audio(sound_effect=true): $14 
       Animation:
-      Pic(id=): 
-      coordinate: x=,y=
-      Pic(id=): 
+      Pic: $15
+      coordinate: x=$16,y=$17
+      Pic: $18
       \"""
       display_layout: REGULAR
       \"""
@@ -1459,36 +1452,35 @@
     'prefix': 'aixa2pdrag2'
     'body': """
       [TYPE AIXA2PDrag2]
-      ID: 
-      Video(id=, stream=true): 
-      Video(id=, stream=true): 
-      Video(id=, stream=true): 
-      Video(id=, stream=true): 
-      Video(id=, stream=true): 
+      Video(stream=true): $1
+      Video(stream=true): $2
+      Video(stream=true): $3
+      Video(stream=true): $4
+      Video(stream=true): $5
       QuestionPart:
       Animation:
-      Pic(id=): 
-      coordinate: x=,y=
-      Pic(id=): 
+      Pic: $6
+      coordinate: x=$7,y=$8
+      Pic: $9 
       Animation:
-      Pic(id=): 
-      coordinate: x=,y=
-      Pic(id=): 
+      Pic: $10 
+      coordinate: x=$11,y=$12
+      Pic: $13 
       Opts:
       Mix:
-      Audio(id=, sound_effect=true): 
+      Audio(sound_effect=true): $14
       Animation:
-      Pic(id=): 
-      coordinate: x=,y=
-      Pic(id=): 
-      coordinate: x=,y=
+      Pic: $15 
+      coordinate: x=$16,y=$17
+      Pic: $18 
+      coordinate: x=$19,y=$20
       Mix:
-      Audio(id=, sound_effect=true): 
+      Audio(sound_effect=true): $21 
       Animation:
-      Pic(id=): 
-      coordinate: x=,y=
-      Pic(id=): 
-      coordinate: x=,y=
+      Pic: $22 
+      coordinate: x=$23,y=$24
+      Pic: $25
+      coordinate: x=$26,y=$27
       \"""
       display_layout: REGULAR
       \"""
@@ -1497,28 +1489,27 @@
     'prefix': 'aixa2ptap1'
     'body': """
       [TYPE AIXA2PTap1]
-      ID: 
-      Video(id=, stream=true): 
-      Video(id= , stream=true): 
-      Video(id=, stream=true): 
-      Video(id=, stream=true): 
-      Video(id=, stream=true): 
+      Video(stream=true): $1
+      Video(stream=true): $2
+      Video(stream=true): $3
+      Video(stream=true): $4
+      Video(stream=true): $5
       QuestionPart:
       Opts:
       Mix:
-      Audio(id=, sound_effect=true): 
+      Audio(sound_effect=true): $6 
       Animation:
-      Pic(id=): 
-      coordinate: x=,y=
-      Pic(id=): 
-      coordinate: x=,y=
+      Pic: $7
+      coordinate: x=$8,y=$9
+      Pic: $10
+      coordinate: x=$11,y=$12
       Mix:
-      Audio(id=, sound_effect=true): 
+      Audio(sound_effect=true): $13
       Animation:
-      Pic(id=): 
-      coordinate: x=,y=
-      Pic(id=): 
-      coordinate: x=,y=
+      Pic: $14
+      coordinate: x=$15,y=$16
+      Pic: $17
+      coordinate: x=$18,y=$19
       \"""
       display_layout: REGULAR
       \"""
@@ -1527,22 +1518,21 @@
     'prefix': 'aixpa2abuild1'
     'body': """
       [TYPE AIXPA2ABuild1]
-      ID: 
-      Video(id=, stream=true): 
-      Video(id=, stream=true): 
-      Video(id=, stream=true): 
-      Video(id=, stream=true): 
-      Video(id=, stream=true): 
-      Pic(id=, background=true): 
-      Pic(id=, sr_start=true): 
+      Video(stream=true): $1 
+      Video(stream=true): $2
+      Video(stream=true): $3
+      Video(stream=true): $4
+      Video(stream=true): $5
+      Pic(background=true): $6
+      Pic(sr_start=true): $7
       QuestionPart:
-      Scorer(id=): 
-      Audio(id=, sound_effect=true): 
+      Scorer: $8
+      Audio(sound_effect=true): $9
       Animation:
-      Pic(id=): 
-      coordinate: x=,y=
-      Pic(id=): 
-      coordinate: x=,y=
+      Pic: $10
+      coordinate: x=$11,y=$12
+      Pic: $13
+      coordinate: x=$14,y=$15
       \"""
       display_layout: REGULAR
       \"""
