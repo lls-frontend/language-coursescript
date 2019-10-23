@@ -18,7 +18,8 @@ const COURSE_TYPES = {
   "DARWIN BUSINESS": { courseType: 1, apiType: 9 },
   TELIS: { courseType: 11, apiType: 14 },
   "DARWIN HIFI": { courseType: 1, apiType: 15 },
-  "DARWIN HOMEWORK": { courseType: 1, apiType: 17 }
+  "DARWIN HOMEWORK": { courseType: 1, apiType: 17 },
+  AIX: { courseType: 15, apiType: 18 }
 };
 
 export default COURSE_TYPES;
