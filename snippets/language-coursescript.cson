@@ -606,16 +606,16 @@
         pos: $3
       \"""
       """
- 'vocabkp':
-     'prefix': 'vocabkp'
-     'body': """
-     \"""
-     vocabkp:
-       - $1
-       - $2
-       - $3
-     \"""
-     """
+  'vocabkp':
+    'prefix': 'vocabkp'
+    'body': """
+    \"""
+    vocabkp:
+      - $1
+      - $2
+      - $3
+    \"""
+    """
   'SO':
     'prefix': 'so'
     'body': """
@@ -1287,35 +1287,253 @@
         Pic: $5
         Text: $6
       """
-    'BlockP':
-      'prefix': 'BlockP'
-      'body': """
-        [TYPE B_P]
-        ID: $1
-        // delite audio，用于语音识别和打分，必须写ID
-        Audio: $2
-        Audio: $3
-        Pic: $4
-        Text: $4
-      """
-    'BlockT':
-      'prefix': 'BlockT'
-      'body': """
-        [TYPE B_T]
-        ID: $1
-        // delite audio，用于语音识别和打分，必须写ID
-        Audio: $2
-        Audio: $3
-        Text: $4
-      """
-    'BlockPT':
-      'prefix': 'BlockPT'
-      'body': """
-        [TYPE B_PT]
-        ID: $1
-        // delite audio，用于语音识别和打分，必须写ID
-        Audio: $2
-        Audio: $3
-        Pic: $4
-        Text: $5
-      """
+  'BlockP':
+    'prefix': 'BlockP'
+    'body': """
+      [TYPE B_P]
+      ID: $1
+      // delite audio，用于语音识别和打分，必须写ID
+      Audio: $2
+      Audio: $3
+      Pic: $4
+      Text: $4
+    """
+  'BlockT':
+    'prefix': 'BlockT'
+    'body': """
+      [TYPE B_T]
+      ID: $1
+      // delite audio，用于语音识别和打分，必须写ID
+      Audio: $2
+      Audio: $3
+      Text: $4
+    """
+  'BlockPT':
+    'prefix': 'BlockPT'
+    'body': """
+      [TYPE B_PT]
+      ID: $1
+      // delite audio，用于语音识别和打分，必须写ID
+      Audio: $2
+      Audio: $3
+      Pic: $4
+      Text: $5
+    """
+  'AIXPresentationTeaching':
+    'prefix':'aixpt'
+    'body':"""
+      [TYPE AIXPresentationTeaching]
+      Video(stream=true): $1
+      Video(video_point=true): $2
+      \"""
+      display_layout: REGULAR
+      \"""
+    """
+  'AIXPresentationAward':
+    'prefix': 'aixpa'
+    'body': """
+      [TYPE AIXPresentationAward]
+      Video(stream=true): $1
+      \"""
+      display_layout: REGULAR
+      \"""
+    """
+  'AIXPresentationExchange':
+    'prefix': 'aixpe'
+    'body': """
+      [TYPE AIXPresentationExchange]
+      Video(stream=true): $1
+      \"""
+      display_layout: REGULAR
+      \"""
+    """
+  'AIXAudio2Audio':
+    'prefix': 'aixa2a'
+    'body':"""
+      [TYPE AIXAudio2Audio]
+      Video(stream=true): $1
+      Video(stream=true): $2
+      Video(stream=true): $3
+      Video(stream=true): $4
+      Video(stream=true): $5
+      Video(stream=true): $6
+      Video(stream=true): $7
+      Video(stream=true): $8
+      Audio(video_point=true): $9
+      QuestionPart:
+      Scorer: $10
+      \"""
+      display_layout: REGULAR
+      \"""
+    """
+  'AIXAudio2AudioFree':
+    'prefix': 'aixa2afree'
+    'body': """
+      [TYPE AIXAudio2AudioFree]
+      Video(stream=true): $1
+      Video(stream=true): $2
+      Video(stream=true): $3
+      Video(stream=true): $4
+      Text(stream=true): $5
+      Video(stream=true): $6
+      Text(stream=true): $7
+      QuestionPart:
+      Scorer(): $8
+      \"""
+      display_layout: REGULAR
+      \"""
+    """
+  'AIXA2PPuzzle':
+    'prefix': 'aixa2ppuzzle'
+    'body': """
+      [TYPE AIXA2PPuzzle]
+      Video(stream=true): $1
+      Video(stream=true): $2
+      Video(stream=true): $3
+      Video(stream=true): $4
+      Video(stream=true): $5
+      Pic(background=true): $6
+      Pic(sr_start=true): $7
+      Pic(sr_end=true): $8
+      QuestionPart: $9
+      Pic: $10
+      coordinate: x=$11,y=$12
+      Opts:
+      Mix:
+      Audio(sound_effect=true): $13 
+      Animation: 
+      Pic: $14
+      coordinate: x=$15,y=$16
+      Pic: $17
+      coordinate: x=$18,y=$19
+      Mix:
+      Audio(sound_effect=true): $20 
+      Animation:
+      Pic: $21
+      coordinate: x=$22,y=$23
+      Pic: $24
+      coordinate: x=$25,y=$26
+      TR_Pic: $27
+      coordinate: x=$28,y=$29
+      \"""
+      display_layout: REGULAR
+      \"""
+    """
+  'AIXA2PTool':
+    'prefix': 'aixa2ptool'
+    'body': """
+      [TYPE AIXA2PTool]
+      Video(stream=true): $1
+      Video(stream=true): $2
+      Video(stream=true): $3
+      Video(stream=true): $4
+      Video(stream=true): $5
+      QuestionPart:
+      Pic: $6
+      coordinate: x=$7,y=$8
+      Opts:
+      Mix:
+      Audio(sound_effect=true): $9 
+      Animation:
+      Pic(checked=true): $10
+      coordinate: x=$11,y=$12
+      Pic: $13
+      Mix:
+      Audio(sound_effect=true): $14 
+      Animation:
+      Pic: $15
+      coordinate: x=$16,y=$17
+      Pic: $18
+      \"""
+      display_layout: REGULAR
+      \"""
+    """
+  'AIXA2PDrag2':
+    'prefix': 'aixa2pdrag2'
+    'body': """
+      [TYPE AIXA2PDrag2]
+      Video(stream=true): $1
+      Video(stream=true): $2
+      Video(stream=true): $3
+      Video(stream=true): $4
+      Video(stream=true): $5
+      QuestionPart:
+      Animation:
+      Pic: $6
+      coordinate: x=$7,y=$8
+      Pic: $9 
+      Animation:
+      Pic: $10 
+      coordinate: x=$11,y=$12
+      Pic: $13 
+      Opts:
+      Mix:
+      Audio(sound_effect=true): $14
+      Animation:
+      Pic: $15 
+      coordinate: x=$16,y=$17
+      Pic: $18 
+      coordinate: x=$19,y=$20
+      Mix:
+      Audio(sound_effect=true): $21 
+      Animation:
+      Pic: $22 
+      coordinate: x=$23,y=$24
+      Pic: $25
+      coordinate: x=$26,y=$27
+      \"""
+      display_layout: REGULAR
+      \"""
+    """
+  'AIXA2PTap1':
+    'prefix': 'aixa2ptap1'
+    'body': """
+      [TYPE AIXA2PTap1]
+      Video(stream=true): $1
+      Video(stream=true): $2
+      Video(stream=true): $3
+      Video(stream=true): $4
+      Video(stream=true): $5
+      QuestionPart:
+      Opts:
+      Mix:
+      Audio(sound_effect=true): $6 
+      Animation:
+      Pic: $7
+      coordinate: x=$8,y=$9
+      Pic: $10
+      coordinate: x=$11,y=$12
+      Mix:
+      Audio(sound_effect=true): $13
+      Animation:
+      Pic: $14
+      coordinate: x=$15,y=$16
+      Pic: $17
+      coordinate: x=$18,y=$19
+      \"""
+      display_layout: REGULAR
+      \"""
+    """
+  'AIXPA2ABuild1':
+    'prefix': 'aixpa2abuild1'
+    'body': """
+      [TYPE AIXPA2ABuild1]
+      Video(stream=true): $1 
+      Video(stream=true): $2
+      Video(stream=true): $3
+      Video(stream=true): $4
+      Video(stream=true): $5
+      Pic(background=true): $6
+      Pic(sr_start=true): $7
+      QuestionPart:
+      Scorer: $8
+      Audio(sound_effect=true): $9
+      Animation:
+      Pic: $10
+      coordinate: x=$11,y=$12
+      Pic: $13
+      coordinate: x=$14,y=$15
+      \"""
+      display_layout: REGULAR
+      \"""
+    """
