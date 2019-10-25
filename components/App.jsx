@@ -115,13 +115,16 @@ export default class Preview extends React.Component {
       return <SelectType onSelect={this.handleTypeSelect} />;
     }
 
+    // darwin 和 kion
+    const showActivityMetadata = [1, 9].includes(type.courseType);
+
     return (
       <div>
         <CourscriptPreview
           data={data}
           type={type.courseType}
           activeActivityId={selectedActivity}
-          showActivityMetadata={type.courseType === 1}
+          showActivityMetadata={showActivityMetadata}
           onActivityChange={this.handleActivityChange}
           onTimeCopy={onTimeCopy}
           onCodeCopy={this.handleCodeCopy}
