@@ -1356,12 +1356,9 @@
       Video(stream=true): $3
       Video(stream=true): $4
       Video(stream=true): $5
-      Video(stream=true): $6
-      Video(stream=true): $7
-      Video(stream=true): $8
-      Audio(video_point=true): $9
+      Audio(video_point=true): $6
       QuestionPart:
-      Scorer: $10
+        Scorer: $7
       \"""
       display_layout: REGULAR
       \"""
@@ -1375,10 +1372,8 @@
       Video(stream=true): $3
       Video(stream=true): $4
       Text(stream=true): $5
-      Video(stream=true): $6
-      Text(stream=true): $7
       QuestionPart:
-      Scorer(): $8
+        Scorer: $6
       \"""
       display_layout: REGULAR
       \"""
@@ -1396,25 +1391,18 @@
       Pic(sr_start=true): $7
       Pic(sr_end=true): $8
       QuestionPart: $9
-      Pic: $10
-      coordinate: x=$11,y=$12
-      Opts:
-      Mix:
-      Audio(sound_effect=true): $13 
-      Animation: 
-      Pic: $14
-      coordinate: x=$15,y=$16
-      Pic: $17
-      coordinate: x=$18,y=$19
-      Mix:
-      Audio(sound_effect=true): $20 
-      Animation:
-      Pic: $21
-      coordinate: x=$22,y=$23
-      Pic: $24
-      coordinate: x=$25,y=$26
-      TR_Pic: $27
-      coordinate: x=$28,y=$29
+        Pic: $10
+        coordinate: x=$11,y=$12
+        Opts:
+        Mix:
+          Audio(sound_effect=true): $13 
+          Animation: 
+          Pic: $14
+          coordinate: x=$15,y=$16
+          Pic: $17
+          coordinate: x=$18,y=$19
+      TR_Pic: $20
+      coordinate: x=$21,y=$22
       \"""
       display_layout: REGULAR
       \"""
@@ -1428,22 +1416,21 @@
       Video(stream=true): $3
       Video(stream=true): $4
       Video(stream=true): $5
+      Pic(background=true): $6
+      Pic(sr_start=true): $7
+      Pic(sr_end=true): $8
       QuestionPart:
-      Pic: $6
-      coordinate: x=$7,y=$8
-      Opts:
-      Mix:
-      Audio(sound_effect=true): $9 
-      Animation:
-      Pic(checked=true): $10
-      coordinate: x=$11,y=$12
-      Pic: $13
-      Mix:
-      Audio(sound_effect=true): $14 
-      Animation:
-      Pic: $15
-      coordinate: x=$16,y=$17
-      Pic: $18
+        Pic: $9
+        coordinate: x=$10,y=$11
+        Opts:
+        Mix:
+          Audio(sound_effect=true): $12 
+          Animation:
+          Pic(checked=true): $13
+          coordinate: x=$14,y=$15
+          Pic: $16
+      TR_Pic: $17
+      coordinate: x=18,y=19
       \"""
       display_layout: REGULAR
       \"""
@@ -1457,30 +1444,28 @@
       Video(stream=true): $3
       Video(stream=true): $4
       Video(stream=true): $5
+      Pic(background=true): $6
+      Pic(sr_start=true): $7
+      Pic(sr_end=true): $8
       QuestionPart:
-      Animation:
-      Pic: $6
-      coordinate: x=$7,y=$8
-      Pic: $9 
-      Animation:
-      Pic: $10 
-      coordinate: x=$11,y=$12
-      Pic: $13 
-      Opts:
-      Mix:
-      Audio(sound_effect=true): $14
-      Animation:
-      Pic: $15 
-      coordinate: x=$16,y=$17
-      Pic: $18 
-      coordinate: x=$19,y=$20
-      Mix:
-      Audio(sound_effect=true): $21 
-      Animation:
-      Pic: $22 
-      coordinate: x=$23,y=$24
-      Pic: $25
-      coordinate: x=$26,y=$27
+        Animation:
+        Pic: $9
+        coordinate: x=$10,y=$11
+        Pic: $12 
+        Animation:
+        Pic: $13 
+        coordinate: x=$14,y=$15
+        Pic: $16 
+        Opts:
+        Mix:
+          Audio(sound_effect=true): $17
+          Animation:
+          Pic: $18 
+          coordinate: x=$19,y=$20
+          Pic: $21 
+          coordinate: x=$22,y=$23
+      TR_Pic: $24
+      coordinate: x=$25,y=$26 
       \"""
       display_layout: REGULAR
       \"""
@@ -1494,22 +1479,20 @@
       Video(stream=true): $3
       Video(stream=true): $4
       Video(stream=true): $5
+      Pic(background=true): $6
+      Pic(sr_start=true): $7
+      Pic(sr_end=true): $8
       QuestionPart:
-      Opts:
-      Mix:
-      Audio(sound_effect=true): $6 
-      Animation:
-      Pic: $7
-      coordinate: x=$8,y=$9
-      Pic: $10
-      coordinate: x=$11,y=$12
-      Mix:
-      Audio(sound_effect=true): $13
-      Animation:
-      Pic: $14
-      coordinate: x=$15,y=$16
-      Pic: $17
-      coordinate: x=$18,y=$19
+        Opts:
+        Mix:
+          Audio(sound_effect=true): $9 
+          Animation:
+          Pic: $10
+          coordinate: x=$11,y=$12
+          Pic: $13
+          coordinate: x=$14,y=$15
+      TR_Pic: $16
+      coordinate: x=$17,y=$18
       \"""
       display_layout: REGULAR
       \"""
@@ -1525,14 +1508,17 @@
       Video(stream=true): $5
       Pic(background=true): $6
       Pic(sr_start=true): $7
+      Pic(sr_end=true): $8
       QuestionPart:
-      Scorer: $8
-      Audio(sound_effect=true): $9
-      Animation:
-      Pic: $10
-      coordinate: x=$11,y=$12
-      Pic: $13
-      coordinate: x=$14,y=$15
+        Scorer: $9
+        Audio(sound_effect=true): $10
+        Animation:
+        Pic: $11
+        coordinate: x=$12,y=$13
+        Pic: $14
+        coordinate: x=$15,y=$16
+      TR_Pic: $17
+      coordinate: x=$18,y=$19
       \"""
       display_layout: REGULAR
       \"""
