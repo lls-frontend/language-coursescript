@@ -1537,3 +1537,29 @@
       display_layout: REGULAR
       \"""
     """
+  'LingokidsKaraokeReader':
+    'prefix': 'lingokidsk'
+    'body': """
+      = Lesson $1
+      \"""
+      title: $2
+      intro: $3
+      cover_url: $4
+      thumbnail_url: $5
+      age: $6
+      copyright: $7
+      topic: $8
+      reading_time: $9
+      knowledge_points:
+      - $10
+      \"""
+      == Episode $11
+      === Group $12
+
+      [TYPE LingokidsKaraokeReader]
+      ID: $13
+      Text: $14
+      Pic(id=$15): $16
+      Audio(id=$17,dubbing=$18): $19
+      Text: $20
+    """
