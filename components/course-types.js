@@ -19,7 +19,8 @@ const COURSE_TYPES = {
   TELIS: { courseType: 11, apiType: 14 },
   "DARWIN HIFI": { courseType: 1, apiType: 15 },
   "DARWIN HOMEWORK": { courseType: 1, apiType: 17 },
-  AIX: { courseType: 15, apiType: 18 }
+  AIX: { courseType: 15, apiType: 18 },
+  "SPROUT DAILY READERS": { courseType: 16, apiType: 19 },
 };
 
 export default COURSE_TYPES;
