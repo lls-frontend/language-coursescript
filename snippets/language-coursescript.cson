@@ -1633,6 +1633,7 @@
       Pic(id=$15): $16
       Audio(id=$17,dubbing=$18): $19
       Text: $20
+    """
   'AIXPA2AJet1':
     'prefix': 'aixpa2ajet1'
     'body': """
@@ -1728,9 +1729,9 @@
         Pic: $16 
         Opts:
         Mix:
-          Audio(sound_effect=true, checked=true): $17
+          Audio(sound_effect=true): $17
           Animation:
-          Pic: $18 
+          Pic(checked=true): $18 
           coordinate: x=$19,y=$20
           Pic: $21 
           coordinate: x=$22,y=$23
