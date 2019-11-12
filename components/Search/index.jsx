@@ -5,7 +5,8 @@ import PropTypes from "prop-types";
 import axios from "axios";
 import { stringify } from "query-string";
 import apiUrls from "../api-urls.js";
-import Filter from "./Filter.jsx";
+// import Filter from './Filter.jsx';
+import ResourceFilter from "./ResourceFilter.jsx";
 import PictureItem from "./PictureItem.jsx";
 import AudioItem from "./AudioItem.jsx";
 import VideoItem from "./VideoItem.jsx";
@@ -13,9 +14,42 @@ import Pagination from "./Pagination.jsx";
 
 const PAGE_SIZE = 25;
 
+const SearchTypeMap = {
+  ID: "id",
+  VideoID: "id",
+  ClipID: "clipId",
+  Filename: "filename",
+  Text: "text"
+};
+
+const AssetTypeMap = {
+  Pictures: "picture",
+  Audios: "audio",
+  Videos: "video",
+  "Streaming Videos": "aix_video_new"
+};
+
 const request = axios.create({ baseURL: apiUrls.asset });
 request.interceptors.response.use(
   res => res.data.msg,
+  error => {
+    const {
+      response: { data, statusText }
+    } = error;
+
+    return Promise.reject(new Error(data.msg || statusText));
+  }
+);
+
+const bffRequest = axios.create({ baseURL: apiUrls.bffAsset });
+bffRequest.interceptors.response.use(
+  res => {
+    if (res.data.code === 0) {
+      return res.data.msg;
+    }
+
+    throw new Error(res.data.msg);
+  },
   error => {
     const {
       response: { data, statusText }
@@ -79,12 +113,14 @@ export default class Search extends Component {
                 <PictureItem key={i} data={item} onCopy={this.handleCopy} />
               );
             case "Audios":
+            case "Scorer":
               return <AudioItem key={i} data={item} onCopy={this.handleCopy} />;
             case "Videos":
+            case "Streaming Videos":
               const props = {
                 key: i,
                 data: item,
-                request,
+                request: bffRequest,
                 onError,
                 onCopy: this.handleCopy
               };
@@ -181,6 +217,73 @@ export default class Search extends Component {
     }
   };
 
+  fetchResource = async (page, filter) => {
+    const {
+      source,
+      resourceType,
+      searchType,
+      search,
+      audioType,
+      audioGender
+    } = filter;
+    this.setState({ isFetching: true, showResults: true, error: "" });
+
+    try {
+      // ID 、VideoID 搜索的是资源
+      // clipId、text 搜索的是 clips
+      const isSearchClips = ["clipId", "text"].includes(
+        SearchTypeMap[searchType]
+      );
+      // || (resourceType === 'Audios' && audioGender !== 'All');
+
+      const commonQuery = {
+        page,
+        page_size: PAGE_SIZE,
+        source: source.replace(/\s+/g, ""),
+        search,
+        audio_type: audioType,
+        orientation: "All",
+        locale: "All",
+        compress_failed: false,
+        score_failed: false,
+        type: AssetTypeMap[resourceType],
+        search_type: SearchTypeMap[searchType],
+        gender: audioGender || "All"
+      };
+
+      // https://wiki.liulishuo.work/display/PLAT/CMS+-+Asset#getassets
+      const funcMap = {
+        Pictures: async () =>
+          bffRequest.get(`/picture?${stringify(commonQuery)}`),
+        Audios: isSearchClips
+          ? async () => bffRequest.get(`/audio/clips?${stringify(commonQuery)}`)
+          : async () => bffRequest.get(`/audio?${stringify(commonQuery)}`),
+        Videos: isSearchClips
+          ? async () => bffRequest.get(`/video/clips?${stringify(commonQuery)}`)
+          : async () => bffRequest.get(`/video?${stringify(commonQuery)}`),
+        "Streaming Videos": async () =>
+          bffRequest.get(`/aix_video_new?${stringify(commonQuery)}`),
+        Scorer: isSearchClips
+          ? async () => bffRequest.get(`/score/clips?${stringify(commonQuery)}`)
+          : async () => bffRequest.get(`/score?${stringify(commonQuery)}`)
+      };
+
+      const servise = funcMap[resourceType];
+      const res = await servise();
+
+      this.setState({
+        result: {
+          list: res.list || [],
+          count: res.total
+        }
+      });
+    } catch (error) {
+      this.setState({ error: error.message, result: { list: [], count: 0 } });
+    } finally {
+      this.setState({ isFetching: false });
+    }
+  };
+
   fetchSources = async () => {
     try {
       const sources = await request.get("/sources");
@@ -197,14 +300,13 @@ export default class Search extends Component {
   };
 
   handleSearch = async filter => {
-    this.fetch(1, filter);
+    this.fetchResource(1, filter);
     this.setState({ filter, page: 1 });
   };
 
   handlePage = page => {
     const { filter } = this.state;
-
-    this.fetch(page, filter);
+    this.fetchResource(page, filter);
     this.setState({ page });
   };
 
@@ -231,7 +333,11 @@ export default class Search extends Component {
 
     return (
       <div className="search">
-        <Filter sources={sources} focus={focus} onSearch={this.handleSearch} />
+        <ResourceFilter
+          sources={sources}
+          focus={focus}
+          onSearch={this.handleSearch}
+        />
         {this.renderResults()}
         {result.count > PAGE_SIZE && (
           <Pagination

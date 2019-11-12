@@ -1,108 +1,108 @@
-'use babel'
+"use babel";
 
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 const types = {
-  Audios: ['Text', 'ClipID', 'Filename'],
-  Pictures: ['Filename', 'ClipID'],
-  Videos: ['Filename', 'Text', 'ClipID', 'VideoID'],
-}
+  Audios: ["Text", "ClipID", "Filename"],
+  Pictures: ["Filename", "ClipID"],
+  Videos: ["Filename", "Text", "ClipID", "VideoID"]
+};
 
-const defaultType = Object.keys(types)[0]
+const defaultType = Object.keys(types)[0];
 
 export default class Filter extends Component {
   static propTypes = {
     sources: PropTypes.arrayOf(PropTypes.string).isRequired,
     focus: PropTypes.bool.isRequired,
-    onSearch: PropTypes.func.isRequired,
-  }
+    onSearch: PropTypes.func.isRequired
+  };
 
   state = {
     resourceType: defaultType,
-    source: 'All',
+    source: "All",
     searchType: types[defaultType][0],
-    search: '',
-    showSourcesDropdown: false,
-  }
+    search: "",
+    showSourcesDropdown: false
+  };
 
-  handleResourceTypeChange = (e) => {
-    const { value } = e.target
+  handleResourceTypeChange = e => {
+    const { value } = e.target;
 
     this.setState({
       resourceType: value,
       searchType: types[value][0],
       showSourcesDropdown: false
-    })
-  }
+    });
+  };
 
   handleSourceClick = () => {
-    const { showSourcesDropdown } = this.state
-    this.setState({ showSourcesDropdown: !showSourcesDropdown })
-  }
+    const { showSourcesDropdown } = this.state;
+    this.setState({ showSourcesDropdown: !showSourcesDropdown });
+  };
 
-  handleSourceChange = (e) => {
-    const { resourceType, searchType, search } = this.state
-    const value = e.target.innerHTML
+  handleSourceChange = e => {
+    const { resourceType, searchType, search } = this.state;
+    const value = e.target.innerHTML;
     if (search) {
-      this.props.onSearch({ resourceType, searchType, source: value, search })
+      this.props.onSearch({ resourceType, searchType, source: value, search });
     }
 
-    this.setState({ source: value, showSourcesDropdown: false })
-  }
+    this.setState({ source: value, showSourcesDropdown: false });
+  };
 
   handleInputChange = e => {
-    this.setState({ search: e.target.value })
-  }
+    this.setState({ search: e.target.value });
+  };
 
-  handleSearchTypeChange = (e) => {
-    this.setState({ searchType: e.target.value, showSourcesDropdown: false })
-  }
+  handleSearchTypeChange = e => {
+    this.setState({ searchType: e.target.value, showSourcesDropdown: false });
+  };
 
   handleSearch = () => {
-    const { resourceType, searchType, source, search } = this.state
+    const { resourceType, searchType, source, search } = this.state;
     if (!search) {
-      return false
+      return false;
     }
 
-    this.props.onSearch({ resourceType, searchType, source, search })
-  }
+    this.props.onSearch({ resourceType, searchType, source, search });
+  };
 
   handleKeyDown = e => {
     if (e.keyCode === 13) {
-      this.handleSearch()
+      this.handleSearch();
     }
-  }
+  };
 
   componentDidMount() {
-    this.input.addEventListener('keydown', this.handleKeyDown)
+    this.input.addEventListener("keydown", this.handleKeyDown);
   }
 
   componentDidUpdate(prevProps) {
     if (!prevProps.focus && this.props.focus) {
-      this.input.focus()
+      this.input.focus();
     }
   }
 
   componentWillUnmount() {
-    this.input.removeEventListener('keydown', this.handleKeyDown)
+    this.input.removeEventListener("keydown", this.handleKeyDown);
   }
 
   render() {
-    const { sources } = this.props
+    const { sources } = this.props;
     const {
       resourceType,
       source,
       searchType,
       search,
       showSourcesDropdown
-    } = this.state
+    } = this.state;
 
     return (
       <div>
         <div className="search-radios">
           <div className="search-resources">
-            {Object.keys(types).map(item =>
+            {Object.keys(types).map(item => (
               <label key={item}>
                 <input
                   type="radio"
@@ -110,12 +110,13 @@ export default class Filter extends Component {
                   value={item}
                   checked={item === resourceType}
                   onChange={this.handleResourceTypeChange}
-                /> {item}
+                />{" "}
+                {item}
               </label>
-            )}
+            ))}
           </div>
           <div className="search-types">
-            {types[resourceType].map(item =>
+            {types[resourceType].map(item => (
               <label key={item}>
                 <input
                   type="radio"
@@ -123,21 +124,22 @@ export default class Filter extends Component {
                   value={item}
                   checked={item === searchType}
                   onChange={this.handleSearchTypeChange}
-                /> {item}
+                />{" "}
+                {item}
               </label>
-            )}
+            ))}
           </div>
         </div>
         <div className="search-input">
           <div
-            className={`search-input-sources ${searchType !== 'ID' && 'show'}`}
+            className={`search-input-sources ${searchType !== "ID" && "show"}`}
           >
             <p onClick={this.handleSourceClick}>{source}</p>
-            <ul className={showSourcesDropdown ? 'show' : ''}>
+            <ul className={showSourcesDropdown ? "show" : ""}>
               {sources.map(item => (
                 <li
                   key={item}
-                  className={item === source ? 'active' : ''}
+                  className={item === source ? "active" : ""}
                   onClick={this.handleSourceChange}
                 >
                   {item}
@@ -146,7 +148,7 @@ export default class Filter extends Component {
             </ul>
           </div>
           <input
-            ref={input => this.input = input}
+            ref={input => (this.input = input)}
             className="native-key-bindings"
             type="text"
             placeholder="Search"
@@ -157,6 +159,6 @@ export default class Filter extends Component {
           <i onClick={this.handleSearch}></i>
         </div>
       </div>
-    )
+    );
   }
 }

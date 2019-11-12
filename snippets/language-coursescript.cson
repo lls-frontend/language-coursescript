@@ -1030,21 +1030,6 @@
       ID: $1
       Audio: $2
       Text: $3
-      QuestionPart:
-      Audio: $4
-      Text: $5
-      Text: $6
-      Text: $7
-      Text: $8
-      QuestionPart:
-      Audio: $9
-      Text: $10
-      Text: $11
-      QuestionPart:
-      Audio: $12
-      Text: $13
-      Text: $14
-      Text: $15
       """
   'T2A':
     'prefix': 'T2A'
