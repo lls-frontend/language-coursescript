@@ -1649,7 +1649,7 @@
       QuestionPart:
         Pic: $9
         Text: $10
-        Scorer: $11
+        Audio: $11
       TR_Pic: $12
       coordinate: x=$13,y=$14
       \"""
@@ -1671,7 +1671,7 @@
       QuestionPart:
         Pic: $9
         Text: $10
-        Scorer: $11
+        Audio: $11
       TR_Pic: $12
       coordinate: x=$13,y=$14
       \"""
