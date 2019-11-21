@@ -1312,7 +1312,6 @@
     'body':"""
       [TYPE AIXPresentationTeaching]
       Video(stream=true): $1
-      Video(video_point=true): $2
       \"""
       display_layout: REGULAR
       \"""
