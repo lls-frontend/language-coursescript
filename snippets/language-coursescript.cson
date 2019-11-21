@@ -1793,3 +1793,14 @@
       display_layout: REGULAR
       \"""
     """
+  'VocabBank':
+    'prefix': "VocabBank"
+    'body': """
+    [TYPE VocabBank]
+    Audio(target=true):${1:vocabulary}
+    Text:${2:chinese text}
+    Text:${3:word property}
+    Text:${4:IPA}
+    Opts:
+    Text:${5:distracter}
+    """
