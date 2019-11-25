@@ -15,6 +15,8 @@ export default class VideoItem extends Component {
       fileName: PropTypes.string,
       url: PropTypes.string,
       source: PropTypes.string,
+      createdAt: PropTypes.string,
+      updatedAt: PropTypes.string,
       clipsCount: PropTypes.number,
       clips: PropTypes.arrayOf(
         PropTypes.shape({
@@ -143,8 +145,12 @@ export default class VideoItem extends Component {
   render() {
     const { data } = this.props;
     const { clips, isCopying } = this.state;
-    const date = data.createdAt
+
+    const createdAt = data.createdAt
       ? dayjs(data.createdAt.slice(0, 39)).format("YYYY-MM-DD HH:mm")
+      : "";
+    const updatedAt = data.updatedAt
+      ? dayjs(data.updatedAt.slice(0, 39)).format("YYYY-MM-DD HH:mm")
       : null;
 
     const url = data.url.startsWith("http")
@@ -153,9 +159,8 @@ export default class VideoItem extends Component {
 
     return (
       <div className="search-item video">
-        <p>
-          {date} {data.id}
-        </p>
+        {createdAt && <p>createdAt: {createdAt}</p>}
+        {updatedAt && <p>updatedAt: {updatedAt}</p>}
         <p>{data.fileName}</p>
         {data.source && <p>{data.source}</p>}
         <div className="search-item-video">
