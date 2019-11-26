@@ -1792,3 +1792,40 @@
       display_layout: REGULAR
       \"""
     """
+  'VocabBank':
+    'prefix': "VocabBank"
+    'body': """
+    [TYPE VocabBank]
+    Audio(target=true):${1:vocabulary}
+    Text:${2:chinese text}
+    Text:${3:word property}
+    Text:${4:IPA}
+    Opts:
+    Text:${5:distracter}
+    """
+  'BellMCT':
+    'prefix': 'bellmct'
+    'body': """
+      [TYPE BellMCT]
+      //支持题干audio/pic/text组合搭配，支持单选／多选
+      Audio: $1
+      Pic: $2
+      Text: $3
+      Opts:
+        Text(checked=true): $4
+        Text(checked=true): $5
+        Text: $6
+        Text: $7
+    """
+  'BellSpeakingMCQ':
+      'prefix': 'bellspeakingmcq'
+      'body':"""
+      [TYPE SpeakingMCQ]
+      //题干支持仅audio或仅text或仅pic或audio加text
+      Audio: $1
+      Text: $2
+      Opts:
+      Text(checked=true): $3
+      Text: $4
+      Text: $5
+   """
