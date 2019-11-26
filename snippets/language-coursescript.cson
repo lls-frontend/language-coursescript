@@ -1840,14 +1840,14 @@
       Video(stream=true): $5
       Pic(background=true): $6
       QuestionPart:
-      Pic(): $7
-      coordinate: x=$8,y=$9
-      Opts:
-      Mix:
-      Pic: $10
-      coordinate: x=$11,y=$12
-      Pic(sr_start=true): $13
-      Pic(sr_end=true): $14
+        Pic: $7
+        coordinate: x=$8,y=$9
+        Opts:
+        Mix:
+          Pic: $10
+          coordinate: x=$11,y=$12
+          Pic(sr_start=true): $13
+          Pic(sr_end=true): $14
       \"""
       display_layout: REGULAR
       \"""
@@ -1863,28 +1863,28 @@
       Video(stream=true): $5
       Pic(background=true): $6
       QuestionPart:
-      Audio: $7
-      Opts:
-      Mix:
-      Audio(sound_effect=true): $8
-      Animation:
-      Pic(checked=true): $9
-      Pic: $10
-      Mix:
-      Audio(sound_effect=true): $11
-      Animation:
-      Pic(checked=true): $12
-      Pic: $13
-      Mix:
-      Audio(sound_effect=true): $14
-      Animation:
-      Pic(checked=true): $15
-      Pic: $16
-      Mix:
-      Audio(sound_effect=true): $17
-      Animation:
-      Pic(checked=true): $18
-      Pic: $19
+        Audio: $7
+        Opts:
+        Mix:
+          Audio(sound_effect=true): $8
+          Animation:
+          Pic(checked=true): $9
+          Pic: $10
+        Mix:
+          Audio(sound_effect=true): $11
+          Animation:
+          Pic(checked=true): $12
+          Pic: $13
+        Mix:
+          Audio(sound_effect=true): $14
+          Animation:
+          Pic(checked=true): $15
+          Pic: $16
+        Mix:
+          Audio(sound_effect=true): $17
+          Animation:
+          Pic(checked=true): $18
+          Pic: $19
       \"""
       display_layout: REGULAR
       \"""
@@ -1900,28 +1900,28 @@
       Video(stream=true): $5
       Pic(background=true): $6
       QuestionPart:
-      Text: $7
-      Opts:
-      Mix:
-      Audio(sound_effect=true): $8
-      Animation:
-      Pic(checked=true): $9
-      Pic: $10
-      Mix:
-      Audio(sound_effect=true): $11
-      Animation:
-      Pic(checked=true): $12
-      Pic: $13
-      Mix:
-      Audio(sound_effect=true): $14
-      Animation:
-      Pic(checked=true): $15
-      Pic: $16
-      Mix:
-      Audio(sound_effect=true): $17
-      Animation:
-      Pic(checked=true): $18
-      Pic: $19
+        Text: $7
+        Opts:
+        Mix:
+          Audio(sound_effect=true): $8
+          Animation:
+          Pic(checked=true): $9
+          Pic: $10
+        Mix:
+          Audio(sound_effect=true): $11
+          Animation:
+          Pic(checked=true): $12
+          Pic: $13
+        Mix:
+          Audio(sound_effect=true): $14
+          Animation:
+          Pic(checked=true): $15
+          Pic: $16
+        Mix:
+          Audio(sound_effect=true): $17
+          Animation:
+          Pic(checked=true): $18
+          Pic: $19
       \"""
       display_layout: REGULAR
       \"""
