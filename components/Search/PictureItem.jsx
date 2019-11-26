@@ -1,14 +1,14 @@
-'use babel';
+"use babel";
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import dayjs from 'dayjs';
-import { CDN_URL } from '../const';
+import React from "react";
+import PropTypes from "prop-types";
+import dayjs from "dayjs";
+import { CDN_URL } from "../const";
 
 const PictureItem = ({ data, onCopy }) => {
   const handleCopy = e => {
     const type = e.target.innerHTML
-      .split(' ')
+      .split(" ")
       .pop()
       .toLowerCase();
     const contents = {
@@ -17,14 +17,17 @@ const PictureItem = ({ data, onCopy }) => {
       code: `Pic(id=${data.id}):${data.fileName}`
     };
 
-    onCopy(contents[type] || '');
+    onCopy(contents[type] || "");
   };
 
-  const date = data.createdAt
-    ? dayjs(data.createdAt).format('YYYY-MM-DD HH:mm')
+  const createdAt = data.createdAt
+    ? dayjs(data.createdAt).format("YYYY-MM-DD HH:mm")
+    : null;
+  const updatedAt = data.updatedAt
+    ? dayjs(data.updatedAt).format("YYYY-MM-DD HH:mm")
     : null;
 
-  const url = data.url.startsWith('http') ? data.url : `${CDN_URL}${data.url}`;
+  const url = data.url.startsWith("http") ? data.url : `${CDN_URL}${data.url}`;
 
   return (
     <div className="search-item pic">
@@ -32,7 +35,8 @@ const PictureItem = ({ data, onCopy }) => {
         <img src={url} alt="" />
       </div>
       <div className="right">
-        <p>{date}</p>
+        {createdAt && <p>createdAt: {createdAt}</p>}
+        {updatedAt && <p>updatedAt: {updatedAt}</p>}
         <p>{data.fileName}</p>
         <p>{data.id}</p>
         <div className="search-item-buttons">
@@ -51,7 +55,9 @@ PictureItem.propTypes = {
     url: PropTypes.string,
     id: PropTypes.string.isRequired,
     text: PropTypes.string,
-    fileName: PropTypes.string
+    fileName: PropTypes.string,
+    createdAt: PropTypes.string,
+    updatedAt: PropTypes.string
   }).isRequired,
   onCopy: PropTypes.func.isRequired
 };

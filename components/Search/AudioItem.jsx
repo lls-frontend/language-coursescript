@@ -1,9 +1,9 @@
-'use babel';
+"use babel";
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import dayjs from 'dayjs';
-import { CDN_URL } from '../const';
+import React from "react";
+import PropTypes from "prop-types";
+import dayjs from "dayjs";
+import { CDN_URL } from "../const";
 
 const AudioItem = ({ data, onCopy }) => {
   const handleCopy = e => {
@@ -17,18 +17,24 @@ const AudioItem = ({ data, onCopy }) => {
       trCode: `TR(id=${data.id}):${data.text}`
     };
 
-    onCopy(contents[type] || '');
+    onCopy(contents[type] || "");
   };
 
-  const url = (data.url || '').startsWith('http')
+  const url = (data.url || "").startsWith("http")
     ? data.url
-    : `${CDN_URL}${data.url || ''}`;
+    : `${CDN_URL}${data.url || ""}`;
+
+  const createdAt = data.createdAt
+    ? dayjs(data.createdAt).format("YYYY-MM-DD HH:mm")
+    : "";
+  const updatedAt = data.updatedAt
+    ? dayjs(data.updatedAt).format("YYYY-MM-DD HH:mm")
+    : null;
 
   return (
     <div className="search-item audio">
-      <p>
-        {data.createdAt && dayjs(data.createdAt).format('YYYY-MM-DD HH:mm')}
-      </p>
+      {createdAt && <p>createdAt: {createdAt}</p>}
+      {updatedAt && <p>updatedAt: {updatedAt}</p>}
       <p>{data.id}</p>
       <p>{data.text}</p>
       <p>{data.source}</p>
@@ -50,8 +56,11 @@ AudioItem.propTypes = {
   data: PropTypes.shape({
     url: PropTypes.string,
     id: PropTypes.string.isRequired,
+    source: PropTypes.string,
     text: PropTypes.string,
-    fileName: PropTypes.string
+    fileName: PropTypes.string,
+    createdAt: PropTypes.string,
+    updatedAt: PropTypes.string
   }).isRequired,
   onCopy: PropTypes.func.isRequired
 };
