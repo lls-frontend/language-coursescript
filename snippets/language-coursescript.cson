@@ -1833,16 +1833,11 @@
       'prefix': 'c2cwarmup'
       'body':"""
       [TYPE C2CWarmUp]
-      // 第一组 QuestionPart optional
       QuestionPart:
-      // audio + text repeated
       Audio(role=): $1
-      // text 要么都有，要么都没有
       Text: $2
       QuestionPart:
-      // audio + text repeated
       Audio: $3
-      // text 要么都有，要么都没有
       Text: $4
    """
    'C2CChoose':
@@ -1851,12 +1846,9 @@
       [TYPE C2CChoose]
       Title(role=): $1
       Instruction: $2
-      // optional
-      Instruction: $3
-      // optional
-      Pic: $4
-      // optional
-      Hint: $5
+      Instruction: ${3:optional}
+      Pic: ${4:optional}
+      Hint: ${5:optional}
       Text: $6
       Text: $7
       Opts:
