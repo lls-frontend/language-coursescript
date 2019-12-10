@@ -1829,6 +1829,36 @@
       Text: $4
       Text: $5
    """
+   'C2CWarmUp':
+      'prefix': 'c2cwarmup'
+      'body':"""
+      [TYPE C2CWarmUp]
+      QuestionPart:
+      Audio(role=): $1
+      Text: $2
+      QuestionPart:
+      Audio: $3
+      Text: $4
+   """
+   'C2CChoose':
+      'prefix': 'c2cchoose'
+      'body':"""
+      [TYPE C2CChoose]
+      Title(role=): $1
+      Instruction: $2
+      Instruction: ${3:optional}
+      Pic: ${4:optional}
+      Hint: ${5:optional}
+      Text: $6
+      Text: $7
+      Opts:
+      Text(Checked=true): $8
+      Text(Checked=true): $9
+      Text: $10
+      Text: $11
+      Text: $12
+
+   """
   'AIXPA2PReveal':
     'prefix': 'aixpa2preveal'
     'body':"""
