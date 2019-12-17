@@ -28,7 +28,7 @@
   },
   "main": "./lib/language-coursescript",
   "dependencies": {
-    "@laix/coursescript-lib": "^2.20.12",
+    "@laix/coursescript-lib": "^2.20.14",
     "atom-space-pen-views": "^2.2.0",
     "axios": "^0.18.0",
     "dayjs": "^1.6.7",
