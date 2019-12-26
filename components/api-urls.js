@@ -11,9 +11,9 @@ const API_URLS = {
     bffAsset: "https://cms.llsapp.com/frontend/v1/atom/assets/"
   },
   staging: {
-    parse: "https://stag-cms.thellsapi.com/v1/coursescript/parse",
-    asset: "https://stag-cms.thellsapi.com/v1/asset/",
-    bffAsset: "https://stag-plat-cms.thellsapi.com/v1/atom/assets/"
+    parse: "https://dev-cms.thellsapi.com/v1/coursescript/parse", // "https://stag-cms.thellsapi.com/v1/coursescript/parse",
+    asset: "https://dev-cms.thellsapi.com/v1/asset/", // "https://stag-cms.thellsapi.com/v1/asset/",
+    bffAsset: "https://dev-cms.thellsapi.com/frontend/v1/atom/assets/" // "https://stag-plat-cms.thellsapi.com/v1/atom/assets/"
   }
 };
 
