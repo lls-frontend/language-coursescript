@@ -21,6 +21,7 @@ const COURSE_TYPES = {
   "DARWIN HOMEWORK": { courseType: 1, apiType: 17 },
   AIX: { courseType: 15, apiType: 18 },
   "SPROUT DAILY READERS": { courseType: 16, apiType: 19 },
+  "Darwin PvP": { courseType: 1, apiType: 20 }
 };
 
 export default COURSE_TYPES;
