@@ -3,9 +3,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
-import CourscriptPreview from "@laix/coursescript-lib";
+import CourscriptPreview, { formatCamelCase } from "@laix/coursescript-lib";
 import apiUrls from "./api-urls.js";
 import SelectType from "./SelectType.jsx";
+const env = atom.config.get("language-coursescript.useStagingApi")
+  ? "staging"
+  : "prod";
+
+const isStaging = env === "staging";
+const parseUrl = isStaging ? `${apiUrls.bffAsset}preview` : apiUrls.parse;
+
 export default class Preview extends React.Component {
   static propTypes = {
     plainText: PropTypes.string.isRequired,
@@ -28,31 +35,47 @@ export default class Preview extends React.Component {
 
     this.setState({ isFetching: true });
     try {
-      const params = { text, type: type.apiType };
-      const { data } = await axios.post(apiUrls.parse, params);
+      const params = {
+        text,
+        type: !isStaging ? type.apiType : type.courseName
+      };
+
+      const { data } = await axios.post(parseUrl, params);
+
+      if (isStaging) {
+        if (data.code === 1) {
+          const message = data.msg; //`Line: ${"undefined"} ${res.msg}`;
+          onError(new Error(message));
+          return;
+        }
+      }
+
+      const res = isStaging ? data.msg : formatCamelCase(data);
 
       if (type.courseType === 7) {
-        const ids = Object.values(data.indexed_activities).reduce(
+        const ids = Object.values(res.activitiesLine).reduce(
           (res, item) => ({
             ...res,
-            [item.atom_id]: item.resource_id
+            [item.atom_id]: item.resourceId
           }),
           {}
         );
-        const activities_line = Object.keys(data.activities_line).reduce(
+        const activitiesLine = Object.keys(res.activitiesLine).reduce(
           (res, item) => ({
             ...res,
-            [ids[item]]: data.activities_line[item]
+            [ids[item]]: res.activitiesLine[item]
           }),
           {}
         );
-        this.setState({ data: { ...data, activities_line } });
+        this.setState({ data: { ...data, activitiesLine } });
       } else {
-        this.setState({ data });
+        this.setState({ data: res });
       }
+
       this.setState({ isFetching: false });
     } catch (error) {
       const { data } = error.response;
+
       const message = `Line: ${data.line} ${data.message}`;
       onError(new Error(message));
     }
@@ -64,9 +87,9 @@ export default class Preview extends React.Component {
   };
 
   handleActivityChange = id => {
-    const { activities_line } = this.state.data;
-    if (activities_line && activities_line[id]) {
-      this.props.onChange(activities_line[id]);
+    const { activitiesLine } = this.state.data;
+    if (activitiesLine && activitiesLine[id]) {
+      this.props.onChange(activitiesLine[id]);
     }
   };
 
@@ -77,12 +100,12 @@ export default class Preview extends React.Component {
 
   handleSelectLineChange = line => {
     const { data } = this.state;
-    if (!data || !data.activities_line) {
+    if (!data || !data.activitiesLine) {
       return false;
     }
 
-    const selectedActivity = Object.keys(data.activities_line).find(
-      item => data.activities_line[item] === line
+    const selectedActivity = Object.keys(data.activitiesLine).find(
+      item => data.activitiesLine[item] === line
     );
     if (!selectedActivity) {
       return false;
@@ -94,6 +117,7 @@ export default class Preview extends React.Component {
   componentWillReceiveProps(nextProps) {
     const { plainText } = nextProps;
     const { type } = this.state;
+
     if (type) {
       this.fetchList(plainText, type);
     }

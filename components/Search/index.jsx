@@ -41,7 +41,7 @@ request.interceptors.response.use(
   }
 );
 
-const bffRequest = axios.create({ baseURL: apiUrls.bffAsset });
+const bffRequest = axios.create({ baseURL: apiUrls.bffAsset + "assets" });
 bffRequest.interceptors.response.use(
   res => {
     if (res.data.code === 0) {
