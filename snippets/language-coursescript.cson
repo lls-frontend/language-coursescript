@@ -1775,8 +1775,8 @@
       Text: $6
       Text: $7
       Opts:
-      Text(Checked=true): $8
-      Text(Checked=true): $9
+      Text(checked=true): $8
+      Text(checked=true): $9
       Text: $10
       Text: $11
       Text: $12
