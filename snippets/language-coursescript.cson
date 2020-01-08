@@ -2015,7 +2015,7 @@
         Mix:
           Audio(sound_effect=true): $13
           Animation:
-            Pic(checked=true): $14
+            Pic: $14
             coordinate: x=$15,y=$16
             Pic: $17
             coordinate: x=$18,y=$19
