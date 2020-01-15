@@ -2,16 +2,12 @@
 
 import React from "react";
 import PropTypes from "prop-types";
-import axios from "axios";
 import CourscriptPreview, { formatCamelCase } from "@laix/coursescript-lib";
-import apiUrls from "./api-urls.js";
 import SelectType from "./SelectType.jsx";
+import { parserRequest, bffRequest } from "./request";
 const env = atom.config.get("language-coursescript.useStagingApi")
   ? "staging"
   : "prod";
-
-const isStaging = env === "staging";
-const parseUrl = isStaging ? `${apiUrls.bffAsset}preview` : apiUrls.parse;
 
 export default class Preview extends React.Component {
   static propTypes = {
@@ -30,27 +26,49 @@ export default class Preview extends React.Component {
     isFetching: false
   };
 
+  /**
+   * staging 用 bff 层接口
+   * 迁移到了 aliyun，而且 response 的结构不一样
+   * apiDoc: https://wiki.liulishuo.work/display/PLAT/CMS+-+Atom#postpreview
+   * @param {string} text 当前的 coursescript 文本字符串
+   * @param {string} type 对应 sku 的课程名
+   * @return {any} 对应课程的 json 数据
+   */
+  fetchStagingList = async (text, type) => {
+    const params = {
+      text,
+      type: type.courseName
+    };
+    const data = await bffRequest.post("preview", params);
+
+    return data;
+  };
+
+  /**
+   * prod 环境的 parser 接口, 暂时继续使用 http 接口
+   * @param {string} text 当前的 coursescript 文本字符串.
+   * @param {number} type 对应 sku 的 api code.
+   * @return {any} 对应课程的 json 数据.
+   */
+  fetchProdList = async (text, type) => {
+    const params = {
+      text,
+      type: type.apiType
+    };
+    const data = await parserRequest.post("", params);
+
+    return formatCamelCase(data);
+  };
+
   fetchList = async (text, type) => {
     const { onError } = this.props;
-
     this.setState({ isFetching: true });
+
     try {
-      const params = {
-        text,
-        type: !isStaging ? type.apiType : type.courseName
-      };
-
-      const { data } = await axios.post(parseUrl, params);
-
-      if (isStaging) {
-        if (data.code === 1) {
-          const message = data.msg; //`Line: ${"undefined"} ${res.msg}`;
-          onError(new Error(message));
-          return;
-        }
-      }
-
-      const res = isStaging ? data.msg : formatCamelCase(data);
+      const isStaging = env === "staging";
+      const data = isStaging
+        ? await this.fetchStagingList(text, type)
+        : await this.fetchProdList(text, type);
 
       if (type.courseType === 7) {
         const ids = Object.values(res.activitiesLine).reduce(
@@ -67,18 +85,60 @@ export default class Preview extends React.Component {
           }),
           {}
         );
-        this.setState({ data: { ...data, activitiesLine } });
+        this.setState({ isFetching: false, data: { ...data, activitiesLine } });
       } else {
-        this.setState({ data: res });
+        this.setState({ data, isFetching: false });
       }
-
-      this.setState({ isFetching: false });
     } catch (error) {
-      const { data } = error.response;
-
-      const message = `Line: ${data.line} ${data.message}`;
+      const message = error.message;
       onError(new Error(message));
     }
+
+    // try {
+    //   const params = {
+    //     text,
+    //     type: !isStaging ? type.apiType : type.courseName
+    //   };
+
+    //   const { data } = await axios.post(parseUrl, params);
+
+    //   if (isStaging) {
+    //     if (data.code === 1) {
+    //       const message = data.msg; //`Line: ${"undefined"} ${res.msg}`;
+    //       onError(new Error(message));
+    //       return;
+    //     }
+    //   }
+
+    //   const res = isStaging ? data.msg : formatCamelCase(data);
+
+    //   if (type.courseType === 7) {
+    //     const ids = Object.values(res.activitiesLine).reduce(
+    //       (res, item) => ({
+    //         ...res,
+    //         [item.atom_id]: item.resourceId
+    //       }),
+    //       {}
+    //     );
+    //     const activitiesLine = Object.keys(res.activitiesLine).reduce(
+    //       (res, item) => ({
+    //         ...res,
+    //         [ids[item]]: res.activitiesLine[item]
+    //       }),
+    //       {}
+    //     );
+    //     this.setState({ data: { ...data, activitiesLine } });
+    //   } else {
+    //     this.setState({ data: res });
+    //   }
+
+    //   this.setState({ isFetching: false });
+    // } catch (error) {
+    //   const { data } = error.response;
+
+    //   const message = `Line: ${data.line} ${data.message}`;
+    //   onError(new Error(message));
+    // }
   };
 
   handleTypeSelect = type => {

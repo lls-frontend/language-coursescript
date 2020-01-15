@@ -2,9 +2,8 @@
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import axios from "axios";
 import { stringify } from "query-string";
-import apiUrls from "../api-urls.js";
+import { request, bffRequest } from "../request";
 // import Filter from './Filter.jsx';
 import ResourceFilter from "./ResourceFilter.jsx";
 import PictureItem from "./PictureItem.jsx";
@@ -28,36 +27,6 @@ const AssetTypeMap = {
   Videos: "video",
   "Streaming Videos": "aix_video_new"
 };
-
-const request = axios.create({ baseURL: apiUrls.asset });
-request.interceptors.response.use(
-  res => res.data.msg,
-  error => {
-    const {
-      response: { data, statusText }
-    } = error;
-
-    return Promise.reject(new Error(data.msg || statusText));
-  }
-);
-
-const bffRequest = axios.create({ baseURL: apiUrls.bffAsset + "assets" });
-bffRequest.interceptors.response.use(
-  res => {
-    if (res.data.code === 0) {
-      return res.data.msg;
-    }
-
-    throw new Error(res.data.msg);
-  },
-  error => {
-    const {
-      response: { data, statusText }
-    } = error;
-
-    return Promise.reject(new Error(data.msg || statusText));
-  }
-);
 
 export default class Search extends Component {
   static propTypes = {
@@ -133,90 +102,6 @@ export default class Search extends Component {
     );
   };
 
-  fetch = async (page, { resourceType, searchType, source, search }) => {
-    this.setState({ isFetching: true, showResults: true, error: "" });
-    try {
-      if (resourceType === "Pictures" && searchType === "ClipID") {
-        const res = await request.get(`/picture/${search}`);
-        this.setState({
-          result: {
-            list: res.picture ? [res.picture] : [],
-            count: res.picture ? 1 : 0
-          }
-        });
-        return;
-      }
-
-      if (resourceType === "Videos" && searchType === "VideoID") {
-        const res = await request.get(`/video/${search}`);
-        this.setState({
-          result: {
-            list: res.video ? [res.video] : [],
-            count: res.video ? 1 : 0
-          }
-        });
-        return;
-      }
-
-      const baseQuery = {
-        page,
-        page_size: PAGE_SIZE,
-        query: search,
-        is_tts: resourceType === "Audios" ? -1 : undefined,
-        is_delite: resourceType === "Audios" ? -1 : undefined
-      };
-
-      if (searchType === "Filename") {
-        const res = await request.get(
-          `/${resourceType.toLowerCase()}?${stringify({
-            ...baseQuery,
-            source
-          })}`
-        );
-        this.setState({
-          result: {
-            list: res[resourceType.toLowerCase()],
-            count: res.count
-          }
-        });
-        return;
-      }
-
-      const res = await request.get(
-        `/search_${resourceType === "Videos" ? "video" : ""}clips?${stringify({
-          ...baseQuery,
-          source: searchType === "ClipID" ? undefined : source,
-          id: searchType === "ClipID" || undefined
-        })}`
-      );
-      const clips = res[resourceType === "Videos" ? "videoClips" : "clips"];
-
-      if (resourceType === "Videos") {
-        const services = clips
-          .reduce(
-            (res, item) =>
-              res.includes(item.videoID) ? res : [...res, item.videoID],
-            []
-          )
-          .map(item => request.get(`/video/${item}`));
-        const videos = await Promise.all(services);
-        this.setState({
-          result: {
-            list: videos.map(item => item.video),
-            count: res.count
-          }
-        });
-        return;
-      }
-
-      this.setState({ result: { list: clips, count: res.count } });
-    } catch (error) {
-      this.setState({ error: error.message, result: { list: [], count: 0 } });
-    } finally {
-      this.setState({ isFetching: false });
-    }
-  };
-
   fetchResource = async (page, filter) => {
     const {
       source,
@@ -254,18 +139,24 @@ export default class Search extends Component {
       // https://wiki.liulishuo.work/display/PLAT/CMS+-+Asset#getassets
       const funcMap = {
         Pictures: async () =>
-          bffRequest.get(`/picture?${stringify(commonQuery)}`),
+          bffRequest.get(`/assets/picture?${stringify(commonQuery)}`),
         Audios: isSearchClips
-          ? async () => bffRequest.get(`/audio/clips?${stringify(commonQuery)}`)
-          : async () => bffRequest.get(`/audio?${stringify(commonQuery)}`),
+          ? async () =>
+              bffRequest.get(`/assets/audio/clips?${stringify(commonQuery)}`)
+          : async () =>
+              bffRequest.get(`/assets/audio?${stringify(commonQuery)}`),
         Videos: isSearchClips
-          ? async () => bffRequest.get(`/video/clips?${stringify(commonQuery)}`)
-          : async () => bffRequest.get(`/video?${stringify(commonQuery)}`),
+          ? async () =>
+              bffRequest.get(`/assets/video/clips?${stringify(commonQuery)}`)
+          : async () =>
+              bffRequest.get(`/assets/video?${stringify(commonQuery)}`),
         "Streaming Videos": async () =>
-          bffRequest.get(`/aix_video_new?${stringify(commonQuery)}`),
+          bffRequest.get(`/assets/aix_video_new?${stringify(commonQuery)}`),
         Scorer: isSearchClips
-          ? async () => bffRequest.get(`/score/clips?${stringify(commonQuery)}`)
-          : async () => bffRequest.get(`/score?${stringify(commonQuery)}`)
+          ? async () =>
+              bffRequest.get(`/assets/score/clips?${stringify(commonQuery)}`)
+          : async () =>
+              bffRequest.get(`/assets/score?${stringify(commonQuery)}`)
       };
 
       const servise = funcMap[resourceType];

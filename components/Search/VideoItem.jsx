@@ -88,7 +88,7 @@ export default class VideoItem extends Component {
       this.setState({ isCopying: true });
       try {
         const res = await request.get(
-          `/video/${data.id}/clips?page=1&page_size=${data.clipsCount}`
+          `/assets/video/${data.id}/clips?page=1&page_size=${data.clipsCount}`
         );
         const clips = res
           .map(item => `VideoClip(id=${item.id}): ${item.text}`)
@@ -119,7 +119,7 @@ export default class VideoItem extends Component {
     this.setState({ clipPage: page, isFetching: true });
     try {
       const res = await request.get(
-        `/video/${data.id}/clips?page=${page}&page_size=${PAGE_SIZE}`
+        `/assets/video/${data.id}/clips?page=${page}&page_size=${PAGE_SIZE}`
       );
 
       this.setState({ clips: res });
