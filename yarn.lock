@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@laix/coursescript-lib@^2.20.18":
-  version "2.20.18"
-  resolved "https://npm-registry.llsengineer.com/@laix%2fcoursescript-lib/-/coursescript-lib-2.20.18.tgz#b97bb10916dbfa8ecd44a22eeeee2a1cae617d16"
-  integrity sha512-1eZIkcvG/ehwWAinjiMv737XgHJLhvVOVSL+esxP0omXEcmiQd+gCVtvXbNxynUcLbecfiZgUGGripi8MPbm+Q==
+"@laix/coursescript-lib@^2.21.0":
+  version "2.21.0"
+  resolved "https://npm-registry.llsengineer.com/@laix%2fcoursescript-lib/-/coursescript-lib-2.21.0.tgz#e5a6701c4d3c28cbb446840393bab3e818b47c63"
+  integrity sha512-ZvOcC9fheVA5PgQNSVcPTWpH+p4+wKud7bdYUwPCaXG6gxDGbVWdzY1Ir75LeVHqUT/cxZ4UvQ0cMHVMUdNa7A==
   dependencies:
     prop-types "^15.7.2"
     react "^16.4.0"
