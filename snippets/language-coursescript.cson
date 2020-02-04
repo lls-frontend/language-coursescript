@@ -1601,8 +1601,8 @@
         Text: $7
         Audio: $8
     """
-  'AIXA2PFall':
-    'prefix': 'aixa2pfall'
+  'AIXPAT2PFall':
+    'prefix': 'aixpat2pfall'
     'body': """
       [TYPE AIXA2PFall]
       Video(stream=true): $1 
@@ -1613,14 +1613,14 @@
       Pic(background=true): $6
       QuestionPart:
         Text: $7
-        Pic: $8
+        Audio: $8
+        Pic: $9
         Opts:
         Mix:
-          Pic(check=true): $9
-          Audio(sound_effect=true): $10
+          Pic(checked=true): $10
+          Audio(sound_effect=true): $11
         Mix:
-          Pic: $11
-          Audio(sound_effect=true): $12
+          Pic: $12
     """
   'AIXA2PDrag3':
     'prefix': 'aixa2pdrag3'
@@ -2159,4 +2159,180 @@
     Pic: $9 
     Pic: $10
     Pic(checked=true): $11
+    """
+  'AIXAT2PBumpX':
+    'prefix': 'aixat2pbumpx'
+    'body':"""
+      [TYPE AIXAT2PBumpX]
+      QuestionPart:
+      Audio: $1
+      Text: $2
+      Opts:
+      Pic: $3
+      Pic: $4
+      Pic: $5
+      Pic(checked=true): $5
+    """
+  'AIXPA2AWheel2X':
+    'prefix': 'aixpa2awheel2x'
+    'body':"""
+      [TYPE AIXPA2AWheel2X]
+      Pic(background=true): $1
+      QuestionPart:
+      Pic: $2
+      Audio: $3
+      QuestionPart:
+      Pic: $4
+      Audio: $5
+    """
+  'AIXPA2AWheel1X':
+    'prefix':'aixpa2awheel1x'
+    'body':"""
+      [TYPE AIXPA2AWheel1X]
+      Pic(background=true): $1
+      QuestionPart:
+      Pic: $2
+      Audio: $3
+      QuestionPart:
+      Pic: $4
+      Audio: $5
+    """
+  'AIXPAT2PFallX':
+    'prefix': 'aixpat2pfallx'
+    'body':"""
+      [TYPE AIXPAT2PFallX]
+      Pic(background=true): $1
+      QuestionPart:
+      Text: $2
+      Audio: $3
+      Pic: $4
+      Opts:
+      Mix:
+      Pic(checked=true): $5
+      Audio(sound_effect=true): $6
+      Mix:
+      Pic: $7
+    """
+  'AIXPA2AJet2X':
+    'prefix': 'aixpa2ajet2x'
+    'body':"""
+      [TYPE AIXPA2AJet2X]
+      QuestionPart:
+        Pic: $1
+        Text: $2
+        Audio: $3
+    """
+  'AIXPA2AJet1X':
+    'prefix': 'aixpa2ajet1x'
+    'body':"""
+      [TYPE AIXPA2AJet1X]
+      QuestionPart:
+        Pic: $1
+        Text: $2
+        Audio: $3
+    """
+  'AIXA2PTap2X':
+    'prefix': 'aixa2ptap2x'
+    'body':"""
+      [TYPE AIXA2PTap2X]
+      Audio(prompt_1=true, qpindex=1): $1
+      Pic(background=true): $2
+      Pic(sr_start=true): $3
+      Pic(sr_end=true): $4
+      QuestionPart:
+        Opts:
+          Mix:
+            Audio(sound_effect=true): $5
+            Animation:
+              Pic(checked=true): $6
+              coordinate: x=$7,y=$8
+              Pic: $9
+              coordinate: x=$10,y=$11
+          Mix:
+            Audio(sound_effect=true): $12
+            Animation:
+              Pic(checked=true): $13
+              coordinate: x=$14,y=$15
+              Pic: $16
+              coordinate: x=$17,y=$18
+    """
+  'AIXA2PTap1X':
+    'prefix': 'aixa2ptap1x'
+    'body':"""
+      [TYPE AIXA2PTap1X]
+      Audio(prompt_1=true, qpindex=1): $1
+      Pic(background=true): $2
+      Pic(sr_start=true): $3
+      Pic(sr_end=true): $4
+      QuestionPart:
+        Opts:
+          Mix:
+            Audio(sound_effect=true): $5
+            Animation:
+              Pic(checked=true): $6
+              coordinate: x=$7,y=$8
+              Pic: $9
+              coordinate: x=$10,y=$11
+          Mix:
+            Audio(sound_effect=true): $12
+            Animation:
+              Pic(checked=true): $13
+              coordinate: x=$14,y=$15
+              Pic: $16
+              coordinate: x=$17,y=$18
+    """
+  'AIXA2PToolX':
+    'prefix': 'aixa2ptoolx'
+    'body':"""
+      [TYPE AIXA2PToolX]
+      Audio(prompt_1=true, qpindex=1): $1
+      Pic(background=true): $2
+      Pic(sr_start=true): $3
+      Pic(sr_end=true): $4
+      QuestionPart:
+        Pic: $5
+        coordinate: x=$6,y=$7
+        Opts:
+          Mix:
+            Audio(sound_effect=true): $8
+            Animation:
+              Pic(checked=true): $9
+              coordinate: x=$10,y=$11
+              Pic: $12
+    """
+  'AIXA2PPuzzleX':
+    'prefix': 'aixa2ppuzzlex'
+    'body':"""
+      [TYPE AIXA2PPuzzleX]
+      Audio(prompt_1=true, qpindex=1): $1
+      Pic(background=true): $2
+      Pic(sr_start=true): $3
+      Pic(sr_end=true): $4
+      QuestionPart:
+      Opts:
+        Mix:
+          Audio(sound_effect=true): $5
+          Animation:
+            Pic: $6
+            coordinate: x=$7,y=$8
+            Pic: $9
+            coordinate: x=$10,y=$11
+      TR_Pic: $12
+      coordinate: x=$13,y=$14 
+    """
+  'AIXPAT2TX':
+    'prefix': 'aixpat2tx'
+    'body':"""
+      [TYPE AIXPAT2TX]
+      Pic(background=true): $1
+      Pic(sr_start=true): $2
+      Pic(sr_end=true): $3
+      QuestionPart:
+      Pic: $4
+      Audio: $5
+      Text: $6
+      Opts:
+      Text(checked=true): $7
+      Text: $8 
+      Pic(part_tr=true): $9
     """
