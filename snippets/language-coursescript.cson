@@ -1366,8 +1366,8 @@
         coordinate: x=$11,y=$12
         Opts:
         Mix:
-          Audio(sound_effect=true): $13 
-          Animation: 
+          Audio(sound_effect=true): $13
+          Animation:
           Pic: $14
           coordinate: x=$15,y=$16
           Pic: $17
@@ -1392,7 +1392,7 @@
         coordinate: x=$10,y=$11
         Opts:
         Mix:
-          Audio(sound_effect=true): $12 
+          Audio(sound_effect=true): $12
           Animation:
           Pic(checked=true): $13
           coordinate: x=$14,y=$15
@@ -1416,21 +1416,21 @@
         Animation:
         Pic: $9
         coordinate: x=$10,y=$11
-        Pic: $12 
+        Pic: $12
         Animation:
-        Pic: $13 
+        Pic: $13
         coordinate: x=$14,y=$15
-        Pic: $16 
+        Pic: $16
         Opts:
         Mix:
           Audio(sound_effect=true): $17
           Animation:
-          Pic: $18 
+          Pic: $18
           coordinate: x=$19,y=$20
-          Pic: $21 
+          Pic: $21
           coordinate: x=$22,y=$23
       TR_Pic: $24
-      coordinate: x=$25,y=$26 
+      coordinate: x=$25,y=$26
     """
   'AIXA2PTap1':
     'prefix': 'aixa2ptap1'
@@ -1447,7 +1447,7 @@
       QuestionPart:
         Opts:
         Mix:
-          Audio(sound_effect=true): $9 
+          Audio(sound_effect=true): $9
           Animation:
           Pic: $10
           coordinate: x=$11,y=$12
@@ -1460,7 +1460,7 @@
     'prefix': 'aixpa2abuild1'
     'body': """
       [TYPE AIXPA2ABuild1]
-      Video(stream=true): $1 
+      Video(stream=true): $1
       Video(stream=true): $2
       Video(stream=true): $3
       Video(stream=true): $4
@@ -1483,7 +1483,7 @@
     'prefix': 'aixa2pdrag1'
     'body': """
       [TYPE AIXA2PDrag1]
-      Video(stream=true): $1 
+      Video(stream=true): $1
       Video(stream=true): $2
       Video(stream=true): $3
       Video(stream=true): $4
@@ -1503,7 +1503,7 @@
     'prefix': 'aixpa2afree'
     'body': """
       [TYPE AIXPA2AFree]
-      Video(stream=true): $1 
+      Video(stream=true): $1
       Video(stream=true): $2
       Video(stream=true): $3
       Video(stream=true): $4
@@ -1528,7 +1528,7 @@
     'prefix': 'aixpa2atrigger'
     'body': """
       [TYPE AIXPA2ATrigger]
-      Video(stream=true): $1 
+      Video(stream=true): $1
       Video(stream=true): $2
       Video(stream=true): $3
       Video(stream=true): $4
@@ -1577,7 +1577,7 @@
     'prefix': 'aixpa2ajet1'
     'body': """
       [TYPE AIXPA2AJet1]
-      Video(stream=true): $1 
+      Video(stream=true): $1
       Video(stream=true): $2
       Video(stream=true): $3
       Video(stream=true): $4
@@ -1591,7 +1591,7 @@
     'prefix': 'aixpa2ajet2'
     'body': """
       [TYPE AIXPA2AJet2]
-      Video(stream=true): $1 
+      Video(stream=true): $1
       Video(stream=true): $2
       Video(stream=true): $3
       Video(stream=true): $4
@@ -1604,8 +1604,8 @@
   'AIXPAT2PFall':
     'prefix': 'aixpat2pfall'
     'body': """
-      [TYPE AIXA2PFall]
-      Video(stream=true): $1 
+      [TYPE AIXPAT2PFall]
+      Video(stream=true): $1
       Video(stream=true): $2
       Video(stream=true): $3
       Video(stream=true): $4
@@ -1638,28 +1638,28 @@
         Animation:
         Pic: $9
         coordinate: x=$10,y=$11
-        Pic: $12 
+        Pic: $12
         Animation:
-        Pic: $13 
+        Pic: $13
         coordinate: x=$14,y=$15
-        Pic: $16 
+        Pic: $16
         Opts:
         Mix:
           Audio(sound_effect=true): $17
           Animation:
-          Pic(checked=true): $18 
+          Pic(checked=true): $18
           coordinate: x=$19,y=$20
-          Pic: $21 
+          Pic: $21
           coordinate: x=$22,y=$23
         Mix:
           Audio(sound_effect=true): $24
           Animation:
-          Pic: $25 
+          Pic: $25
           coordinate: x=$26,y=$27
-          Pic: $28 
+          Pic: $28
           coordinate: x=$29,y=$30
       TR_Pic: $31
-      coordinate: x=$32,y=$33 
+      coordinate: x=$32,y=$33
     """
   'AIXA2PTap2':
     'prefix': 'aixa2ptap2'
@@ -1676,14 +1676,14 @@
       QuestionPart:
         Opts:
         Mix:
-          Audio(sound_effect=true): $9 
+          Audio(sound_effect=true): $9
           Animation:
           Pic(checked=true): $10
           coordinate: x=$11,y=$12
           Pic: $13
           coordinate: x=$14,y=$15
         Mix:
-          Audio(sound_effect=true): $16 
+          Audio(sound_effect=true): $16
           Animation:
           Pic: $17
           coordinate: x=$18,y=$19
@@ -1696,7 +1696,7 @@
     'prefix': 'aixpa2abuild2'
     'body': """
       [TYPE AIXPA2ABuild2]
-      Video(stream=true): $1 
+      Video(stream=true): $1
       Video(stream=true): $2
       Video(stream=true): $3
       Video(stream=true): $4
@@ -1806,7 +1806,7 @@
     'prefix': 'aixa2pmole'
     'body':"""
       [TYPE AIXA2PMole]
-      Video(stream=true): $1 
+      Video(stream=true): $1
       Video(stream=true): $2
       Video(stream=true): $3
       Video(stream=true): $4
@@ -1839,7 +1839,7 @@
     'prefix': 'aixt2pmole'
     'body':"""
       [TYPE AIXT2PMole]
-      Video(stream=true): $1 
+      Video(stream=true): $1
       Video(stream=true): $2
       Video(stream=true): $3
       Video(stream=true): $4
@@ -1872,7 +1872,7 @@
     'prefix': 'aixpa2arp1'
     'body':"""
       [TYPE AIXPA2ARP1]
-      Video(stream=true): $1 
+      Video(stream=true): $1
       Video(stream=true): $2
       Video(stream=true): $3
       Video(stream=true): $4
@@ -1897,7 +1897,7 @@
     'prefix': 'aixpa2arp2'
     'body':"""
       [TYPE AIXPA2ARP2]
-      Video(stream=true): $1 
+      Video(stream=true): $1
       Video(stream=true): $2
       Video(stream=true): $3
       Video(stream=true): $4
@@ -1920,7 +1920,7 @@
     'prefix':'aixa2pfree'
     'body':"""
       [TYPE AIXA2PFree]
-      Video(stream=true): $1 
+      Video(stream=true): $1
       Video(stream=true): $2
       Video(stream=true): $3
       Video(stream=true): $4
@@ -1938,7 +1938,7 @@
         Animation:
           Pic: $13
           coordinate: x=$14,y=$15
-          Pic: $16 
+          Pic: $16
           coordinate: x=$17,y=$18
       Mix:
         Text: $19
@@ -1963,7 +1963,7 @@
     'prefix': 'aixvideoplay'
     'body':"""
       [TYPE AIXVideoPlay]
-      Video(stream=true): $1 
+      Video(stream=true): $1
       Video(stream=true): $2
       Video(stream=true): $3
       QuestionPart:
@@ -2118,11 +2118,11 @@
       Video(stream=true): $4
       Video(stream=true): $5
       Pic(background=true): $6
-      QuestionPart: 
-      Pic: $7 
+      QuestionPart:
+      Pic: $7
       Audio: $8
-      QuestionPart: 
-      Pic: $9 
+      QuestionPart:
+      Pic: $9
       Audio: $10
     """
   'AIXPA2AWheel2':
@@ -2135,11 +2135,11 @@
       Video(stream=true): $4
       Video(stream=true): $5
       Pic(background=true): $6
-      QuestionPart: 
-      Pic: $7 
+      QuestionPart:
+      Pic: $7
       Audio: $8
-      QuestionPart: 
-      Pic: $9 
+      QuestionPart:
+      Pic: $9
       Audio: $10
     """
   'AIXAT2PBump':
@@ -2154,9 +2154,9 @@
     QuestionPart:
     Audio: $6
     Text: $7
-    Opts: 
+    Opts:
     Pic: $8
-    Pic: $9 
+    Pic: $9
     Pic: $10
     Pic(checked=true): $11
     """
@@ -2269,14 +2269,14 @@
           Mix:
             Audio(sound_effect=true): $5
             Animation:
-              Pic(checked=true): $6
+              Pic: $6
               coordinate: x=$7,y=$8
               Pic: $9
               coordinate: x=$10,y=$11
           Mix:
             Audio(sound_effect=true): $12
             Animation:
-              Pic(checked=true): $13
+              Pic: $13
               coordinate: x=$14,y=$15
               Pic: $16
               coordinate: x=$17,y=$18
@@ -2318,7 +2318,7 @@
             Pic: $9
             coordinate: x=$10,y=$11
       TR_Pic: $12
-      coordinate: x=$13,y=$14 
+      coordinate: x=$13,y=$14
     """
   'AIXPAT2TX':
     'prefix': 'aixpat2tx'
@@ -2333,6 +2333,6 @@
       Text: $6
       Opts:
       Text(checked=true): $7
-      Text: $8 
+      Text: $8
       Pic(part_tr=true): $9
     """
