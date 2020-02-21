@@ -3,22 +3,22 @@
 import axios from "axios";
 import apiUrls from "./api-urls.js";
 
-const parserRequest = axios.create({ baseURL: apiUrls.parse });
-parserRequest.interceptors.response.use(
-  res => res.data,
-  error => {
-    const { response } = error;
-    const {
-      data: { line, message },
-      statusText
-    } = response;
-    const msg = message
-      ? `${line ? `Line: ${line} ` : ""}${message}`
-      : statusText;
+// const parserRequest = axios.create({ baseURL: apiUrls.parse });
+// parserRequest.interceptors.response.use(
+//   res => res.data,
+//   error => {
+//     const { response } = error;
+//     const {
+//       data: { line, message },
+//       statusText
+//     } = response;
+//     const msg = message
+//       ? `${line ? `Line: ${line} ` : ""}${message}`
+//       : statusText;
 
-    return Promise.reject(new Error(msg));
-  }
-);
+//     return Promise.reject(new Error(msg));
+//   }
+// );
 
 const bffRequest = axios.create({ baseURL: apiUrls.bff });
 bffRequest.interceptors.response.use(
@@ -49,4 +49,4 @@ request.interceptors.response.use(
   }
 );
 
-export { parserRequest, bffRequest, request };
+export { bffRequest, request };
