@@ -2,10 +2,10 @@
 
 import React from "react";
 import PropTypes from "prop-types";
-import axios from "axios";
-import CourscriptPreview from "@laix/coursescript-lib";
-import apiUrls from "./api-urls.js";
+import CourscriptPreview, { formatCamelCase } from "@laix/coursescript-lib";
 import SelectType from "./SelectType.jsx";
+import { bffRequest } from "./request";
+
 export default class Preview extends React.Component {
   static propTypes = {
     plainText: PropTypes.string.isRequired,
@@ -23,50 +23,64 @@ export default class Preview extends React.Component {
     isFetching: false
   };
 
-  fetchList = async (text, type) => {
-    const { onError } = this.props;
+  /**
+   * 迁移到了 bff 层接口
+   * apiDoc: https://wiki.liulishuo.work/display/PLAT/CMS+-+Atom#postpreview
+   * @param {string} text 当前的 coursescript 文本字符串
+   * @param {string} type 对应 sku 的课程名
+   * @return {any} 对应课程的 json 数据
+   */
+  fetchPreviewData = async (text, type) => {
+    const params = {
+      text,
+      type: type.courseName
+    };
+    const data = await bffRequest.post("preview", params);
 
+    return data;
+  };
+
+  fetchData = async (text, type) => {
+    const { onError } = this.props;
     this.setState({ isFetching: true });
+
     try {
-      const params = { text, type: type.apiType };
-      const { data } = await axios.post(apiUrls.parse, params);
+      const data = await this.fetchPreviewData(text, type);
 
       if (type.courseType === 7) {
-        const ids = Object.values(data.indexed_activities).reduce(
+        const ids = Object.values(res.activitiesLine).reduce(
           (res, item) => ({
             ...res,
-            [item.atom_id]: item.resource_id
+            [item.atom_id]: item.resourceId
           }),
           {}
         );
-        const activities_line = Object.keys(data.activities_line).reduce(
+        const activitiesLine = Object.keys(res.activitiesLine).reduce(
           (res, item) => ({
             ...res,
-            [ids[item]]: data.activities_line[item]
+            [ids[item]]: res.activitiesLine[item]
           }),
           {}
         );
-        this.setState({ data: { ...data, activities_line } });
+        this.setState({ isFetching: false, data: { ...data, activitiesLine } });
       } else {
-        this.setState({ data });
+        this.setState({ data, isFetching: false });
       }
-      this.setState({ isFetching: false });
     } catch (error) {
-      const { data } = error.response;
-      const message = `Line: ${data.line} ${data.message}`;
+      const message = error.message;
       onError(new Error(message));
     }
   };
 
   handleTypeSelect = type => {
     this.setState({ type });
-    this.fetchList(this.props.plainText, type);
+    this.fetchData(this.props.plainText, type);
   };
 
   handleActivityChange = id => {
-    const { activities_line } = this.state.data;
-    if (activities_line && activities_line[id]) {
-      this.props.onChange(activities_line[id]);
+    const { activitiesLine } = this.state.data;
+    if (activitiesLine && activitiesLine[id]) {
+      this.props.onChange(activitiesLine[id]);
     }
   };
 
@@ -77,12 +91,12 @@ export default class Preview extends React.Component {
 
   handleSelectLineChange = line => {
     const { data } = this.state;
-    if (!data || !data.activities_line) {
+    if (!data || !data.activitiesLine) {
       return false;
     }
 
-    const selectedActivity = Object.keys(data.activities_line).find(
-      item => data.activities_line[item] === line
+    const selectedActivity = Object.keys(data.activitiesLine).find(
+      item => data.activitiesLine[item] === line
     );
     if (!selectedActivity) {
       return false;
@@ -94,8 +108,9 @@ export default class Preview extends React.Component {
   componentWillReceiveProps(nextProps) {
     const { plainText } = nextProps;
     const { type } = this.state;
+
     if (type) {
-      this.fetchList(plainText, type);
+      this.fetchData(plainText, type);
     }
   }
 
