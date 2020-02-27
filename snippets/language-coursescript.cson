@@ -508,6 +508,7 @@
       description:"$10"
       cover: $11
       title: $12
+      is_corona: $13
     \"""
     """
   'Assessment':
