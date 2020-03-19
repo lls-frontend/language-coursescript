@@ -2337,3 +2337,46 @@
       Text: $8
       Pic(part_tr=true): $9
     """
+  'AIXA2PMoleX':
+    'prefix': 'aixa2pmolex'
+    'body':"""
+      [TYPE AIXA2PMoleX]
+      QuestionPart:
+        Audio: $1
+        Opts:
+        Mix:
+          Audio(sound_effect=true): $2
+          Animation:
+          Pic(checked=true): $3
+          Pic: $4
+        Mix:
+          Audio(sound_effect=true): $5
+          Animation:
+          Pic(checked=true): $6
+          Pic: $7
+        Mix:
+          Audio(sound_effect=true): $8
+          Animation:
+          Pic: $9
+          Pic: $10
+        Mix:
+          Audio(sound_effect=true): $11
+          Animation:
+          Pic: $12
+          Pic: $13
+    """
+  'AIXA2PDrag1X':
+    'prefix': 'aixa2pdrag1x'
+    'body':"""
+      Audio(prompt_1=true, qpindex=1): $1 
+      QuestionPart:
+        Opts:
+        Mix:
+          Pic(checked=true): $2
+          Pic: $3
+          Audio(sound_effect=true): $4
+        Mix:
+          Pic: $5
+          Pic: $6
+          Audio(sound_effect=true): $7
+    """
