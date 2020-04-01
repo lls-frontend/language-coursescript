@@ -2380,3 +2380,29 @@
           Pic: $6
           Audio(sound_effect=true): $7
     """
+  'AIXPA2PRevealX':
+    'prefix': 'aixpa2prevealx'
+    'body':"""
+      [TYPE AIXPA2PRevealX]
+      Audio(prompt_1=true, qpindex=1):$1
+      QuestionPart:
+      Pic: $2
+      coordinate: x=$3,y=$4 
+      Audio(sound_effect=true): $5
+      Opts:
+      Mix:
+      Pic: $6
+      coordinate: x=$7,y=$8
+      Pic(sr_start=true): $9
+      Pic(sr_end=true): $10
+    """
+  'AIXPAT2TBridgeX':
+    'prefix': 'aixpat2tbridgex'
+    'body':"""
+      [TYPE AIXPAT2TBridgeX]
+      Audio(prompt_1=true, qpindex=1): $1
+      QuestionPart:
+      Pic: $2
+      Audio: $3
+      Text: $4
+    """
