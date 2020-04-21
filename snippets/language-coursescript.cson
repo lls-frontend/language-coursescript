@@ -2368,6 +2368,7 @@
   'AIXA2PDrag1X':
     'prefix': 'aixa2pdrag1x'
     'body':"""
+      [TYPE AIXA2PDrag1X]
       Audio(prompt_1=true, qpindex=1): $1 
       QuestionPart:
         Opts:
@@ -2405,4 +2406,49 @@
       Pic: $2
       Audio: $3
       Text: $4
+    """
+  'AIXAT2PPassBy':
+    'prefix': 'aixat2ppassby'
+    'body':"""
+      [TYPE AIXAT2PPassBy]
+      Video(stream=true): $1
+      Video(stream=true): $2
+      Video(stream=true): $3
+      Video(stream=true): $4
+      Video(stream=true): $5
+      Pic(background=true): $6
+      Pic(sr_start=true): $7
+      QuestionPart:
+      Audio: $8
+      Text: $9
+      Text: $10
+      Opts:
+      Mix:
+      Audio(sound_effect=true): $11
+      Animation:
+      Pic(checked=true): $12
+      Pic: $13
+      Mix:
+      Animation:
+      Pic: $14
+    """
+  'AIXAT2PPassByX':
+    'prefix': 'aixat2ppassbyx'
+    'body':"""
+      [TYPE AIXAT2PPassByX]
+      Pic(background=true): $1
+      Pic(sr_start=true):  $2
+      QuestionPart:
+      Audio: $3
+      Text: $4
+      Text: $5
+      Opts:
+      Mix:
+      Audio(sound_effect=true): $6
+      Animation:
+      Pic(checked=true): $7
+      Pic: $8
+      Mix:
+      Animation:
+      Pic: $9
     """
