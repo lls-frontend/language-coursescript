@@ -3,6 +3,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import CourscriptPreview, { formatCamelCase } from "@laix/coursescript-lib";
+import CourscriptPreviewSprout from '@laix/coursescript-lib-sprout'
 import SelectType from "./SelectType.jsx";
 import { bffRequest } from "./request";
 
@@ -132,7 +133,21 @@ export default class Preview extends React.Component {
 
     // darwin 和 kion
     const showActivityMetadata = [1, 9].includes(type.courseType);
-
+    // sprout aix lingokids
+    if ([5, 15, 16].includes(type.courseType)) {
+      return <div>
+        <CourscriptPreviewSprout
+          data={data}
+          type={type.courseType}
+          activeActivityId={selectedActivity}
+          showActivityMetadata={showActivityMetadata}
+          onActivityChange={this.handleActivityChange}
+          onTimeCopy={onTimeCopy}
+          onCodeCopy={this.handleCodeCopy}
+          showFilename={showFilename}
+        />
+      </div>
+    }
     return (
       <div>
         <CourscriptPreview
