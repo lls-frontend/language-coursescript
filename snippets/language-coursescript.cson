@@ -1753,6 +1753,19 @@
       Text: $4
       Text: $5
    """
+  'BellMCA':
+      'prefix': 'bellmca'
+      'body': """
+      [TYPE BellMCA]
+      Audio: $1
+      Pic: $2
+      Text: $3
+      Opts:
+      Audio(checked=true): $4
+      Audio(checked=true): $5
+      Audio: $6
+      Audio: $7
+   """
    'C2CWarmUp':
       'prefix': 'c2cwarmup'
       'body':"""
