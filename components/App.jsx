@@ -49,17 +49,17 @@ export default class Preview extends React.Component {
       const data = await this.fetchPreviewData(text, type);
 
       if (type.courseType === 7) {
-        const ids = Object.values(res.activitiesLine).reduce(
+        const ids = Object.values(data.indexedActivities).reduce(
           (res, item) => ({
             ...res,
-            [item.atom_id]: item.resourceId
+            [item.atomId]: item.resourceId
           }),
           {}
         );
-        const activitiesLine = Object.keys(res.activitiesLine).reduce(
+        const activitiesLine = Object.keys(data.activitiesLine).reduce(
           (res, item) => ({
             ...res,
-            [ids[item]]: res.activitiesLine[item]
+            [ids[item]]: data.activitiesLine[item]
           }),
           {}
         );
