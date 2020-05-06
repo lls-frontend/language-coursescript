@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@laix/coursescript-lib-sprout@^2.24.0":
-  version "2.24.0"
-  resolved "https://npm-registry.llsengineer.com/@laix%2fcoursescript-lib-sprout/-/coursescript-lib-sprout-2.24.0.tgz#500d258518d01848d2f73a7557ac64e61253aa4e"
-  integrity sha512-NLC2NpZx6sPzUgSe3MEIDrPrk1oMVXmIAebcj4sImgtwtWqbRmo65XO9j/CaWNRed/ATLfM7+SHn+d1RC9cXgQ==
+"@laix/coursescript-lib-sprout@^2.24.1":
+  version "2.24.1"
+  resolved "https://npm-registry.llsengineer.com/@laix%2fcoursescript-lib-sprout/-/coursescript-lib-sprout-2.24.1.tgz#8b53b673599fbe962969ecb95c6765e7fa91504a"
+  integrity sha512-7KGG8Z+6TN+t8s7+XxXAOw+/8lw7gNWoq1MwHSMprPpkYXcv6OSRt9v3B2FJjXi8o/fYJQlgEaE2xhWfCXSl0w==
   dependencies:
     prop-types "^15.7.2"
     react "^16.4.0"
