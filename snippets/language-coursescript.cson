@@ -2482,3 +2482,12 @@
       coordinate: x=$8,y=$9
       Text: $10
     """
+  "LingokidsWordCard":
+    'prefix': 'lingokidswordcard'
+    'body':"""
+      [TYPE LingokidsWordCard]
+      Text: $1
+      Pic: $2
+      Audio: $3
+      Text: $4
+    """
