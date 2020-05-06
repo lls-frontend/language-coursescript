@@ -134,7 +134,7 @@ export default class Preview extends React.Component {
     // darwin 和 kion
     const showActivityMetadata = [1, 9].includes(type.courseType);
     // sprout aix lingokids
-    if ([5, 15, 16].includes(type.courseType)) {
+    if ([5, 15, 16, 17].includes(type.courseType)) {
       return <div>
         <CourscriptPreviewSprout
           data={data}
