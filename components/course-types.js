@@ -33,7 +33,12 @@ const COURSE_TYPES = {
     apiType: 19,
     courseName: "SPROUT DAILY READERS"
   },
-  "Darwin PvP": { courseType: 1, apiType: 20, courseName: "Darwin PvP" }
+  "Darwin PvP": { courseType: 1, apiType: 20, courseName: "Darwin PvP" },
+  "SPROUT WORD COURSE": {
+    courseType: 17,
+    apiType: 21,
+    courseName: "SPROUT DAILY WORDS"
+  }
 };
 
 export default COURSE_TYPES;
