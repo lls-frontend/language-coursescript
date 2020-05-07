@@ -2465,3 +2465,29 @@
       Animation:
       Pic: $9
     """
+  "AIXAnimatedPresentation":
+    'prefix': 'aixanimatedpresentation'
+    'body':"""
+      [TYPE AIXAnimatedPresentation]
+      Video(stream=true): $1
+      Pic(background=true): $2
+      QuestionPart:
+      Opts:
+      Mix:
+      Pic(default_show=true): $3
+      coordinate: x=$4,y=$5
+      Text: $6
+      Mix:
+      Pic(default_show=true): $7
+      coordinate: x=$8,y=$9
+      Text: $10
+    """
+  "LingokidsWordCard":
+    'prefix': 'lingokidswordcard'
+    'body':"""
+      [TYPE LingokidsWordCard]
+      Text: $1
+      Pic: $2
+      Audio: $3
+      Text: $4
+    """

@@ -29,7 +29,7 @@
   "main": "./lib/language-coursescript",
   "dependencies": {
     "@laix/coursescript-lib": "^2.23.5",
-    "@laix/coursescript-lib-sprout": "^2.23.3",
+    "@laix/coursescript-lib-sprout": "^2.24.2",
     "atom-space-pen-views": "^2.2.0",
     "axios": "^0.18.0",
     "dayjs": "^1.6.7",
