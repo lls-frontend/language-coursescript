@@ -4,6 +4,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import CourscriptPreview, { formatCamelCase } from "@laix/coursescript-lib";
 import CourscriptPreviewSprout from '@laix/coursescript-lib-sprout'
+import CourscriptPreviewLegacy from '@laix/coursescript-lib-legacy'
 import SelectType from "./SelectType.jsx";
 import { bffRequest } from "./request";
 
@@ -131,8 +132,6 @@ export default class Preview extends React.Component {
       return <SelectType onSelect={this.handleTypeSelect} />;
     }
 
-    // darwin 和 kion
-    const showActivityMetadata = [1, 9].includes(type.courseType);
     // sprout aix lingokids
     if ([5, 15, 16, 17].includes(type.courseType)) {
       return <div>
@@ -148,18 +147,30 @@ export default class Preview extends React.Component {
         />
       </div>
     }
+
+    const props = {
+      data,
+      showFilename,
+      type: type.courseType,
+      activeActivityId: selectedActivity,
+      showActivityMetadata: [1, 9].includes(type.courseType), // Darwin/Kion
+      onActivityChange: this.handleActivityChange,
+      onCodeCopy: this.handleCodeCopy,
+      onTimeCopy,
+    }
+
+    // Darwin/Bell/Tourism
+    if ([1, 6, 8].includes(type.courseType)) {
+      return (
+        <div>
+          <CourscriptPreview {...props}/>
+        </div>
+      )
+    }
+
     return (
       <div>
-        <CourscriptPreview
-          data={data}
-          type={type.courseType}
-          activeActivityId={selectedActivity}
-          showActivityMetadata={showActivityMetadata}
-          onActivityChange={this.handleActivityChange}
-          onTimeCopy={onTimeCopy}
-          onCodeCopy={this.handleCodeCopy}
-          showFilename={showFilename}
-        />
+        <CourscriptPreviewLegacy {...props}/>
       </div>
     );
   }
