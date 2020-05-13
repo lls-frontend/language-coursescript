@@ -139,7 +139,7 @@ export default class Preview extends React.Component {
           data={data}
           type={type.courseType}
           activeActivityId={selectedActivity}
-          showActivityMetadata={showActivityMetadata}
+          showActivityMetadata={false}
           onActivityChange={this.handleActivityChange}
           onTimeCopy={onTimeCopy}
           onCodeCopy={this.handleCodeCopy}
