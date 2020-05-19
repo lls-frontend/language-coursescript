@@ -2465,7 +2465,7 @@
       Animation:
       Pic: $9
     """
-  "AIXAnimatedPresentation":
+  'AIXAnimatedPresentation':
     'prefix': 'aixanimatedpresentation'
     'body':"""
       [TYPE AIXAnimatedPresentation]
@@ -2491,3 +2491,28 @@
       Audio: $3
       Text: $4
     """
+  'AIXPAT2ARepeat1':
+    'prefix': 'aixpat2arepeat1'
+    'body':"""
+      [TYPE AIXPAT2ARepeat1]
+      Video(stream=true): $1
+      Video(stream=true): $2
+      Video(stream=true): $3
+      Video(stream=true): $4
+      Video(stream=true): $5
+      Pic(background=true):$6
+      QuestionPart:
+      Audio: $7
+      Text: $8	
+      Pic: $9
+    """ 
+  'AIXPAT2ARepeat1X':
+    'prefix': 'aixpat2arepeat1x'
+    'body':"""
+      [TYPE AIXPAT2ARepeat1X]
+      Pic(background=true):$1
+      QuestionPart:
+      Audio: $2
+      Pic: $3
+      Text: $4	 
+    """ 
