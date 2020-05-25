@@ -28,7 +28,7 @@
   },
   "main": "./lib/language-coursescript",
   "dependencies": {
-    "@laix/coursescript-lib": "^2.24.0",
+    "@laix/coursescript-lib": "^2.24.1",
     "@laix/coursescript-lib-legacy": "^1.0.0",
     "@laix/coursescript-lib-sprout": "^2.26.0",
     "atom-space-pen-views": "^2.2.0",
