@@ -38,6 +38,11 @@ const COURSE_TYPES = {
     courseType: 17,
     apiType: 21,
     courseName: "SPROUT DAILY WORDS"
+  },
+  "SPROUT EXTENSION":{
+    courseType: 18,
+    apiType: 22,
+    courseName: "SPROUT EXTENSION"
   }
 };
 

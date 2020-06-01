@@ -2516,3 +2516,10 @@
       Pic: $3
       Text: $4	 
     """ 
+  'LingokidsVideoCourse':
+    'prefix': 'lingokidsvideocourse'
+    'body':"""
+      [TYPE LingokidsVideoCourse]
+      Text: $1
+      Video: $2
+    """
