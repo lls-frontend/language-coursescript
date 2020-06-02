@@ -2523,3 +2523,42 @@
       Text: $1
       Video: $2
     """
+  'AIXAT2PAdventure':
+    'prefix': 'aixat2padventure'
+    'body':"""
+    [TYPE AIXAT2PADVENTURE]
+    Video(stream=true): $1
+    Video(stream=true): $2
+    Video(stream=true): $3
+    QuestionPart:
+      Text: $4        
+      Text: $5
+      Text: $6                 
+      Audio: $7
+      Opts:
+        Pic(checked=true): $8
+        Pic: $9
+    """
+  'AIXA2PVoteX':
+    'prefix': 'aixa2pvotex'
+    'body':"""
+      [TYPE AIXA2PVOTEX]
+      QuestionPart:
+      Opts:
+      Pic(checked=true): $1
+      Pic: $2
+    """
+  'AIXPA2AVoteX':
+    'prefix': 'aixpa2avotex'
+    'body':"""
+      [TYPE AIXPA2AVOTEX]
+      QuestionPart:
+      Scorer: $1
+      Opts:
+      Mix:
+        Pic(checked=true): $2
+        Text: $3
+      Mix:
+        Pic: $4
+        Text: $5
+    """
