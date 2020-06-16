@@ -2544,29 +2544,37 @@
     'body':"""
       [TYPE AIXA2PVoteFreeX]
       Audio(prompt_1=true, qpindex=1): $1
-      Audio(good_tr=true, qpindex=1): $2
-      Pic(background=true): $3
+      Audio(tr_1=true, qpindex=1): $2
+      Text(tr_1=true, qpindex=1): $3
+      Audio(bad_tr=true, qpindex=1): $4  
+      Pic(background=true): $5
       QuestionPart:
       Opts:
-      Pic(checked=true): $4
-      Pic: $5
+      Mix:
+        Pic(checked=true): $6
+        Text: $7
+      Mix:
+        Pic: $8
+        Text: $9
     """
   'AIXPA2AVoteFreeX':
     'prefix': 'aixpa2avotefreex'
     'body':"""
       [TYPE AIXPA2AVoteFreeX]
       Audio(prompt_1=true, qpindex=1): $1
-      Audio(good_tr=true, qpindex=1): $2
-      Pic(background=true): $3
+      Audio(tr_1=true, qpindex=1): $2
+      Text(tr_1=true, qpindex=1): $3
+      Audio(bad_tr=true, qpindex=1): $4
+      Pic(background=true): $5
       QuestionPart:
-      Scorer: $4
+      Scorer: $6
       Opts:
       Mix:
-        Pic(checked=true): $5
-        Text: $6
-      Mix:
-        Pic: $7
+        Pic(checked=true): $7
         Text: $8
+      Mix:
+        Pic: $9
+        Text: $10
     """
   'AIXA2ARecordFreeX':
     'prefix': 'aixa2arecordfreex'
