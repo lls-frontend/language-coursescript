@@ -12,10 +12,10 @@
     react-dom "^16.4.0"
     styled-components "^3.4.2"
 
-"@laix/coursescript-lib-sprout@^2.27.1":
-  version "2.27.1"
-  resolved "https://npm-registry.llsengineer.com/@laix%2fcoursescript-lib-sprout/-/coursescript-lib-sprout-2.27.1.tgz#303e8f4a3b26abc6c4caf3dd3b8adfe393244fc3"
-  integrity sha512-hRs6Kl4ZLwKmHB6iRFA6Fxj5CmWNP9stBJ8yPInS/RjE4RNYGJVk8Ac0e1SuFrT1xAQtdr7Bib+vVm5RonIWyA==
+"@laix/coursescript-lib-sprout@^2.28.0":
+  version "2.28.0"
+  resolved "https://npm-registry.llsengineer.com/@laix%2fcoursescript-lib-sprout/-/coursescript-lib-sprout-2.28.0.tgz#98204a6b9fe58fffff678959a4b3487e68ad5971"
+  integrity sha512-I82ueIu6m3F47lHJoQNnXtVTfZ1URBkovPiEu/3hptZNbjx35eNJ1ynco77Uh2AKQYVM90mNXrSb7gL1lypxfQ==
   dependencies:
     prop-types "^15.7.2"
     react "^16.4.0"

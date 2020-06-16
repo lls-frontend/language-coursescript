@@ -2539,10 +2539,10 @@
       Pic(checked=true): $8
       Pic: $9
     """
-  'AIXA2PVoteX':
-    'prefix': 'aixa2pvotex'
+  'AIXA2PVoteFreeX':
+    'prefix': 'aixa2pvotefreex'
     'body':"""
-      [TYPE AIXA2PVoteX]
+      [TYPE AIXA2PVoteFreeX]
       Audio(prompt_1=true, qpindex=1): $1
       Audio(good_tr=true, qpindex=1): $2
       Pic(background=true): $3
@@ -2551,10 +2551,10 @@
       Pic(checked=true): $4
       Pic: $5
     """
-  'AIXPA2AVoteX':
-    'prefix': 'aixpa2avotex'
+  'AIXPA2AVoteFreeX':
+    'prefix': 'aixpa2avotefreex'
     'body':"""
-      [TYPE AIXPA2AVoteX]
+      [TYPE AIXPA2AVoteFreeX]
       Audio(prompt_1=true, qpindex=1): $1
       Audio(good_tr=true, qpindex=1): $2
       Pic(background=true): $3
@@ -2567,4 +2567,95 @@
       Mix:
         Pic: $7
         Text: $8
+    """
+  'AIXA2ARecordFreeX':
+    'prefix': 'aixa2arecordfreex'
+    'body': """
+    [TYPE AIXA2ARecordFreeX]
+    QuestionPart:
+    Scorer: $5
+    Video: $6
+    """
+  'AIXPA2AROLEPLAY1X':
+    'prefix': 'aixpa2aroleplay1x'
+    'body':"""
+      [TYPE AIXPA2ARolePlay1X]
+      Pic(background=true): $1
+      QuestionPart:
+        Pic: $2
+        coordinate: x=$3,y=$4
+        Pic(practice_role=true): $5
+        coordinate: x=$6,y=$7
+        Pic(topic=true): $8
+        coordinate: x=$9,y=$10
+        Pic(topic=true): $11
+        coordinate: x=$12,y=$13
+        Audio: $14
+        Audio(practice_role=true): $15
+        Audio(chunk=true): $16
+        Audio(chunk=true): $17
+        Audio: $18
+    """
+  'AIXA2PFreeX':
+    'prefix': 'aixa2pfreex'
+    'body': """
+      [TYPE AIXA2PFreeX]
+      Audio(prompt_1=true, qpindex=1): $1
+      Audio(tr_1=true, qpindex=1): $2
+      Text(tr_1=true, qpindex=1): $3
+      Audio(tr_2=true, qpindex=1): $4
+      Text(tr_2=true, qpindex=1): $5
+      Audio(bad_tr=true, qpindex=1): $6 
+      Pic(background=true): $7
+      Pic(sr_start=true): $8
+      Pic(sr_end=true): $9
+      QuestionPart:
+      Opts:
+        Mix:
+          Text: $10
+          Audio(sound_effect=true): $11
+          Animation:
+          Pic: $11
+          coordinate: x=$12,y=$13
+          Pic: $14
+          coordinate: x=$15,y=$16
+        Mix:
+          Text: $17
+          Audio(sound_effect=true): $18 
+          Animation: 
+          Pic: $19
+          coordinate: x=$20,y=$21
+          Pic: $22
+          coordinate: x=$23,y=$24
+    """
+  'AIXPA2AFreeX':
+    'prefix': 'aixpa2afreex'
+    'body': """
+    [TYPE AIXPA2AFreeX]
+    Audio(prompt_1=true, qpindex=1): $1
+    Audio(tr_1=true, qpindex=1): $2
+    Text(tr_1=true, qpindex=1): $3
+    Audio(tr_2=true, qpindex=1): $4
+    Text(tr_2=true, qpindex=1): $5
+    Audio(bad_tr=true, qpindex=1): $6 
+    Pic(background=true): $7
+    Pic(sr_start=true): $8
+    Pic(sr_end=true): $9
+    QuestionPart:
+    Scorer: $10
+    Opts:
+      Mix:
+        Text: $11
+        Animation:
+        Pic: $12
+        coordinate: x=$13,y=$14
+        Pic: $15
+        coordinate: x=$16,y=$17
+      Mix:
+        Text: $18
+        Animation:
+        Pic: $19
+        coordinate: x=$20,y=$21
+        Pic: $22
+        coordinate: x=$23,y=$24
     """
