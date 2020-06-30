@@ -2584,7 +2584,7 @@
     Scorer: $5
     Video: $6
     """
-  'AIXPA2AROLEPLAY1X':
+  'AIXPA2ARolePlay1X':
     'prefix': 'aixpa2aroleplay1x'
     'body':"""
       [TYPE AIXPA2ARolePlay1X]
@@ -2666,4 +2666,41 @@
         coordinate: x=$20,y=$21
         Pic: $22
         coordinate: x=$23,y=$24
+    """
+  'AIXPAT2ACard1':
+    'prefix': 'aixpat2acard1'
+    'body': """
+    [TYPE AIXPAT2ACard1]
+    Video(stream=true): $1
+    Video(stream=true): $2
+    Video(stream=true): $3
+    Video(stream=true): $4
+    Video(stream=true): $5
+    QuestionPart:
+    Audio: $7
+    Opts:
+      Mix:
+        Pic(card_start=true): $8
+        Text(card_start=true): $9
+        Pic(card_end=true): $10
+        Text(card_end=true): $11
+      Mix:
+        Pic(card_start=true): $12
+        Text(card_start=true): $13
+        Pic(card_end=true): $14
+        Text(card_end=true): $15
+      Mix:
+        Pic(card_start=true): $16
+        Text(card_start=true): $17
+        Pic(card_end=true): $18
+        Text(card_end=true): $19
+    """
+  'AIXAT2TSentenceX':
+    'prefix': 'aixat2tsentencex'
+    'body': """
+    [TYPE AIXAT2TSentenceX]
+    QuestionPart:
+    Audio: $1
+    Text: $2
+    Text: $3
     """
