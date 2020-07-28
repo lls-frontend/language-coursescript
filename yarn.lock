@@ -12,20 +12,20 @@
     react-dom "^16.4.0"
     styled-components "^3.4.2"
 
-"@laix/coursescript-lib-sprout@^2.30.0":
-  version "2.30.0"
-  resolved "https://npm-registry.llsengineer.com/@laix%2fcoursescript-lib-sprout/-/coursescript-lib-sprout-2.30.0.tgz#d364f6dd738e27138279172e67a70584385b58cd"
-  integrity sha512-ZZ9NFUwiNTcHfuX3fPp/ZCzrb+/glkNTLBkOKiD1JxhApo52+yyaMkY/uHmW1Aca7AO4IDkHNqi54+ovxnJ5mA==
+"@laix/coursescript-lib-sprout@^2.31.0":
+  version "2.31.0"
+  resolved "https://npm-registry.llsengineer.com/@laix%2fcoursescript-lib-sprout/-/coursescript-lib-sprout-2.31.0.tgz#fbd6577dbc7d9de77389c586f7dcfed2df6f0fbf"
+  integrity sha512-WHeot4B78w+KzYL5PFErBz5RTDro/tOraMwvLx5HAr0LfZS0m5mOU9md4qvkJbs/rnAVqc3Grwd2y87GreYvYA==
   dependencies:
     prop-types "^15.7.2"
     react "^16.4.0"
     react-dom "^16.4.0"
     styled-components "^3.4.2"
 
-"@laix/coursescript-lib@^2.25.0":
-  version "2.25.0"
-  resolved "https://npm-registry.llsengineer.com/@laix%2fcoursescript-lib/-/coursescript-lib-2.25.0.tgz#a055cf01a5c5715d6cd3009bc8b754f640c91697"
-  integrity sha512-foEb68RHEIC6k4Zrpy5VLZQ1aCE/kO00HHN7I8KNBXTsiiVKmDmVvye3IAPRakYoMNb+tgyVPquaLQAUt/YC3A==
+"@laix/coursescript-lib@^2.25.1":
+  version "2.25.1"
+  resolved "https://npm-registry.llsengineer.com/@laix%2fcoursescript-lib/-/coursescript-lib-2.25.1.tgz#1e5d04e41332dbf7e43cbe5e5374181565c5552b"
+  integrity sha512-30BM+2ar450APySFM8y+HjYIZfgpGZUH6pIY1MgsxqFhgaiD7C1OI7FQFgVVncC5zZPZCAlvPDl8V6vzt0nCdg==
   dependencies:
     prop-types "^15.7.2"
     react "^16.4.0"

@@ -2727,3 +2727,16 @@
       Pic: $15
       coordinate: x=$16,y=$17
     """
+  'AIXAT2PAdventureX':
+    'prefix': 'aixat2padventurex'
+    'body':"""
+    [TYPE AIXAT2PAdventureX]
+    QuestionPart:
+    Text: $1        
+    Text: $2
+    Text: $3                 
+    Audio: $4
+    Opts:
+      Pic(checked=true): $5
+      Pic: $6
+    """
