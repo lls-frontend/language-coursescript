@@ -2521,7 +2521,8 @@
     'body':"""
       [TYPE LingokidsVideoCourse]
       Text: $1
-      Video: $2
+      Instruction: $2
+      Video: $3
     """
   'AIXAT2PAdventure':
     'prefix': 'aixat2padventure'
@@ -2703,4 +2704,39 @@
     Audio: $1
     Text: $2
     Text: $3
+    """
+  'AIXPA2PRandomX':
+    'prefix': 'aixpa2prandomx'
+    'body': """
+      [TYPE AIXPA2PRandomX]
+      Audio(prompt_1=true, qpindex=1): $1
+      Audio(good_tr=true, qpindex=1): $2
+      Audio(bad_tr=true, qpindex=1): $3
+      Audio(good_tr=true, qpindex=2): $4
+      Pic(background=true): $5
+      QuestionPart:
+      Animation:
+      Pic: $6
+      coordinate: x=$7,y=$8
+      Pic: $9
+      coordinate: x=$10,y=$11
+      QuestionPart:
+      Animation:
+      Pic: $12
+      coordinate: x=$13,y=$14
+      Pic: $15
+      coordinate: x=$16,y=$17
+    """
+  'AIXAT2PAdventureX':
+    'prefix': 'aixat2padventurex'
+    'body':"""
+    [TYPE AIXAT2PAdventureX]
+    QuestionPart:
+    Text: $1        
+    Text: $2
+    Text: $3                 
+    Audio: $4
+    Opts:
+      Pic(checked=true): $5
+      Pic: $6
     """
