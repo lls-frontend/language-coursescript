@@ -2781,3 +2781,25 @@
         Audio(practice_role=true): $15
         Audio: $16
     """
+  'AIXPAT2PTComprehensionX':
+    'prefix': 'aixpat2ptcomprehensionx'
+    'body': """
+      [TYPE AIXPAT2PTComprehensionX]
+      Text(stem=true): $1
+      Pic(stem=true): $2
+      Audio(stem=true): $3
+      QuestionPart:
+      Text: $4
+      Audio: $5
+      Opts:
+      Pic(checked=true): $6
+      Pic: $7
+      Pic: $8
+      QuestionPart:
+      Text: $9
+      Audio: $10
+      Opts:
+      Text(checked=true): $11
+      Text: $12
+      Text: $13
+    """
