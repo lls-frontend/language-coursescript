@@ -2,6 +2,7 @@
 
 const COURSE_TYPES = {
   DARWIN: { courseType: 1, apiType: 1, courseName: "DARWIN" },
+  "OL SHORT VIDEO": { courseType: 19, apiType: 24, courseName: "OL SHORT VIDEO" },
   LT: { courseType: 2, apiType: 2, courseName: "LT" },
   PT: { courseType: 3, apiType: 3, courseName: "PT" },
   OCC: { courseType: 4, apiType: 4, courseName: "OCC" },
@@ -11,16 +12,11 @@ const COURSE_TYPES = {
   BELL: { courseType: 6, apiType: 8, courseName: "BELL" },
   TOURISM: { courseType: 1, apiType: 9, courseName: "TOURISM" },
   LINGOCHAMP: { courseType: 7, apiType: 10, courseName: "LINGOCHAMP" },
-  KION: { courseType: 9, apiType: 11, courseName: "KION" },
-  "KION EXAM": { courseType: 10, apiType: 12, courseName: "KION EXAM" },
-  "KION EXAM V2": { courseType: 12, apiType: 16, courseName: "KION EXAM V2" },
-  "KION BOOSTER": { courseType: 13, apiType: 16, courseName: "KION BOOSTER" },
   "DARWIN BUSINESS": {
     courseType: 1,
     apiType: 9,
     courseName: "DARWIN BUSINESS"
   },
-  TELIS: { courseType: 11, apiType: 14, courseName: "TELIS" },
   "DARWIN HIFI": { courseType: 1, apiType: 15, courseName: "DARWIN HIFI" },
   "DARWIN HOMEWORK": {
     courseType: 1,
@@ -48,7 +44,7 @@ const COURSE_TYPES = {
     courseType: 18,
     apiType: 23,
     courseName: "SPROUT GOODNIGHT"
-  }
+  },
 };
 
 export default COURSE_TYPES;
