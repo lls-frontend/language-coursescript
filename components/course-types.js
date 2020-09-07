@@ -17,6 +17,7 @@ const COURSE_TYPES = {
     apiType: 9,
     courseName: "DARWIN BUSINESS"
   },
+  "DARWIN EXTENSION": { courseType: 1, apiType: 26, courseName: "DARWIN EXTENSION" },
   "DARWIN HIFI": { courseType: 1, apiType: 15, courseName: "DARWIN HIFI" },
   "DARWIN HOMEWORK": {
     courseType: 1,
