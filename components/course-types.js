@@ -46,6 +46,11 @@ const COURSE_TYPES = {
     apiType: 23,
     courseName: "SPROUT GOODNIGHT"
   },
+  "SPROUT KINDERGARTEN": {
+    courseType: 19,
+    apiType: 25,
+    courseName: "SPROUT KINDERGARTEN"
+  }
 };
 
 export default COURSE_TYPES;
