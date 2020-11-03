@@ -2869,3 +2869,20 @@
       Audio: $6
       Pic: $7
     """
+  'AIXPAT2AConversationFreeX':
+    'prefix': 'aixpat2aconversationfreex'
+    'body': """
+      [TYPE AIXPAT2AConversationFreeX]
+      QuestionPart:
+      Audio: $1
+      Text: $2
+      Scorer: $3
+      Opts:
+      Audio: $4
+      Text: $5
+      Animation:
+      Pic: $6
+      coordinate: x=$7,y=$8
+      Pic: $9
+      coordinate: x=$10,y=$11
+    """
