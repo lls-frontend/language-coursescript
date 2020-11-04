@@ -2,7 +2,6 @@
 
 const COURSE_TYPES = {
   DARWIN: { courseType: 1, apiType: 1, courseName: "DARWIN" },
-  "OL SHORT VIDEO": { courseType: 19, apiType: 24, courseName: "OL SHORT VIDEO" },
   LT: { courseType: 2, apiType: 2, courseName: "LT" },
   PT: { courseType: 3, apiType: 3, courseName: "PT" },
   OCC: { courseType: 4, apiType: 4, courseName: "OCC" },
@@ -46,6 +45,12 @@ const COURSE_TYPES = {
     apiType: 23,
     courseName: "SPROUT GOODNIGHT"
   },
+  "OL SHORT VIDEO": { courseType: 19, apiType: 24, courseName: "OL SHORT VIDEO" },
+  "SPROUT COMPAT READERS": {
+    courseType: 20,
+    apiType: 28,
+    courseName: "SPROUT_COMPATRDR",
+  }
 };
 
 export default COURSE_TYPES;

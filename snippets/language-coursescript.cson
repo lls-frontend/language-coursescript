@@ -2886,3 +2886,14 @@
       Pic: $9
       coordinate: x=$10,y=$11
     """
+  'LingokidsFlipReader':
+    'prefix': 'lingokidsflipreader'
+    'body': """
+      [TYPE LingokidsFlipReader]
+      Pic: $1
+      Pic: $2
+      Mix:
+      Text: $3
+      Audio: $4
+      Text: $5
+    """
