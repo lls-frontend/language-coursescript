@@ -50,6 +50,9 @@ const COURSE_TYPES = {
     courseType: 20,
     apiType: 28,
     courseName: "SPROUT_COMPATRDR",
+  },
+  "OL LISTENING": {
+    courseType: 1, apiType: 29, courseName: "OL LISTENING" 
   }
 };
 
