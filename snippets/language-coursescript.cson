@@ -2873,18 +2873,22 @@
     'prefix': 'aixpat2aconversationfreex'
     'body': """
       [TYPE AIXPAT2AConversationFreeX]
+      Audio(qpindex=1, tr_1=true): $1
+      Text(qpindex=1, tr_1=true): $2
+      Audio(qpindex=1, bad_tr=true): $3
+      Pic(background=true): $4
       QuestionPart:
-      Audio: $1
-      Text: $2
-      Scorer: $3
+      Audio: $5
+      Text: $6
+      Scorer: $7
       Opts:
-      Audio: $4
-      Text: $5
+      Audio: $8
+      Text: $9
       Animation:
-      Pic: $6
-      coordinate: x=$7,y=$8
-      Pic: $9
-      coordinate: x=$10,y=$11
+      Pic: $10
+      coordinate: x=$11,y=$12
+      Pic: $13
+      coordinate: x=$14,y=$15
     """
   'LingokidsFlipReader':
     'prefix': 'lingokidsflipreader'

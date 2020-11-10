@@ -49,7 +49,7 @@ const COURSE_TYPES = {
   "SPROUT COMPAT READERS": {
     courseType: 20,
     apiType: 28,
-    courseName: "SPROUT_COMPATRDR",
+    courseName: "SPROUT COMPATRDR",
   },
   "OL LISTENING": {
     courseType: 1, apiType: 29, courseName: "OL LISTENING" 
