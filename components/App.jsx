@@ -159,8 +159,8 @@ export default class Preview extends React.Component {
       onTimeCopy,
     }
 
-    // Darwin/Bell/Tourism/ShortVideo
-    if ([1, 6, 8, 19].includes(type.courseType)) {
+    // Darwin/Bell/Tourism/ShortVideo/lingome speaking/
+    if ([1, 6, 8, 19, 21].includes(type.courseType)) {
       return (
         <div>
           <CourscriptPreview {...props}/>
