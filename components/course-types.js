@@ -53,6 +53,9 @@ const COURSE_TYPES = {
   },
   "OL LISTENING": {
     courseType: 1, apiType: 29, courseName: "OL LISTENING" 
+  },
+  "LINGOME SPEAKING": {
+    courseType: 21, apiType: 27, courseName: "LINGOME CMS" 
   }
 };
 
