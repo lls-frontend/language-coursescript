@@ -2901,3 +2901,17 @@
       Audio: $4
       Text: $5
     """
+  'AIXPAT2AParagraph':
+    'prefix': 'aixpat2aparagraph'
+    'body': """
+      [TYPE AIXPAT2AParagraph]
+      Video(stream=true): $1
+      Video(stream=true): $2
+      Video(stream=true): $3
+      Video(stream=true): $4
+      Video(stream=true): $5
+      QuestionPart:
+      Audio: $6
+      Text: $7
+      Pic: $8
+    """
