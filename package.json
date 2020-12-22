@@ -1,6 +1,6 @@
 {
   "name": "language-coursescript",
-  "version": "3.44.0",
+  "version": "3.45.0",
   "description": "Syntax highlighting and snippets for CourseScript.",
   "repository": "https://github.com/lenage/language-coursescript",
   "license": "MIT",
@@ -30,7 +30,7 @@
   "dependencies": {
     "@laix/coursescript-lib": "^2.30.0",
     "@laix/coursescript-lib-legacy": "^1.0.0",
-    "@laix/coursescript-lib-sprout": "^2.38.1",
+    "@laix/coursescript-lib-sprout": "^2.39.0",
     "atom-space-pen-views": "^2.2.0",
     "axios": "^0.18.0",
     "dayjs": "^1.6.7",
