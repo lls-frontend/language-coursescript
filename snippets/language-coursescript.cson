@@ -2915,3 +2915,12 @@
       Text: $7
       Pic: $8
     """
+  'AIXPT2PTMatchingX':
+    'prefix': 'aixpt2ptmatchingx'
+    'body': """
+      [TYPE AIXPT2PTMatchingX]
+      QuestionPart:
+      Opts:
+      Text: $1
+      Pic: $2
+    """
