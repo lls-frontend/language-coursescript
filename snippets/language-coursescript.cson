@@ -2924,3 +2924,31 @@
       Text: $1
       Pic: $2
     """
+  'AIXPAT2AAdventure1':
+    'prefix': 'aixpat2aadventure1'
+    'body': """
+      [TYPE AIXPAT2AAdventure1]
+      Video(stream=true): $1
+      Video(stream=true): $2
+      Video(stream=true): $3
+      Video(stream=true): $4
+      Video(stream=true): $5
+      QuestionPart:
+      Text: $6
+      Audio: $7
+      Pic: $8
+    """
+  'AIXPAT2AAdventure2':
+    'prefix': 'aixpat2aadventure2'
+    'body': """
+      [TYPE AIXPAT2AAdventure2]
+      Video(stream=true): $1
+      Video(stream=true): $2
+      Video(stream=true): $3
+      Video(stream=true): $4
+      Video(stream=true): $5
+      QuestionPart:
+      Text: $6
+      Audio: $7
+      Pic: $8
+    """
