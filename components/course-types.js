@@ -56,6 +56,9 @@ const COURSE_TYPES = {
   },
   "LINGOME SPEAKING": {
     courseType: 21, apiType: 27, courseName: "LINGOME CMS" 
+  },
+  "SUPRA": {
+    courseType: 22, apiType: 30, courseName: "SUPRA" 
   }
 };
 

@@ -160,7 +160,7 @@ export default class Preview extends React.Component {
     }
 
     // Darwin/Bell/Tourism/ShortVideo/lingome speaking/
-    if ([1, 6, 8, 19, 21].includes(type.courseType)) {
+    if ([1, 6, 8, 19, 21, 22].includes(type.courseType)) {
       return (
         <div>
           <CourscriptPreview {...props}/>
