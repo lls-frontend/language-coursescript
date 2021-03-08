@@ -22,10 +22,10 @@
     react-dom "^16.4.0"
     styled-components "^3.4.2"
 
-"@laix/coursescript-lib@^2.30.0":
-  version "2.30.0"
-  resolved "https://npm-registry.llsengineer.com/@laix%2fcoursescript-lib/-/coursescript-lib-2.30.0.tgz#ee81cd2f31f7fef91c3ce4ec69a4a8dce42e97a6"
-  integrity sha512-j8GyM6KWDObHJGZOi0XsWRvoVLHtNx/PLlNBVcOdqq1NtP2WeBG3G9JWgrw4xnry3eIIo2ED6ecdyzoiZw3jTQ==
+"@laix/coursescript-lib@^2.31.0":
+  version "2.31.0"
+  resolved "https://npm-registry.llsengineer.com/@laix%2fcoursescript-lib/-/coursescript-lib-2.31.0.tgz#5e5d1df58373d9a755862490f22e2123762f7a3e"
+  integrity sha512-9qit+kbMewoCF6gtUoDGZCuoS7ckTqFB7ZNb8fizqNfPDZNNiDL9qUYZE1zTzT2A8InVcqigF7Cebme0fbjKBQ==
   dependencies:
     prop-types "^15.7.2"
     react "^16.4.0"

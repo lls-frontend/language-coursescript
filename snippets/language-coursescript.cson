@@ -2915,3 +2915,17 @@
       Text: $7
       Pic: $8
     """
+  'SupraDP':
+    'prefix': 'supradp'
+    'body': """
+      [TYPE SupraDP]
+      ID:$1
+      Text(role=$2): $3
+      Audio(id=$4, role=$5, actions=$6):$7
+      Trans(lang=zh, role=$8):$9
+      Text(role=$10): $11
+      Pic(id=$12, role=$13):$14
+      Scorer(id=$15, role=$16, actions=$17):$18
+      Trans(lang=zh, role=$19): $20
+      Action(role=$21, types=$22):
+    """
