@@ -10,6 +10,8 @@ const COURSE_TYPES = {
   PHONICS: { courseType: 5, apiType: 7, courseName: "PHONICS" },
   BELL: { courseType: 6, apiType: 8, courseName: "BELL" },
   TOURISM: { courseType: 1, apiType: 9, courseName: "TOURISM" },
+  // reuse TOURISM
+  ALIX_V2: { courseType: 1, apiType: 9, courseName: "TOURISM" },
   LINGOCHAMP: { courseType: 7, apiType: 10, courseName: "LINGOCHAMP" },
   "DARWIN BUSINESS": {
     courseType: 1,
