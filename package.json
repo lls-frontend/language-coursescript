@@ -30,7 +30,7 @@
   "dependencies": {
     "@laix/coursescript-lib": "^2.31.0",
     "@laix/coursescript-lib-legacy": "^1.0.0",
-    "@laix/coursescript-lib-sprout": "^2.41.0",
+    "@laix/coursescript-lib-sprout": "^2.42.0",
     "atom-space-pen-views": "^2.2.0",
     "axios": "^0.18.0",
     "dayjs": "^1.6.7",
