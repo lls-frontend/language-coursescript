@@ -61,6 +61,9 @@ const COURSE_TYPES = {
   },
   "SUPRA": {
     courseType: 22, apiType: 30, courseName: "SUPRA" 
+  },
+  "SPROUT GUIDANCE": {
+    courseType: 23, apiType: 34, courseName: "SPROUT GUIDANCE"
   }
 };
 
