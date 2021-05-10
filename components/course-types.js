@@ -37,7 +37,7 @@ const COURSE_TYPES = {
     apiType: 21,
     courseName: "SPROUT DAILY WORDS"
   },
-  "SPROUT EXTENSION":{
+  "SPROUT EXTENSION": {
     courseType: 18,
     apiType: 22,
     courseName: "SPROUT EXTENSION"
@@ -54,16 +54,19 @@ const COURSE_TYPES = {
     courseName: "SPROUT COMPATRDR",
   },
   "OL LISTENING": {
-    courseType: 1, apiType: 29, courseName: "OL LISTENING" 
+    courseType: 1, apiType: 29, courseName: "OL LISTENING"
   },
   "LINGOME SPEAKING": {
-    courseType: 21, apiType: 27, courseName: "LINGOME CMS" 
+    courseType: 21, apiType: 27, courseName: "LINGOME CMS"
   },
   "SUPRA": {
-    courseType: 22, apiType: 30, courseName: "SUPRA" 
+    courseType: 22, apiType: 30, courseName: "SUPRA"
   },
   "SPROUT GUIDANCE": {
     courseType: 23, apiType: 34, courseName: "SPROUT GUIDANCE"
+  },
+  TOEIC: {
+    courseType: 24, apiType: 33, courseName: "TOEIC"
   }
 };
 

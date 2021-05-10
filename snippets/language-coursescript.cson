@@ -2966,3 +2966,18 @@
       Audio: $7
       Pic: $8
     """
+  'ReadingComp':
+    'prefix': 'readingcomp'
+    'body': """
+      [TYPE ReadingComp]
+      Passage:
+      Text: $1
+      Pic(id=$2):$3
+      QuestionPart:
+      Text: $4
+      Opts:
+      Text: $5
+      Text: $6
+      Text: $7
+      Text(checked=true):$8
+    """
