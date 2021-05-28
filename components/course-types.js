@@ -67,7 +67,8 @@ const COURSE_TYPES = {
   },
   TOEIC: {
     courseType: 24, apiType: 33, courseName: "TOEIC"
-  }
+  },
+  'SUBMARINE K12': { courseType: 1, apiType: 1, courseName: "SUBMARINE K12" },
 };
 
 export default COURSE_TYPES;
