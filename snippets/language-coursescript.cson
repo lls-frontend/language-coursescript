@@ -2981,3 +2981,70 @@
       Text: $7
       Text(checked=true):$8
     """
+  'AIXPAT2ADefend1':
+    'prefix': 'aixpat2adefend1'
+    'body': """
+      [TYPE AIXPAT2ADefend1]
+      Video(stream=true): $1
+      Video(stream=true): $2
+      Video(stream=true): $3
+      Video(stream=true): $4
+      Video(stream=true): $5
+      QuestionPart:
+      Audio: $6
+      Pic: $7
+    """
+  'AIXPAT2ADefend2':
+    'prefix': 'aixpat2adefend2'
+    'body': """
+      [TYPE AIXPAT2ADefend2]
+      Video(stream=true): $1
+      Video(stream=true): $2
+      Video(stream=true): $3
+      Video(stream=true): $4
+      Video(stream=true): $5
+      QuestionPart:
+      Audio: $6
+      Pic: $7
+    """
+  'AIXPAT2PTComprehension':
+    'prefix': 'aixpat2ptcomprehension'
+    'body': """
+      [TYPE AIXPAT2PTComprehension]
+      Video(stream=true): $1
+      Video(stream=true): $2
+      Video(stream=true): $3
+      Video(stream=true): $4
+      Video(stream=true): $5
+      Text(stem=true): $6
+      Pic(stem=true): $7
+      Audio(stem=true): $8
+      QuestionPart:
+      Text: $9
+      Audio: $10
+      Opts:
+      Pic(checked=true): $11
+      Pic: $12
+      Pic: $13
+      QuestionPart:
+      Text: $9
+      Audio: $10
+      Opts:
+      Text(checked=true): $11
+      Text: $12
+      Text: $13
+    """
+  'AIXAT2TSentence':
+    'prefix': 'aixat2tsentence'
+    'body': """
+      [TYPE AIXAT2TSentence]
+      Video(stream=true): $1
+      Video(stream=true): $2
+      Video(stream=true): $3
+      Video(stream=true): $4
+      Video(stream=true): $5
+      QuestionPart:
+      Audio: $6
+      Text: $7
+      Text: $8
+    """
