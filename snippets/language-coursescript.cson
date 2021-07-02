@@ -3048,3 +3048,16 @@
       Text: $7
       Text: $8
     """
+  'LC':
+    'prefix': 'lc'
+    'body': """
+      [TYPE LC]
+      Audio: $1
+      Pic: $2
+      QuestionPart:
+      Text:$3
+      Opts:
+      Text:$4
+      Text:$5
+      Text(checked=true):$6
+    """
