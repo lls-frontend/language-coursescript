@@ -3061,3 +3061,49 @@
       Text:$5
       Text(checked=true):$6
     """
+  'AIXPAT2ADefend1X':
+    'prefix': 'aixpat2adefend1x'
+    'body': """
+      [TYPE AIXPAT2ADefend1X]
+      Audio(prompt_1=true, qpindex=1): $1
+      Pic(background=true): $2
+      QuestionPart:
+      Text: $3
+      Audio: $4
+      Pic: $5
+    """
+  'AIXPAT2ADefend2X':
+    'prefix': 'aixpat2adefend2X'
+    'body': """
+      [TYPE AIXPAT2ADefend2X]
+      Audio(prompt_1=true, qpindex=1): $1
+      Pic(background=true): $2
+      QuestionPart:
+      Text: $3
+      Audio: $4
+      Pic: $5
+    """
+  'AIXPAT2ACard1X':
+    'prefix': 'aixpat2acard1x'
+    'body': """
+    [TYPE AIXPAT2ACard1X]
+    Audio(prompt_1=true, qpindex=1): $1
+    QuestionPart:
+    Audio: $2
+    Opts:
+      Mix:
+        Pic(card_start=true): $3
+        Text(card_start=true): $4
+        Pic(card_end=true): $5
+        Text(card_end=true): $6
+      Mix:
+        Pic(card_start=true): $7
+        Text(card_start=true): $8
+        Pic(card_end=true): $9
+        Text(card_end=true): $10
+      Mix:
+        Pic(card_start=true): $11
+        Text(card_start=true): $12
+        Pic(card_end=true): $13
+        Text(card_end=true): $14
+    """
