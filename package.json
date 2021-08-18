@@ -2,7 +2,7 @@
   "name": "language-coursescript",
   "version": "3.54.0",
   "description": "Syntax highlighting and snippets for CourseScript.",
-  "repository": "https://github.com/lenage/language-coursescript",
+  "repository": "https://github.com/lls-frontend/language-coursescript.git",
   "license": "MIT",
   "engines": {
     "atom": "*"
