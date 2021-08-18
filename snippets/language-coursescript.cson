@@ -3107,3 +3107,84 @@
         Pic(card_end=true): $13
         Text(card_end=true): $14
     """
+  'HongYearPAT2PUpload':
+    'prefix': 'hongyearpat2pupload'
+    'body': """
+    [TYPE HongYearPAT2PUpload]
+    Text: $1
+    Pic: $2
+    Audio: $3
+    Text(explanation=true): $4
+    """
+  'HongYearPAT2TInput':
+    'prefix': 'hongyearpat2tinput'
+    'body': """
+    [TYPE HongYearPAT2TInput]
+    Text: $1
+    Pic: $2
+    Audio: $3
+    Text(explanation=true): $4
+    """
+  'HongYearPAT2ARecord':
+    'prefix': 'hongyearpat2arecord'
+    'body': """
+    [TYPE HongYearPAT2ARecord]
+    Text: $1
+    Pic: $2
+    Audio: $3
+    Text(explanation=true): $4
+    """
+  'HongYearPAT2TTap':
+    'prefix': 'hongyearpat2ttap'
+    'body': """
+    [TYPE HongYearPAT2TTap]
+    Text: $1
+    Pic: $2
+    Audio: $3
+    Text(explanation=true): $4
+    QuestionPart:
+    Opts:
+    Text(checked=true): $5
+    Pic(checked=true): $6
+    Audio(checked=true): $7
+    Text: $8
+    Pic: $9
+    Audio: $10
+    """
+  'HongYearPAT2TMatching':
+    'prefix': 'hongyearpat2tmatching'
+    'body': """
+    [TYPE HongYearPAT2TMatching]
+    Text: $1
+    Pic: $2
+    Audio: $3
+    Text(explanation=true): $4
+    QuestionPart:
+    Text: $5 // 正确选项顺序 
+    Opts:
+    Text: $6
+    Pic: $7
+    """
+  'HongYearPAT2TGapFilling':
+    'prefix': 'hongyearpat2tgapfilling'
+    'body': """
+    [TYPE HongYearPAT2TGapFilling]
+    Text: $1
+    Pic: $2
+    Audio: $3
+    Text(explanation=true): $4
+    QuestionPart:
+    Text: $5
+    Text: %6
+    Opts:
+    Text(checked=true): $7
+    Pic(checked=true): $8
+    Text: $9
+    Pic: $10
+    """
+  'HongYearAccompaniedReading':
+    'prefix': 'hongyearaccompaniedreading'
+    'body': """
+    [TYPE HongYearAccompaniedReading]
+    Text: $1
+    """

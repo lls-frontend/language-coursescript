@@ -133,7 +133,7 @@ export default class Preview extends React.Component {
     }
 
     // sprout aix lingokids
-    if ([5, 15, 16, 17, 18, 20, 23].includes(type.courseType)) {
+    if ([5, 15, 16, 17, 18, 20, 23, 25].includes(type.courseType)) {
       return <div>
         <CourscriptPreviewSprout
           data={data}

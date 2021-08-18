@@ -72,6 +72,9 @@ const COURSE_TYPES = {
   INDUSTRY: {
     courseType: 24, apiType: 33, courseName: "INDUSTRY",
   },
+  "HONGYEAR": {
+    courseType: 25, apiType: 36, courseName: "HONGYEAR"
+  },
 };
 
 export default COURSE_TYPES;
