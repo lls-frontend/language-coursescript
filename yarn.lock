@@ -12,10 +12,10 @@
     react-dom "^16.4.0"
     styled-components "^3.4.2"
 
-"@laix/coursescript-lib-sprout@^2.45.0":
-  version "2.45.0"
-  resolved "https://npm-registry.llsengineer.com/@laix%2fcoursescript-lib-sprout/-/coursescript-lib-sprout-2.45.0.tgz#3f339f0cdfc39bdaee8bd9660a6e94c68611be9d"
-  integrity sha512-aKfnV+QRd2+4k9oLzkONjJlUVH35+voJEJceg8X5J4BmlFTFzq/v7lWrJvnoXHePb4BwjNI7GhLbQIH6cOloDQ==
+"@laix/coursescript-lib-sprout@^2.45.1":
+  version "2.45.1"
+  resolved "https://npm-registry.llsengineer.com/@laix%2fcoursescript-lib-sprout/-/coursescript-lib-sprout-2.45.1.tgz#78b4d6b21cf4a829802e0dbc530d6d7171b39171"
+  integrity sha512-L7jN0/aZVwpoRUMGyiCDgzqw+Ti2/uduA/FLzq8Mpmm6a3S5c0dsL4txh/mwpW4VNBoFZS1jhOeMv2xHzxs7gA==
   dependencies:
     draft-js "^0.11.7"
     prop-types "^15.7.2"
@@ -23,10 +23,10 @@
     react-dom "^16.4.0"
     styled-components "^3.4.2"
 
-"@laix/coursescript-lib@^2.33.1":
-  version "2.33.1"
-  resolved "https://npm-registry.llsengineer.com/@laix%2fcoursescript-lib/-/coursescript-lib-2.33.1.tgz#45d77797e80f8205ce20409518ce9580bab4f154"
-  integrity sha512-Kx9YvKJO9Dyy96jHBJjwukyag1/pOERlYkgPu/cwrgxMM4Y0ub1fqjLC1tGa+P6w/lxJSsmtD3MAqUWGcg5SxQ==
+"@laix/coursescript-lib@^2.33.2":
+  version "2.33.2"
+  resolved "https://npm-registry.llsengineer.com/@laix%2fcoursescript-lib/-/coursescript-lib-2.33.2.tgz#97e7008d506bb4ba433205406472d00bdb4876aa"
+  integrity sha512-dbERUdlleHalq51Xn4pZEMn0fuoITOgVVZ0QdAozFBzU6FR1DSmK8xxMshgQVm5dTdH0QWLxnvGFqqJiz7JJAA==
   dependencies:
     prop-types "^15.7.2"
     react "^16.4.0"
