@@ -3111,28 +3111,31 @@
     'prefix': 'hongyearpat2pupload'
     'body': """
     [TYPE HongYearPAT2PUpload]
-    Text: $1
-    Pic: $2
-    Audio: $3
-    Text(explanation=true): $4
+    Kind: $1
+    Text: $2
+    Pic: $3
+    Audio: $4
+    Text(explanation=true): $5
     """
   'HongYearPAT2TInput':
     'prefix': 'hongyearpat2tinput'
     'body': """
     [TYPE HongYearPAT2TInput]
-    Text: $1
-    Pic: $2
-    Audio: $3
-    Text(explanation=true): $4
+    Kind: $1
+    Text: $2
+    Pic: $3
+    Audio: $4
+    Text(explanation=true): $5
     """
   'HongYearPAT2ARecord':
     'prefix': 'hongyearpat2arecord'
     'body': """
     [TYPE HongYearPAT2ARecord]
-    Text: $1
-    Pic: $2
-    Audio: $3
-    Text(explanation=true): $4
+    Kind: $1
+    Text: $2
+    Pic: $3
+    Audio: $4
+    Text(explanation=true): $5
     """
   'HongYearPAT2TTap':
     'prefix': 'hongyearpat2ttap'
@@ -3187,4 +3190,45 @@
     'body': """
     [TYPE HongYearAccompaniedReading]
     Text: $1
+    """
+  'HongYearPBLPAT2TTap':
+    'prefix': 'hongyearpblpat2ttap'
+    'body': """
+    [TYPE HongYearPAT2TTap]
+    Text: $1
+    Pic: $2
+    Audio: $3
+    Text(explanation=true): $4
+    QuestionPart:
+    Opts:
+    Scorer(language=$5, thinking=$6, aesthetic=$7, culture=$8, x=$9, y=$10):
+    Text(checked=true,score=$11): $12
+    Text(explanation=true): $13
+    Pic(checked=true,score=$14): $15
+    Text(explanation=true): $16
+    Audio(checked=true,score=$17): $18
+    Text(explanation=true): $19
+    """
+  'HongYearT2TVote':
+    'prefix': 'hongyeart2tvote'
+    'body': """
+    [TYPE HongYearT2TVote]
+    Text: $1
+    Pic: $2
+    Audio: $3
+    Text(explanation=true): $4
+    QuestionPart:
+    Opts:
+    Text(checked=true): $5
+    Pic(checked=true): $6
+    Audio(checked=true): $7
+    Text: $8
+    Pic: $9
+    Audio: $10
+    """
+  'HongYearGuidedReading':
+    'prefix': 'hongyearguidedreading'
+    'body': """
+    [TYPE HongYearGuidedReading]
+    Passage: $1
     """

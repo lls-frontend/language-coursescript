@@ -12,12 +12,13 @@
     react-dom "^16.4.0"
     styled-components "^3.4.2"
 
-"@laix/coursescript-lib-sprout@^2.45.2":
-  version "2.45.2"
-  resolved "https://npm-registry.llsengineer.com/@laix%2fcoursescript-lib-sprout/-/coursescript-lib-sprout-2.45.2.tgz#593b49ff4ce6383dc9705e0a736ce4b7e34310df"
-  integrity sha512-NDt3GqK5qbjJiyoVVtZjAUQc0xJz38UAc09vZmLYCFaMHaosbtrazdirKPJV/VS2XaXSLrbgoIMUmNsmufv9gg==
+"@laix/coursescript-lib-sprout@^2.46.0":
+  version "2.46.0"
+  resolved "https://npm-registry.llsengineer.com/@laix%2fcoursescript-lib-sprout/-/coursescript-lib-sprout-2.46.0.tgz#e551818a9cb2fe5c1f3f4068a016b94b085c8644"
+  integrity sha512-TNJ5oC/74sVfZT2iiNisTvJwqMqZ4jamIG62iSQ4h0KkVv3a9HM8QQCSG1fS62lVFOzWmRWhFuiVMNIAxfZ6LQ==
   dependencies:
     draft-js "^0.11.7"
+    js-base64 "^3.6.1"
     prop-types "^15.7.2"
     react "^16.4.0"
     react-dom "^16.4.0"
@@ -584,6 +585,11 @@ jquery@2.1.4:
   version "2.1.4"
   resolved "https://npm-registry.llsengineer.com/jquery/-/jquery-2.1.4.tgz#228bde698a0c61431dc2630a6a154f15890d2317"
   integrity sha1-IoveaYoMYUMdwmMKahVPFYkNIxc=
+
+js-base64@^3.6.1:
+  version "3.6.1"
+  resolved "https://npm-registry.llsengineer.com/js-base64/-/js-base64-3.6.1.tgz#555aae398b74694b4037af1f8a5a6209d170efbe"
+  integrity sha1-VVquOYt0aUtAN68filpiCdFw774=
 
 "js-tokens@^3.0.0 || ^4.0.0":
   version "4.0.0"
