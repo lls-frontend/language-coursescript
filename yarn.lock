@@ -25,10 +25,10 @@
     react-draft-wysiwyg "^1.14.7"
     styled-components "^3.4.2"
 
-"@laix/coursescript-lib@^2.33.6":
-  version "2.33.6"
-  resolved "https://npm-registry.llsengineer.com/@laix%2fcoursescript-lib/-/coursescript-lib-2.33.6.tgz#eca9f6ea5e1a8d6f1e4a2714c3982d93ad16ba90"
-  integrity sha512-XrzhCDwjmmrGYIalRNR6C0x2viOL+hfWn/kEsaarJv6qqYINDmRk6FD3SKL+f+qo0BZLfTCPWbkPcS4AlrLbpA==
+"@laix/coursescript-lib@^2.34.0":
+  version "2.34.0"
+  resolved "https://npm-registry.llsengineer.com/@laix%2fcoursescript-lib/-/coursescript-lib-2.34.0.tgz#8098a49ef58232d65ec606f29ce9f235c19270e6"
+  integrity sha512-l7aCcjBC3mabJnUd4DLDGSZHKLxISj8Fgtz70D9VmdQMw9loLKFPObN12zQ6V+4Kp39nN8k708we/RtQg8iUoA==
   dependencies:
     prop-types "^15.7.2"
     react "^16.4.0"
