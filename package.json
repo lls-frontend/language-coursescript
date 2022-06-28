@@ -1,6 +1,6 @@
 {
   "name": "language-coursescript",
-  "version": "3.57.7",
+  "version": "3.58.0",
   "description": "Syntax highlighting and snippets for CourseScript.",
   "repository": "https://github.com/lls-frontend/language-coursescript.git",
   "license": "MIT",
