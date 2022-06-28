@@ -78,6 +78,10 @@ const COURSE_TYPES = {
   "CAMPUS": { courseType: 26, apiType: 37, courseName: "CAMPUS" },
   "CHRONUS": { courseType: 1, apiType: 38, courseName: "CHRONUS" },
   "LUCIA": { courseType: 28, apiType: 39, courseName: "LUCIA" },
+  "ATLAS_JAPANESE": { courseType: 29, apiType: 40, courseName: "ATLAS_JAPANESE" },
+  "ATLAS_KOREAN": { courseType: 30, apiType: 41, courseName: "ATLAS_KOREAN" },
+  "ATLAS_GERMAN": { courseType: 31, apiType: 42, courseName: "ATLAS_GERMAN" },
+  "ATLAS_FRENCH": { courseType: 32, apiType: 43, courseName: "ATLAS_FRENCH" },
 };
 
 export default COURSE_TYPES;
